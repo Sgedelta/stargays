@@ -31,6 +31,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="StarGays"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/YarnSpinner-Godot/plugin.cfg")
+
 [input]
 
 StarSelect={

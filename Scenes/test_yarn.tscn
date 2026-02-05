@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://pi2hxdnfo1wy"]
+
+[ext_resource type="PackedScene" uid="uid://bv42g323prh5f" path="res://addons/YarnSpinner-Godot/Scenes/DefaultDialogueSystem.tscn" id="1_6twll"]
+[ext_resource type="Resource" uid="uid://btwj70r7fk2ad" path="res://Resources/Yarn/stargays.yarnproject" id="2_ixlyr"]
+
+[node name="TestYarn" type="Node2D" unique_id=284105907]
+
+[node name="YarnSpinnerCanvasLayer" parent="." unique_id=1330157221 instance=ExtResource("1_6twll")]
+
+[node name="DialogueRunner" parent="YarnSpinnerCanvasLayer" index="0"]
+yarnProject = ExtResource("2_ixlyr")
+autoStart = true
+startNode = "Start"
+
+[editable path="YarnSpinnerCanvasLayer"]
