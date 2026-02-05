@@ -1,15 +1,33 @@
 [gd_scene format=3 uid="uid://pi2hxdnfo1wy"]
 
 [ext_resource type="PackedScene" uid="uid://bv42g323prh5f" path="res://addons/YarnSpinner-Godot/Scenes/DefaultDialogueSystem.tscn" id="1_6twll"]
-[ext_resource type="Resource" uid="uid://btwj70r7fk2ad" path="res://Resources/Yarn/stargays.yarnproject" id="2_ixlyr"]
+[ext_resource type="Script" uid="uid://dmxme88q37mx3" path="res://Resources/Yarn/CustomOptionsPresenter.cs" id="2_ixlyr"]
 
 [node name="TestYarn" type="Node2D" unique_id=284105907]
 
-[node name="YarnSpinnerCanvasLayer" parent="." unique_id=1330157221 instance=ExtResource("1_6twll")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=993148181]
 
-[node name="DialogueRunner" parent="YarnSpinnerCanvasLayer" index="0"]
-yarnProject = ExtResource("2_ixlyr")
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=462723507]
+offset_left = 124.0
+offset_top = 69.0
+offset_right = 719.0
+offset_bottom = 698.0
+
+[node name="Button2" type="Button" parent="CanvasLayer" unique_id=219253976]
+offset_left = 2999.0
+offset_top = 52.0
+offset_right = 3594.0
+offset_bottom = 681.0
+
+[node name="YarnSpinnerCanvasLayer" parent="." unique_id=959613526 instance=ExtResource("1_6twll")]
+
+[node name="DialogueRunner" parent="YarnSpinnerCanvasLayer" index="0" unique_id=1203846596]
 autoStart = true
 startNode = "Start"
+
+[node name="OptionsPresenter" parent="YarnSpinnerCanvasLayer" index="3" unique_id=1947948235 node_paths=PackedStringArray("lastLineText")]
+script = ExtResource("2_ixlyr")
+lastLineText = NodePath("PresenterControl/LastLineText")
+useFadeEffect = true
 
 [editable path="YarnSpinnerCanvasLayer"]

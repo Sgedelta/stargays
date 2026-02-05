@@ -4,9 +4,9 @@ tags:
 Narrator: Oh, hello!
     -> Hi, where am I?
         Narrator: You're in Godot!
-            -> Oh.
+            -> Oh. #opt1
                 <<jump Oh>>
-            -> How did I get here?
+            -> How did I get here? #opt2
                 <<jump Godot>>
 ===
 

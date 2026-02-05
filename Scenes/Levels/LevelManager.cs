@@ -9,7 +9,7 @@ public partial class LevelManager : Node
     private Godot.Collections.Array<Star> _selectedStars;
 
     [Export] private Line2D _starConnectLine;
-    [Export] private float StarDeselectSpeed = 250;
+    [Export] private float StarDeselectSpeed = 1500;
 
     private bool _isDeselecting = false;
 

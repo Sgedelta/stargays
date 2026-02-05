@@ -8,6 +8,9 @@ public partial class GameManager : Node
     private LevelManager _levelManager;
     public LevelManager LevelManager { get { return _levelManager; } }
 
+
+    public Godot.Collections.Array<string> ValidInputs;
+
     public override void _Ready()
     {
         if(Instance == null)
@@ -19,6 +22,8 @@ public partial class GameManager : Node
             GD.PrintErr("Two GameManagers Created! Deleting self.");
             QueueFree();
         }
+
+        ValidInputs = new Godot.Collections.Array<string>();
     }
 
     public override void _Process(double delta)
