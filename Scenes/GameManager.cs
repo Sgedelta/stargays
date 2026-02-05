@@ -3,10 +3,22 @@ using System;
 
 public partial class GameManager : Node
 {
+    public static GameManager Instance {get; private set;}
+
+    private LevelManager _levelManager;
+    public LevelManager LevelManager { get { return _levelManager; } }
 
     public override void _Ready()
     {
-
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            GD.PrintErr("Two GameManagers Created! Deleting self.");
+            QueueFree();
+        }
     }
 
     public override void _Process(double delta)
@@ -14,5 +26,11 @@ public partial class GameManager : Node
         
     }
 
+    public void SetActiveLevel(LevelManager newLevel)
+    {
+        string oldName = _levelManager == null ? "[Manager Null or Deleted!]" : _levelManager.Name;
+        GD.Print($"[GM] Setting {newLevel.Name} to the active level manager. Previous one was {oldName}");
+        _levelManager = newLevel;
+    }
 
 }

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bxg224jsyteib"]
+
+[ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="1_ss4xl"]
+[ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_ytf4i"]
+
+[node name="TestLevel" type="Node2D" unique_id=1817164843 node_paths=PackedStringArray("_starConnectLine")]
+script = ExtResource("1_ytf4i")
+_starConnectLine = NodePath("Line2D")
+StarDeselectSpeed = 1500.0
+
+[node name="Star" parent="." unique_id=946213963 instance=ExtResource("1_ss4xl")]
+position = Vector2(286, 281)
+
+[node name="Star2" parent="." unique_id=787851773 instance=ExtResource("1_ss4xl")]
+position = Vector2(2631, 565)
+
+[node name="Star3" parent="." unique_id=1780023978 instance=ExtResource("1_ss4xl")]
+position = Vector2(895, 1349)
+
+[node name="Star4" parent="." unique_id=1642314158 instance=ExtResource("1_ss4xl")]
+position = Vector2(2630, 1588)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=905913903]
+width = 10.77

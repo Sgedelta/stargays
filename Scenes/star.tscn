@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://m22otorq2yxh"]
+
+[ext_resource type="Script" uid="uid://y4klbd2w688s" path="res://Scenes/Star.cs" id="1_3vu41"]
+[ext_resource type="Texture2D" uid="uid://dmcivgv5r55vs" path="res://Resources/Sprites/Placeholders/yourDidIt.png" id="1_jllp1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_17ggb"]
+radius = 80.0
+
+[node name="Star" type="Area2D" unique_id=946213963]
+script = ExtResource("1_3vu41")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=510172629]
+shape = SubResource("CircleShape2D_17ggb")
+
+[node name="YourDidIt" type="Sprite2D" parent="." unique_id=1419631716]
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("1_jllp1")
+
+[connection signal="input_event" from="." to="." method="CustomInput"]
+[connection signal="mouse_entered" from="." to="." method="HandleMouseEnter"]
