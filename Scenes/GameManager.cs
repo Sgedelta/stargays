@@ -1,5 +1,7 @@
 using Godot;
 using System;
+using System.Collections.Generic;
+using YarnSpinnerGodot;
 
 public partial class GameManager : Node
 {
@@ -8,8 +10,9 @@ public partial class GameManager : Node
     private LevelManager _levelManager;
     public LevelManager LevelManager { get { return _levelManager; } }
 
-
-    public Godot.Collections.Array<string> ValidInputs;
+    //we should use godot arrays/dictionaries, but DialogueOptions are not Variant type!
+    public Dictionary<string, DialogueOption> ValidInputs;
+    public YarnTaskCompletionSource<DialogueOption> InputTaskCompletionSource;
 
     public override void _Ready()
     {
@@ -23,7 +26,7 @@ public partial class GameManager : Node
             QueueFree();
         }
 
-        ValidInputs = new Godot.Collections.Array<string>();
+        ValidInputs = new Dictionary<string, DialogueOption>();
     }
 
     public override void _Process(double delta)

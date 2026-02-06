@@ -193,13 +193,24 @@ public partial class CustomOptionsPresenter : Node, DialoguePresenterBase
         for(int i =0; i < dialogueOptions.Length; i++)
         {
             GD.Print($"Option {i}: {dialogueOptions[i].Line.Text.Text}");
-            GameManager.Instance.ValidInputs.Add(dialogueOptions[i].Line.Text.Text);
+            GameManager.Instance.ValidInputs.Add(dialogueOptions[i].Line.Text.Text, dialogueOptions[i]);
         }
 
+
+
+        //this completeion source represents the chosen option
+        YarnTaskCompletionSource<DialogueOption> selectedOptionCompletionSource = new YarnTaskCompletionSource<DialogueOption>();
+
+        //tell the GameManager about this
+        GameManager.Instance.InputTaskCompletionSource = selectedOptionCompletionSource;
+
         //now we need to wait to confirm that we've gotten a valid input.
+        var completedTask = await selectedOptionCompletionSource.Task;
 
+        // finally we return the selected option
+        return completedTask;
 
-
+        /*
 
         // If we don't already have enough option views, create more
         while (dialogueOptions.Length > optionItems.Count)
@@ -372,8 +383,8 @@ public partial class CustomOptionsPresenter : Node, DialoguePresenterBase
             return await DialogueRunner.NoOptionSelected;
         }
 
-        // finally we return the selected option
-        return completedTask;
+        */
+
     }
 
     private OptionItem CreateNewOptionView()

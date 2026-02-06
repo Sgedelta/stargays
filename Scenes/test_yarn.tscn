@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://pi2hxdnfo1wy"]
 
 [ext_resource type="PackedScene" uid="uid://bv42g323prh5f" path="res://addons/YarnSpinner-Godot/Scenes/DefaultDialogueSystem.tscn" id="1_6twll"]
+[ext_resource type="Script" uid="uid://b05a7ubiqhsly" path="res://Scenes/TestingDialogEnd.cs" id="1_qwvdh"]
 [ext_resource type="Script" uid="uid://dmxme88q37mx3" path="res://Resources/Yarn/CustomOptionsPresenter.cs" id="2_ixlyr"]
 
 [node name="TestYarn" type="Node2D" unique_id=284105907]
@@ -9,9 +10,10 @@
 
 [node name="Button" type="Button" parent="CanvasLayer" unique_id=462723507]
 offset_left = 124.0
-offset_top = 69.0
+offset_top = 68.0
 offset_right = 719.0
-offset_bottom = 698.0
+offset_bottom = 697.0
+script = ExtResource("1_qwvdh")
 
 [node name="Button2" type="Button" parent="CanvasLayer" unique_id=219253976]
 offset_left = 2999.0
@@ -29,5 +31,7 @@ startNode = "Start"
 script = ExtResource("2_ixlyr")
 lastLineText = NodePath("PresenterControl/LastLineText")
 useFadeEffect = true
+
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="OnButtonPress"]
 
 [editable path="YarnSpinnerCanvasLayer"]
