@@ -6,7 +6,6 @@
 [node name="TestLevel" type="Node2D" unique_id=1817164843 node_paths=PackedStringArray("_starConnectLine")]
 script = ExtResource("1_ytf4i")
 _starConnectLine = NodePath("Line2D")
-StarDeselectSpeed = 1500.0
 
 [node name="Star" parent="." unique_id=946213963 instance=ExtResource("1_ss4xl")]
 position = Vector2(286, 281)
