@@ -1,9 +1,11 @@
 using Godot;
 using System;
 
-[Serializable]
-public class StarCombination
+
+public partial class StarCombination : Resource
 {
 	// valid sentences
 	[Export] public Godot.Collections.Array<string> StarIds;
+
+	public StarCombination() { }
 }

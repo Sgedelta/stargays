@@ -1,10 +1,15 @@
 using Godot;
 using System;
 
-[Serializable]
-public class StarData
+
+public partial class StarData : Resource
 {
 	[Export] public string Id;
 	[Export] public string Word;
 	[Export] public Vector2 Position;
+
+	public StarData()
+	{
+
+	}
 }
