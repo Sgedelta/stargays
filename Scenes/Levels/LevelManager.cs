@@ -13,6 +13,8 @@ public partial class LevelManager : Node
 
     private bool _isDeselecting = false;
 
+    private string constructedKey = "";
+
     public bool StarsAreSelected { get { return _selectedStars.Count > 0; } }
 
 
@@ -64,10 +66,11 @@ public partial class LevelManager : Node
 
     private void DeselectAllStarsAnimated()
     {
-        //make sure we only do this once and not multiple times
+        //make sure we only do this once and not multiple times, and reset key
         if (_isDeselecting) { return; }
         _isDeselecting = true;
-
+        constructedKey = "";
+        
         //make a tweener
         Tween deselector = GetTree().CreateTween();
 
@@ -84,16 +87,16 @@ public partial class LevelManager : Node
         }));
 
         //now denaimate from all stars
-        for(int i = _selectedStars.Count; i > 0; i--)
+        for (int i = _selectedStars.Count; i > 0; i--)
         {
 
             //don't run on last star, because there's nothing before it (so there'd be a null error)
-            if( i != 1)
+            if (i != 1)
             {
                 deselector.TweenMethod(
                     Callable.From((Vector2 pos) => { _starConnectLine.SetPointPosition(_starConnectLine.Points.Length - 1, pos); }),
-                    _selectedStars[i-1].Position, _selectedStars[i-2].Position,
-                    (_selectedStars[i-1].Position - _selectedStars[i-2].Position).Length() / StarDeselectSpeed
+                    _selectedStars[i - 1].Position, _selectedStars[i - 2].Position,
+                    (_selectedStars[i - 1].Position - _selectedStars[i - 2].Position).Length() / StarDeselectSpeed
                 );
             }
 
@@ -101,12 +104,42 @@ public partial class LevelManager : Node
             deselector.TweenCallback(Callable.From(() =>
             {
                 _starConnectLine.RemovePoint(_starConnectLine.Points.Length - 1);
+                constructedKey += _selectedStars[_selectedStars.Count - 1].ExactKey;
+                if (_selectedStars.Count != 1)
+                {
+                    constructedKey += " ";
+                }
                 _selectedStars.RemoveAt(_selectedStars.Count - 1);
+                
             }));
+
+
+
+            
+
         }
 
         //allow further animations
-        deselector.TweenCallback(Callable.From(() => { _isDeselecting = false; }));
+        deselector.TweenCallback(Callable.From(() => {
+            GD.Print("[LM] reversed key:" + constructedKey);
+
+            //reverse key
+            string[] keypieces = constructedKey.Split(' ');
+            constructedKey = "";
+            for (int i = keypieces.Length - 1; i >= 0; i--)
+            {
+                GD.Print("[LM]: " + keypieces[i]);
+                constructedKey += keypieces[i];
+                if( i != 0 )
+                {
+                    constructedKey += " ";
+                }
+            }
+
+            GD.Print("[LM] correct:" + constructedKey);
+
+            _isDeselecting = false; 
+        }));
 
     }
 

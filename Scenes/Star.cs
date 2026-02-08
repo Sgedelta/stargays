@@ -3,7 +3,7 @@ using System;
 
 public partial class Star : Area2D
 {
-
+    [Export] public string ExactKey = "";
     public override void _Ready()
     {
          
