@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="1_ss4xl"]
 [ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_ytf4i"]
+[ext_resource type="PackedScene" uid="uid://bcjsaqxmdlw5o" path="res://Scenes/CustomYarnSpinner.tscn" id="3_7e5cw"]
 
 [node name="TestLevel" type="Node2D" unique_id=1817164843 node_paths=PackedStringArray("_starConnectLine")]
 script = ExtResource("1_ytf4i")
@@ -9,19 +10,28 @@ _starConnectLine = NodePath("Line2D")
 
 [node name="Star" parent="." unique_id=946213963 instance=ExtResource("1_ss4xl")]
 position = Vector2(286, 281)
-ExactKey = "This"
+ExactKey = "I"
 
 [node name="Star2" parent="." unique_id=787851773 instance=ExtResource("1_ss4xl")]
 position = Vector2(2631, 565)
-ExactKey = "is"
+ExactKey = "I'm"
 
 [node name="Star3" parent="." unique_id=1780023978 instance=ExtResource("1_ss4xl")]
 position = Vector2(895, 1349)
-ExactKey = "a"
+ExactKey = "know."
 
 [node name="Star4" parent="." unique_id=1642314158 instance=ExtResource("1_ss4xl")]
 position = Vector2(2630, 1588)
-ExactKey = "test"
+ExactKey = "sorry."
 
 [node name="Line2D" type="Line2D" parent="." unique_id=905913903]
 width = 10.77
+
+[node name="YarnSpinnerCanvasLayer" parent="." unique_id=959613526 instance=ExtResource("3_7e5cw")]
+layer = -25
+
+[node name="DialogueRunner" parent="YarnSpinnerCanvasLayer" index="0" unique_id=1203846596]
+autoStart = true
+startNode = "GoodLoop"
+
+[editable path="YarnSpinnerCanvasLayer"]

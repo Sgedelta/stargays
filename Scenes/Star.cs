@@ -4,9 +4,15 @@ using System;
 public partial class Star : Area2D
 {
     [Export] public string ExactKey = "";
+    [Export] public AnimatedSprite2D AnimatedSprite = null;
+
+
+    private RandomNumberGenerator rng;
+
     public override void _Ready()
     {
-         
+        rng = new RandomNumberGenerator();
+        AnimatedSprite.Play(AnimatedSprite.SpriteFrames.GetAnimationNames()[rng.RandiRange(0, AnimatedSprite.SpriteFrames.GetAnimationNames().Length - 1)]);
     }
 
     public override void _Process(double delta)

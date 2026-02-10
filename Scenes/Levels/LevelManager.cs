@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 public partial class LevelManager : Node
 {
@@ -45,9 +46,12 @@ public partial class LevelManager : Node
     /// </summary>
     public void StarSequenceDone()
     {
+        ConstructKey();
         if (IsStarSequenceValid())
         {
             //Nothing for now! lol. TODO
+            GameManager.Instance.InputTaskCompletionSource.TrySetResult(GameManager.Instance.ValidInputs[constructedKey]);
+            DeselectAllStarsAnimated();
         } 
         else
         {
@@ -61,15 +65,34 @@ public partial class LevelManager : Node
     /// <returns></returns>
     private bool IsStarSequenceValid()
     {
-        return false; //TEMP, TODO: Fix
+        GD.Print($"[LM] constructed key is: {constructedKey}");
+
+        return GameManager.Instance.ValidInputs.ContainsKey( constructedKey );
+    }
+
+    private void ConstructKey()
+    {
+        constructedKey = "";
+        for(int i = 0; i < _selectedStars.Count; i++)
+        {
+            constructedKey += _selectedStars[i].ExactKey;
+            if( i !=  _selectedStars.Count - 1 )
+            {
+                constructedKey += " ";
+            }
+        }
+
     }
 
     private void DeselectAllStarsAnimated()
     {
         //make sure we only do this once and not multiple times, and reset key
+        if (_selectedStars.Count == 0)
+        {
+            return;
+        }
         if (_isDeselecting) { return; }
         _isDeselecting = true;
-        constructedKey = "";
         
         //make a tweener
         Tween deselector = GetTree().CreateTween();
@@ -77,9 +100,11 @@ public partial class LevelManager : Node
         //remove from mouse pos 
             // Note: we may need to change this if mouse is not being used!
         deselector.TweenMethod(
-            Callable.From((Vector2 pos) => { _starConnectLine.SetPointPosition(_starConnectLine.Points.Length - 1, pos); }),
-            GetViewport().GetMousePosition(), _selectedStars[^1].Position, 
-            (GetViewport().GetMousePosition() - _selectedStars[^1].Position).Length() / StarDeselectSpeed
+            Callable.From((Vector2 pos) => { 
+
+                _starConnectLine.SetPointPosition(_starConnectLine.Points.Length - 1, pos); }),
+                GetViewport().GetMousePosition(), _selectedStars[^1].Position, 
+                (GetViewport().GetMousePosition() - _selectedStars[^1].Position).Length() / StarDeselectSpeed
             );
         deselector.TweenCallback(Callable.From(() => 
         { 
@@ -104,11 +129,6 @@ public partial class LevelManager : Node
             deselector.TweenCallback(Callable.From(() =>
             {
                 _starConnectLine.RemovePoint(_starConnectLine.Points.Length - 1);
-                constructedKey += _selectedStars[_selectedStars.Count - 1].ExactKey;
-                if (_selectedStars.Count != 1)
-                {
-                    constructedKey += " ";
-                }
                 _selectedStars.RemoveAt(_selectedStars.Count - 1);
                 
             }));
@@ -121,23 +141,7 @@ public partial class LevelManager : Node
 
         //allow further animations
         deselector.TweenCallback(Callable.From(() => {
-            GD.Print("[LM] reversed key:" + constructedKey);
-
-            //reverse key
-            string[] keypieces = constructedKey.Split(' ');
-            constructedKey = "";
-            for (int i = keypieces.Length - 1; i >= 0; i--)
-            {
-                GD.Print("[LM]: " + keypieces[i]);
-                constructedKey += keypieces[i];
-                if( i != 0 )
-                {
-                    constructedKey += " ";
-                }
-            }
-
-            GD.Print("[LM] correct:" + constructedKey);
-
+            
             _isDeselecting = false; 
         }));
 

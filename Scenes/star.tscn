@@ -1,20 +1,24 @@
 [gd_scene format=3 uid="uid://m22otorq2yxh"]
 
 [ext_resource type="Script" uid="uid://y4klbd2w688s" path="res://Scenes/Star.cs" id="1_3vu41"]
-[ext_resource type="Texture2D" uid="uid://dmcivgv5r55vs" path="res://Resources/Sprites/Placeholders/yourDidIt.png" id="1_jllp1"]
+[ext_resource type="SpriteFrames" uid="uid://c6qxlpcwq1uk7" path="res://Resources/Sprites/StarFrames.tres" id="2_3vu41"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_17ggb"]
-radius = 80.0
+radius = 63.387695
 
-[node name="Star" type="Area2D" unique_id=946213963]
+[node name="Star" type="Area2D" unique_id=946213963 node_paths=PackedStringArray("AnimatedSprite")]
 script = ExtResource("1_3vu41")
+AnimatedSprite = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=510172629]
 shape = SubResource("CircleShape2D_17ggb")
 
-[node name="YourDidIt" type="Sprite2D" parent="." unique_id=1419631716]
-scale = Vector2(0.32, 0.32)
-texture = ExtResource("1_jllp1")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=574377232]
+texture_filter = 1
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("2_3vu41")
+animation = &"BrightTwinkle"
+frame_progress = 0.42228845
 
 [connection signal="input_event" from="." to="." method="CustomInput"]
 [connection signal="mouse_entered" from="." to="." method="HandleMouseEnter"]

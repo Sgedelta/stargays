@@ -4,9 +4,9 @@ tags:
 Narrator: Oh, hello!
     -> Hi, where am I?
         Narrator: You're in Godot!
-            -> Oh. #opt1
+            -> Oh.
                 <<jump Oh>>
-            -> How did I get here? #opt2
+            -> How did I get here?
                 <<jump Godot>>
 ===
 
@@ -18,4 +18,53 @@ Narrator: Yeah, fun, right?
 title: Godot
 ---
 Narrator: Someone read the Beginner's Guide!
+===
+
+title: GoodLoop
+---
+Mom: 아이고, 우리 딸. 너무 말랐어! 잘 먹어야 해. aigo, my daughter. you’re so thin! you need to eat well. 
+    -> I know.
+        Mom: I wish I could see you more
+            -> I'm sorry.
+                Mom: Don't forget you can always come home.
+                Mom: The stars are so beautiful.
+                Mom: When you were a baby, we used to look at the sky all the time. Do you remember?
+                    -> Not really
+                        Mom: When you were born, you were so small.
+                        Mom: The doctors said they didn’t know if you would make it past the night.
+                        Mom: I prayed to those stars, right there.
+                            -> The big dipper?
+                                Mom: 북두칠성 Bukdu Chilseong
+                                Mom: And you lived.
+                                Mom: I don’t know what I’d do without you.
+                                Mom: You are the light of my life. The center of my world. My guiding star.
+                                    -> . . .
+                                        Mom: ...
+                                            -> I wanted to tell you something
+                                                Mom: What is it?
+                                                    -> I'm gay
+                                                        Mom: ...
+                                                            -> . . .
+                                                                Mom: What?
+                                                                    -> I like girls
+                                                                        Mom: oh...
+                                                                        Mom: What about (BOY)?
+                                                                            -> He's just a friend
+                                                                                Mom: You... don't like boys?
+                                                                                    -> no I don't
+                                                                                        <<jump GoodChoices>>
+                                                                                    -> I don't
+                                                                                        <<jump GoodChoices>>
+
+===
+
+title: GoodChoices
+---
+Mom: ...
+Mom: How long have you known?
+    -> A few years.
+    -> A long time.
+
+
+
 ===

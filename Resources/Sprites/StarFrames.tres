@@ -1,0 +1,71 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c6qxlpcwq1uk7"]
+
+[ext_resource type="Texture2D" uid="uid://cus4cpcwf1cgo" path="res://Resources/Sprites/Star_01.png" id="1_jl364"]
+[ext_resource type="Texture2D" uid="uid://4mg36xj8i2d1" path="res://Resources/Sprites/Star_02.png" id="2_bddum"]
+[ext_resource type="Texture2D" uid="uid://dqucrma4hk7bl" path="res://Resources/Sprites/Star_03.png" id="3_2a14m"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("2_bddum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_jl364")
+}, {
+"duration": 2.0,
+"texture": ExtResource("2_bddum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_jl364")
+}, {
+"duration": 2.0,
+"texture": ExtResource("2_bddum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2a14m")
+}],
+"loop": true,
+"name": &"BrightTwinkle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("2_bddum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_jl364")
+}, {
+"duration": 2.0,
+"texture": ExtResource("2_bddum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2a14m")
+}, {
+"duration": 2.0,
+"texture": ExtResource("2_bddum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2a14m")
+}],
+"loop": true,
+"name": &"DimTwinkle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jl364")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bddum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2a14m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bddum")
+}],
+"loop": true,
+"name": &"EvenTwinkle",
+"speed": 3.5
+}]
