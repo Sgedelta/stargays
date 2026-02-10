@@ -5,6 +5,7 @@ public partial class Star : Area2D
 {
     [Export] public string ExactKey = "";
     [Export] public AnimatedSprite2D AnimatedSprite = null;
+    [Export] private Label _label;
 
 
     private RandomNumberGenerator rng;
@@ -13,6 +14,7 @@ public partial class Star : Area2D
     {
         rng = new RandomNumberGenerator();
         AnimatedSprite.Play(AnimatedSprite.SpriteFrames.GetAnimationNames()[rng.RandiRange(0, AnimatedSprite.SpriteFrames.GetAnimationNames().Length - 1)]);
+        _label.Text = ExactKey;
     }
 
     public override void _Process(double delta)

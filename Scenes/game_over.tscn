@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://dk8xo1vexjidj"]
+[gd_scene format=3 uid="uid://xhbx1ug4xaxx"]
 
-[ext_resource type="Script" uid="uid://llhneou7b37q" path="res://Scenes/main_menu.gd" id="1_28flt"]
-[ext_resource type="SpriteFrames" uid="uid://bpiw80comy56k" path="res://Resources/Sprites/BGFrames.tres" id="2_48xlc"]
+[ext_resource type="Script" uid="uid://llhneou7b37q" path="res://Scenes/main_menu.gd" id="1_8fo1c"]
+[ext_resource type="SpriteFrames" uid="uid://bpiw80comy56k" path="res://Resources/Sprites/BGFrames.tres" id="2_ek8ke"]
 
 [node name="MainMenu" type="Control" unique_id=666148174]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_28flt")
+script = ExtResource("1_8fo1c")
 
 [node name="Button" type="Button" parent="." unique_id=1819916982]
 layout_mode = 1
@@ -26,14 +26,25 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
-text = "Play"
+text = "Play Again?"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1059017384]
 z_index = -100
 texture_filter = 1
 scale = Vector2(6, 6)
-sprite_frames = ExtResource("2_48xlc")
+sprite_frames = ExtResource("2_ek8ke")
 frame_progress = 0.33616024
 offset = Vector2(320, 180)
+
+[node name="Label" type="Label" parent="." unique_id=868438022]
+layout_mode = 0
+offset_left = 671.0
+offset_top = 446.0
+offset_right = 3242.0
+offset_bottom = 998.0
+theme_override_font_sizes/font_size = 240
+text = "Thank you for playing!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cvl4yevvv4dsm"]
+
+[ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_tw7aa"]
+[ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_26abo"]
+[ext_resource type="PackedScene" uid="uid://bcjsaqxmdlw5o" path="res://Scenes/CustomYarnSpinner.tscn" id="3_tu7oy"]
+[ext_resource type="SpriteFrames" uid="uid://bpiw80comy56k" path="res://Resources/Sprites/BGFrames.tres" id="4_0grg5"]
+
+[node name="TestLevel" type="Node2D" unique_id=1817164843 node_paths=PackedStringArray("_starConnectLine")]
+texture_filter = 1
+script = ExtResource("1_tw7aa")
+_starConnectLine = NodePath("Line2D")
+
+[node name="Star" parent="." unique_id=946213963 instance=ExtResource("2_26abo")]
+position = Vector2(1879, 1166)
+ExactKey = "A"
+
+[node name="Star2" parent="." unique_id=787851773 instance=ExtResource("2_26abo")]
+position = Vector2(2324, 1041)
+ExactKey = "few"
+
+[node name="Star3" parent="." unique_id=1780023978 instance=ExtResource("2_26abo")]
+position = Vector2(2615, 709)
+ExactKey = "years."
+
+[node name="Star4" parent="." unique_id=740650918 instance=ExtResource("2_26abo")]
+position = Vector2(1655, 770)
+ExactKey = "long"
+
+[node name="Star5" parent="." unique_id=1152045280 instance=ExtResource("2_26abo")]
+position = Vector2(1264, 520)
+ExactKey = "time."
+
+[node name="Line2D" type="Line2D" parent="." unique_id=905913903]
+width = 10.77
+
+[node name="YarnSpinnerCanvasLayer" parent="." unique_id=959613526 instance=ExtResource("3_tu7oy")]
+layer = 25
+
+[node name="DialogueRunner" parent="YarnSpinnerCanvasLayer" index="0" unique_id=1203846596]
+autoStart = true
+startNode = "GoodChoices"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1923998619]
+z_index = -100
+texture_filter = 1
+scale = Vector2(6, 6)
+sprite_frames = ExtResource("4_0grg5")
+frame_progress = 0.33616024
+offset = Vector2(320, 180)
+
+[editable path="YarnSpinnerCanvasLayer"]

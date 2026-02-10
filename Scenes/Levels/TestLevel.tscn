@@ -2,36 +2,49 @@
 
 [ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="1_ss4xl"]
 [ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_ytf4i"]
+[ext_resource type="SpriteFrames" uid="uid://bpiw80comy56k" path="res://Resources/Sprites/BGFrames.tres" id="2_iuug4"]
 [ext_resource type="PackedScene" uid="uid://bcjsaqxmdlw5o" path="res://Scenes/CustomYarnSpinner.tscn" id="3_7e5cw"]
 
 [node name="TestLevel" type="Node2D" unique_id=1817164843 node_paths=PackedStringArray("_starConnectLine")]
 script = ExtResource("1_ytf4i")
 _starConnectLine = NodePath("Line2D")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=923980789]
+z_index = -100
+texture_filter = 1
+scale = Vector2(6, 6)
+sprite_frames = ExtResource("2_iuug4")
+frame_progress = 0.8147368
+offset = Vector2(320, 180)
+
 [node name="Star" parent="." unique_id=946213963 instance=ExtResource("1_ss4xl")]
 position = Vector2(286, 281)
 ExactKey = "I"
 
 [node name="Star2" parent="." unique_id=787851773 instance=ExtResource("1_ss4xl")]
-position = Vector2(2631, 565)
+position = Vector2(2672, 392)
 ExactKey = "I'm"
 
 [node name="Star3" parent="." unique_id=1780023978 instance=ExtResource("1_ss4xl")]
-position = Vector2(895, 1349)
+position = Vector2(936, 938)
 ExactKey = "know."
 
 [node name="Star4" parent="." unique_id=1642314158 instance=ExtResource("1_ss4xl")]
-position = Vector2(2630, 1588)
+position = Vector2(2447, 1077)
 ExactKey = "sorry."
 
 [node name="Line2D" type="Line2D" parent="." unique_id=905913903]
 width = 10.77
 
 [node name="YarnSpinnerCanvasLayer" parent="." unique_id=959613526 instance=ExtResource("3_7e5cw")]
-layer = -25
+layer = 88
 
 [node name="DialogueRunner" parent="YarnSpinnerCanvasLayer" index="0" unique_id=1203846596]
 autoStart = true
 startNode = "GoodLoop"
+
+[node name="CharacterNameText" parent="YarnSpinnerCanvasLayer/LinePresenter/PresenterControl" parent_id_path=PackedInt32Array(959613526, 1521915086) index="1" unique_id=1582859137]
+offset_top = -219.0
+offset_bottom = -166.0
 
 [editable path="YarnSpinnerCanvasLayer"]

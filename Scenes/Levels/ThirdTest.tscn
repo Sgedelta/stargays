@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://b1d4xyqeet5a0"]
+
+[ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_osbg1"]
+[ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_fl1jy"]
+[ext_resource type="PackedScene" uid="uid://bcjsaqxmdlw5o" path="res://Scenes/CustomYarnSpinner.tscn" id="3_ucifq"]
+[ext_resource type="SpriteFrames" uid="uid://bpiw80comy56k" path="res://Resources/Sprites/BGFrames.tres" id="4_q6x24"]
+
+[node name="TestLevel" type="Node2D" unique_id=1817164843 node_paths=PackedStringArray("_starConnectLine")]
+texture_filter = 1
+script = ExtResource("1_osbg1")
+_starConnectLine = NodePath("Line2D")
+
+[node name="Star" parent="." unique_id=946213963 instance=ExtResource("2_fl1jy")]
+position = Vector2(763, 719)
+ExactKey = "."
+
+[node name="Star2" parent="." unique_id=787851773 instance=ExtResource("2_fl1jy")]
+position = Vector2(1677, 346)
+ExactKey = "."
+
+[node name="Star3" parent="." unique_id=1780023978 instance=ExtResource("2_fl1jy")]
+position = Vector2(2597, 754)
+ExactKey = "."
+
+[node name="Star4" parent="." unique_id=1642314158 instance=ExtResource("2_fl1jy")]
+position = Vector2(1162, 1008)
+ExactKey = "I'm"
+
+[node name="Star5" parent="." unique_id=126697595 instance=ExtResource("2_fl1jy")]
+position = Vector2(2335, 1013)
+ExactKey = "gay"
+
+[node name="Star6" parent="." unique_id=1461553411 instance=ExtResource("2_fl1jy")]
+position = Vector2(676, 244)
+ExactKey = "I"
+
+[node name="Star7" parent="." unique_id=1426859574 instance=ExtResource("2_fl1jy")]
+position = Vector2(1760, 722)
+ExactKey = "like"
+
+[node name="Star8" parent="." unique_id=480946845 instance=ExtResource("2_fl1jy")]
+position = Vector2(2775, 194)
+ExactKey = "girls"
+
+[node name="Star9" parent="." unique_id=457240184 instance=ExtResource("2_fl1jy")]
+position = Vector2(262, 534)
+ExactKey = "wanted"
+
+[node name="Star10" parent="." unique_id=1465323988 instance=ExtResource("2_fl1jy")]
+position = Vector2(492, 957)
+ExactKey = "to tell"
+
+[node name="Star11" parent="." unique_id=1418863597 instance=ExtResource("2_fl1jy")]
+position = Vector2(1439, 580)
+ExactKey = "you"
+
+[node name="Star12" parent="." unique_id=847851596 instance=ExtResource("2_fl1jy")]
+position = Vector2(2528, 479)
+ExactKey = "something"
+
+[node name="Line2D" type="Line2D" parent="." unique_id=905913903]
+width = 10.77
+
+[node name="YarnSpinnerCanvasLayer" parent="." unique_id=959613526 instance=ExtResource("3_ucifq")]
+layer = 25
+
+[node name="DialogueRunner" parent="YarnSpinnerCanvasLayer" index="0" unique_id=1203846596]
+autoStart = true
+startNode = "GoodConfession"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1923998619]
+z_index = -100
+texture_filter = 1
+scale = Vector2(6, 6)
+sprite_frames = ExtResource("4_q6x24")
+frame_progress = 0.33616024
+offset = Vector2(320, 180)
+
+[editable path="YarnSpinnerCanvasLayer"]

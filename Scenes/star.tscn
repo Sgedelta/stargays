@@ -6,9 +6,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_17ggb"]
 radius = 63.387695
 
-[node name="Star" type="Area2D" unique_id=946213963 node_paths=PackedStringArray("AnimatedSprite")]
+[node name="Star" type="Area2D" unique_id=946213963 node_paths=PackedStringArray("AnimatedSprite", "_label")]
 script = ExtResource("1_3vu41")
 AnimatedSprite = NodePath("AnimatedSprite2D")
+_label = NodePath("Label")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=510172629]
 shape = SubResource("CircleShape2D_17ggb")
@@ -18,7 +19,16 @@ texture_filter = 1
 scale = Vector2(4, 4)
 sprite_frames = ExtResource("2_3vu41")
 animation = &"BrightTwinkle"
-frame_progress = 0.42228845
+frame_progress = 0.84448946
+
+[node name="Label" type="Label" parent="." unique_id=177076980]
+offset_left = 76.0
+offset_top = -50.0
+offset_right = 576.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 60
+text = "Label Location!"
+vertical_alignment = 1
 
 [connection signal="input_event" from="." to="." method="CustomInput"]
 [connection signal="mouse_entered" from="." to="." method="HandleMouseEnter"]

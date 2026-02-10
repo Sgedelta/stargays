@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://v78u0sx222lj"]
+
+[ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_d2h15"]
+[ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_xqbku"]
+[ext_resource type="PackedScene" uid="uid://bcjsaqxmdlw5o" path="res://Scenes/CustomYarnSpinner.tscn" id="3_u11k1"]
+[ext_resource type="SpriteFrames" uid="uid://bpiw80comy56k" path="res://Resources/Sprites/BGFrames.tres" id="4_xqbku"]
+
+[node name="TestLevel" type="Node2D" unique_id=1817164843 node_paths=PackedStringArray("_starConnectLine")]
+texture_filter = 1
+script = ExtResource("1_d2h15")
+_starConnectLine = NodePath("Line2D")
+
+[node name="Star" parent="." unique_id=946213963 instance=ExtResource("2_xqbku")]
+position = Vector2(1379, 935)
+ExactKey = "big"
+
+[node name="Star5" parent="." unique_id=126697595 instance=ExtResource("2_xqbku")]
+position = Vector2(2105, 1100)
+ExactKey = "dipper?"
+
+[node name="Star2" parent="." unique_id=787851773 instance=ExtResource("2_xqbku")]
+position = Vector2(1305, 562)
+ExactKey = "really"
+
+[node name="Star3" parent="." unique_id=1780023978 instance=ExtResource("2_xqbku")]
+position = Vector2(2510, 850)
+ExactKey = "Not"
+
+[node name="Star4" parent="." unique_id=1642314158 instance=ExtResource("2_xqbku")]
+position = Vector2(693, 346)
+ExactKey = "The"
+
+[node name="Line2D" type="Line2D" parent="." unique_id=905913903]
+width = 10.77
+
+[node name="YarnSpinnerCanvasLayer" parent="." unique_id=959613526 instance=ExtResource("3_u11k1")]
+layer = 25
+
+[node name="DialogueRunner" parent="YarnSpinnerCanvasLayer" index="0" unique_id=1203846596]
+autoStart = true
+startNode = "GoodApologies"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1923998619]
+z_index = -100
+texture_filter = 1
+scale = Vector2(6, 6)
+sprite_frames = ExtResource("4_xqbku")
+frame_progress = 0.33616024
+offset = Vector2(320, 180)
+
+[editable path="YarnSpinnerCanvasLayer"]
