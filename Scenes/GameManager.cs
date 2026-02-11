@@ -17,6 +17,7 @@ public partial class GameManager : Node
 
     private Godot.Collections.Dictionary<string, PackedScene> _levels = new Godot.Collections.Dictionary<string, PackedScene> 
     {
+        {"firstLevel",      ResourceLoader.Load<PackedScene>("res://Scenes/Levels/TestLevel.tscn")},
         {"goodDontForget",  ResourceLoader.Load<PackedScene>("res://Scenes/Levels/SecondTest.tscn")},
         {"gameOver",        ResourceLoader.Load<PackedScene>("res://Scenes/game_over.tscn")},
         {"goodConfession",  ResourceLoader.Load<PackedScene>("res://Scenes/Levels/ThirdTest.tscn")},
@@ -26,6 +27,8 @@ public partial class GameManager : Node
     
     
     };
+
+    public int FadeTime = 1;
 
     public override void _Ready()
     {
@@ -57,20 +60,37 @@ public partial class GameManager : Node
     [YarnCommand("LoadLevel")]
     public void LoadLevel(string name)
     {
-        PackedScene newLevel; 
-        if(!_levels.TryGetValue(name, out newLevel))
+        PackedScene newLevel;
+        if (!_levels.TryGetValue(name, out newLevel))
         {
+            GD.PrintErr($"[GM] Failed to load level {name} because level was not in levelDictionary!");
             return;
         }
 
+
+        Tween fadeOut = GetTree().CreateTween();
         if (_levelManager != null)
         {
-            _levelManager.QueueFree();
+            Node oldLevel = _levelManager;
+            fadeOut.TweenProperty(_levelManager, "modulate", Color.FromHtml("ffffff00"), FadeTime).From(Color.FromHtml("ffffffff"));
+            fadeOut.TweenCallback(Callable.From(() => { oldLevel.QueueFree(); }));
         }
 
         Node loadedLevel = newLevel.Instantiate();
-        GetTree().Root.AddChild(loadedLevel);
+
+        GetTree().Root.GetNode("MainGame").AddChild(loadedLevel);
+
+        fadeOut.TweenCallback(Callable.From(() => {
+
+            
+
+            //loadedLevel.Modulate = Color.FromHtml("ffffff00");
+
+        }));
+
         
+        
+
     }
 
 }

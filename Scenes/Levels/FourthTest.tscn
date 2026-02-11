@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_25kg3"]
 [ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_6wfnx"]
 [ext_resource type="PackedScene" uid="uid://bcjsaqxmdlw5o" path="res://Scenes/CustomYarnSpinner.tscn" id="3_wa1no"]
-[ext_resource type="SpriteFrames" uid="uid://bpiw80comy56k" path="res://Resources/Sprites/BGFrames.tres" id="4_5efhk"]
 
 [node name="TestLevel" type="Node2D" unique_id=1817164843 node_paths=PackedStringArray("_starConnectLine")]
 texture_filter = 1
@@ -43,13 +42,5 @@ layer = 25
 [node name="DialogueRunner" parent="YarnSpinnerCanvasLayer" index="0" unique_id=1203846596]
 autoStart = true
 startNode = "GoodClarify"
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1923998619]
-z_index = -100
-texture_filter = 1
-scale = Vector2(6, 6)
-sprite_frames = ExtResource("4_5efhk")
-frame_progress = 0.33616024
-offset = Vector2(320, 180)
 
 [editable path="YarnSpinnerCanvasLayer"]

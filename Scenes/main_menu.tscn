@@ -28,7 +28,8 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 36
 text = "Play"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1059017384]
+[node name="Background" type="AnimatedSprite2D" parent="." unique_id=1059017384]
+unique_name_in_owner = true
 z_index = -100
 texture_filter = 1
 scale = Vector2(6, 6)

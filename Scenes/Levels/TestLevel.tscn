@@ -2,20 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="1_ss4xl"]
 [ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_ytf4i"]
-[ext_resource type="SpriteFrames" uid="uid://bpiw80comy56k" path="res://Resources/Sprites/BGFrames.tres" id="2_iuug4"]
 [ext_resource type="PackedScene" uid="uid://bcjsaqxmdlw5o" path="res://Scenes/CustomYarnSpinner.tscn" id="3_7e5cw"]
 
 [node name="TestLevel" type="Node2D" unique_id=1817164843 node_paths=PackedStringArray("_starConnectLine")]
 script = ExtResource("1_ytf4i")
 _starConnectLine = NodePath("Line2D")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=923980789]
-z_index = -100
-texture_filter = 1
-scale = Vector2(6, 6)
-sprite_frames = ExtResource("2_iuug4")
-frame_progress = 0.8147368
-offset = Vector2(320, 180)
 
 [node name="Star" parent="." unique_id=946213963 instance=ExtResource("1_ss4xl")]
 position = Vector2(286, 281)

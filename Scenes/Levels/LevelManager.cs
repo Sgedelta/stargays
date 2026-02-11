@@ -21,9 +21,12 @@ public partial class LevelManager : Node
 
     public override void _Ready()
     {
-        //Temp, we will need better level loading
         GameManager.Instance.SetActiveLevel(this);
         _selectedStars = new Godot.Collections.Array<Star>();
+
+        Tween fadeIn = GetTree().CreateTween();
+        fadeIn.TweenProperty(this, "modulate", Color.FromHtml("ffffffff"), GameManager.Instance.FadeTime).From(Color.FromHtml("ffffff00"));
+        
     }
 
     public override void _Process(double delta)

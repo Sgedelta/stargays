@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bjj2byys81gqt"]
+
+[ext_resource type="SpriteFrames" uid="uid://bpiw80comy56k" path="res://Resources/Sprites/BGFrames.tres" id="1_l756w"]
+[ext_resource type="Script" uid="uid://wsytftlk8qgo" path="res://Scenes/MainGame.cs" id="2_pu3va"]
+
+[node name="MainGame" type="Node2D" unique_id=1481302335]
+script = ExtResource("2_pu3va")
+
+[node name="Background" type="AnimatedSprite2D" parent="." unique_id=68461879]
+unique_name_in_owner = true
+z_index = -100
+texture_filter = 1
+scale = Vector2(6, 6)
+sprite_frames = ExtResource("1_l756w")
+frame_progress = 0.1294048
+offset = Vector2(320, 180)
