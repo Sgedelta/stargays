@@ -4,10 +4,12 @@
 [ext_resource type="Resource" uid="uid://btwj70r7fk2ad" path="res://Resources/Yarn/stargays.yarnproject" id="2_o5ckw"]
 [ext_resource type="Script" uid="uid://b8nsxur6opm4k" path="res://addons/YarnSpinner-Godot/Runtime/Async/LinePresenter.cs" id="3_8o7va"]
 [ext_resource type="Script" uid="uid://cm822dsbyq7mj" path="res://addons/YarnSpinner-Godot/Runtime/Async/LinePresenterButtonHandler.cs" id="4_af0ia"]
+[ext_resource type="Texture2D" uid="uid://d25hs8x6hus3n" path="res://Resources/Sprites/SpeechBubble.png" id="4_o5ckw"]
 [ext_resource type="Script" uid="uid://dmxme88q37mx3" path="res://Resources/Yarn/CustomOptionsPresenter.cs" id="5_vhv7h"]
 [ext_resource type="PackedScene" uid="uid://b56ngcrq31nc5" path="res://addons/YarnSpinner-Godot/Scenes/OptionItem.tscn" id="6_hfjnd"]
 [ext_resource type="Script" uid="uid://b1o5xpu22evvx" path="res://addons/YarnSpinner-Godot/Runtime/InMemoryVariableStorage.cs" id="7_nc2nt"]
 [ext_resource type="Script" uid="uid://c5gxawri864uf" path="res://addons/YarnSpinner-Godot/Runtime/LineProviders/TextLineProvider.cs" id="8_vui1v"]
+[ext_resource type="Script" uid="uid://cw34krhlw8yvs" path="res://Resources/Yarn/CustomLineAdvancer.cs" id="10_8o7va"]
 
 [node name="YarnSpinnerCanvasLayer" type="CanvasLayer" unique_id=959613526]
 
@@ -57,23 +59,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="SpeechBubble" type="Sprite2D" parent="LinePresenter/PresenterControl" unique_id=1640729392]
+texture_filter = 1
+position = Vector2(1919, 106)
+scale = Vector2(6.62, 5.5)
+texture = ExtResource("4_o5ckw")
+
 [node name="LineText" type="RichTextLabel" parent="LinePresenter/PresenterControl" unique_id=1972482404]
-custom_minimum_size = Vector2(0, 350)
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 100.0
-offset_top = -350.0
-offset_right = -100.0
+offset_left = 220.0
+offset_top = -392.0
+offset_right = -180.0
+offset_bottom = -192.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/normal_font_size = 36
-theme_override_font_sizes/bold_font_size = 36
-theme_override_font_sizes/bold_italics_font_size = 36
-theme_override_font_sizes/italics_font_size = 36
-theme_override_font_sizes/mono_font_size = 36
+theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/bold_font_size = 80
+theme_override_font_sizes/bold_italics_font_size = 80
+theme_override_font_sizes/italics_font_size = 80
+theme_override_font_sizes/mono_font_size = 80
 bbcode_enabled = true
 text = "The dialogue text should appear here!"
 
@@ -89,6 +98,7 @@ offset_right = -12.0
 offset_bottom = -158.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(1, 1, 1, 0)
 
 [node name="CharacterNameText" type="RichTextLabel" parent="LinePresenter/PresenterControl" unique_id=1582859137]
 self_modulate = Color(0.321569, 0.87451, 0.254902, 1)
@@ -98,10 +108,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1820.0
-offset_top = -207.0
-offset_right = -934.0
-offset_bottom = -154.0
+offset_left = -1699.0
+offset_top = -249.0
+offset_right = -813.0
+offset_bottom = -196.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 36
@@ -118,18 +128,20 @@ show_behind_parent = true
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
+color = Color(1, 1, 1, 0)
 
 [node name="ContinueButton" type="Button" parent="LinePresenter/PresenterControl" unique_id=1752051162]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 1567.0
-offset_top = -148.0
-offset_right = 1799.0
-offset_bottom = -48.0
+offset_left = 1575.0
+offset_top = -344.0
+offset_right = 1807.0
+offset_bottom = -244.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_default_cursor_shape = 2
@@ -248,3 +260,10 @@ script = ExtResource("7_nc2nt")
 
 [node name="TextLineProvider" type="Node2D" parent="." unique_id=1395317851]
 script = ExtResource("8_vui1v")
+
+[node name="Advancer" type="Node" parent="." unique_id=671005960 node_paths=PackedStringArray("runner")]
+script = ExtResource("10_8o7va")
+runner = NodePath("../DialogueRunner")
+multiAdvanceIsCancel = true
+nextLineAction = ""
+cancelDialogueAction = ""

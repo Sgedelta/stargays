@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_osbg1"]
 [ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_fl1jy"]
-[ext_resource type="PackedScene" uid="uid://bcjsaqxmdlw5o" path="res://Scenes/CustomYarnSpinner.tscn" id="3_ucifq"]
 
 [node name="TestLevel" type="Node2D" unique_id=1817164843 node_paths=PackedStringArray("_starConnectLine")]
 texture_filter = 1
@@ -59,12 +58,3 @@ ExactKey = "something"
 
 [node name="Line2D" type="Line2D" parent="." unique_id=905913903]
 width = 10.77
-
-[node name="YarnSpinnerCanvasLayer" parent="." unique_id=959613526 instance=ExtResource("3_ucifq")]
-layer = 25
-
-[node name="DialogueRunner" parent="YarnSpinnerCanvasLayer" index="0" unique_id=1203846596]
-autoStart = true
-startNode = "GoodConfession"
-
-[editable path="YarnSpinnerCanvasLayer"]

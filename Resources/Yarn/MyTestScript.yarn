@@ -1,35 +1,15 @@
-﻿title: Start
-tags:
----
-Narrator: Oh, hello!
-    -> Hi, where am I?
-        Narrator: You're in Godot!
-            -> Oh.
-                <<jump Oh>>
-            -> How did I get here?
-                <<jump Godot>>
-===
-
-title: Oh
----
-Narrator: Yeah, fun, right?
-===
-
-title: Godot
----
-Narrator: Someone read the Beginner's Guide!
-===
-
-title: GoodLoop
+﻿title: GoodLoop
 ---
 Mom: 아이고, 우리 딸. 너무 말랐어! 잘 먹어야 해. aigo, my daughter. you’re so thin! you need to eat well. 
     -> I know.
         Mom: I wish I could see you more
             -> I'm sorry.
                 <<LoadLevel GameManager goodDontForget>>
+                <<jump GoodApologies>>
     -> I know. I'm sorry.
         Mom: I wish I could see you more
         <<LoadLevel GameManager goodDontForget>>
+        <<jump GoodApologies>>
 ===
 
 title: GoodApologies
@@ -47,6 +27,7 @@ Mom: When you were a baby, we used to look at the sky all the time. Do you remem
                 Mom: I don’t know what I’d do without you.
                 Mom: You are the light of my life. The center of my world. My guiding star.
                 <<LoadLevel GameManager goodConfession>>
+                <<jump GoodConfession>>
                     
 
 ===
@@ -63,6 +44,7 @@ title: GoodConfession
                             Mom: What?
                                 -> I like girls
                                 <<LoadLevel GameManager goodClarify>>
+                                <<jump GoodClarify>>
                                    
 
 
@@ -76,8 +58,10 @@ Mom: What about (BOY)?
         Mom: You... don't like boys?
             -> no I don't
                 <<LoadLevel GameManager goodChoices>>
+                <<jump GoodChoices>>
             -> I don't
                 <<LoadLevel GameManager goodChoices>>
+                <<jump GoodChoices>>
 
 ===
 

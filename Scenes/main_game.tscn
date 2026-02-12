@@ -2,6 +2,7 @@
 
 [ext_resource type="SpriteFrames" uid="uid://bpiw80comy56k" path="res://Resources/Sprites/BGFrames.tres" id="1_l756w"]
 [ext_resource type="Script" uid="uid://wsytftlk8qgo" path="res://Scenes/MainGame.cs" id="2_pu3va"]
+[ext_resource type="PackedScene" uid="uid://bcjsaqxmdlw5o" path="res://Scenes/CustomYarnSpinner.tscn" id="3_0e3vx"]
 
 [node name="MainGame" type="Node2D" unique_id=1481302335]
 script = ExtResource("2_pu3va")
@@ -14,3 +15,16 @@ scale = Vector2(6, 6)
 sprite_frames = ExtResource("1_l756w")
 frame_progress = 0.1294048
 offset = Vector2(320, 180)
+
+[node name="YarnSpinnerCanvasLayer" parent="." unique_id=959613526 instance=ExtResource("3_0e3vx")]
+layer = 88
+
+[node name="DialogueRunner" parent="YarnSpinnerCanvasLayer" index="0" unique_id=1203846596]
+autoStart = true
+startNode = "GoodLoop"
+
+[node name="CharacterNameText" parent="YarnSpinnerCanvasLayer/LinePresenter/PresenterControl" parent_id_path=PackedInt32Array(959613526, 1521915086) index="2" unique_id=1582859137]
+offset_top = -219.0
+offset_bottom = -166.0
+
+[editable path="YarnSpinnerCanvasLayer"]
