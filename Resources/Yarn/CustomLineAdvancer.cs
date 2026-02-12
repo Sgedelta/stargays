@@ -126,7 +126,7 @@ public partial class CustomLineAdvancer : Node, DialoguePresenterBase
     /// requests that the dialogue runner instruct all line views to hurry
     /// up their presentation of the current line.
     /// </remarks>
-    public void RequestLineHurryUp()
+    public bool RequestLineHurryUp()
     {
         // Increment our counter of line advancements, and depending on the
         // new count, request that the runner 'soft-cancel' the line or
@@ -137,6 +137,8 @@ public partial class CustomLineAdvancer : Node, DialoguePresenterBase
         if (multiAdvanceIsCancel && numberOfAdvancesThisLine >= advanceRequestsBeforeCancellingLine)
         {
             RequestNextLine();
+            numberOfAdvancesThisLine = 0;
+            return false;
         }
         else
         {
@@ -147,8 +149,9 @@ public partial class CustomLineAdvancer : Node, DialoguePresenterBase
             else
             {
                 GD.PushError($"{nameof(LineAdvancer)} dialogue runner is null", this);
-                return;
+                
             }
+            return true;
         }
     }
 
@@ -190,7 +193,10 @@ public partial class CustomLineAdvancer : Node, DialoguePresenterBase
     {
         if (!string.IsNullOrWhiteSpace(hurryUpAction) && Input.IsActionJustReleased(hurryUpAction))
         {
-            this.RequestLineHurryUp();
+            if (this.RequestLineHurryUp())
+            {
+                return;
+            }
         }
 
         if (!string.IsNullOrWhiteSpace(nextLineAction) && Input.IsActionJustReleased(nextLineAction))

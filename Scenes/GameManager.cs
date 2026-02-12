@@ -93,4 +93,9 @@ public partial class GameManager : Node
 
     }
 
+    public void FadeInCurrentStars()
+    {
+        _levelManager.ShowStars();
+    }
+
 }

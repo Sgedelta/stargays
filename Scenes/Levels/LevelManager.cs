@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Linq;
 
-public partial class LevelManager : Node
+public partial class LevelManager : Node2D
 {
 
 
@@ -18,14 +18,15 @@ public partial class LevelManager : Node
 
     public bool StarsAreSelected { get { return _selectedStars.Count > 0; } }
 
+    private bool _starsAlreadyShown = false;
+
 
     public override void _Ready()
     {
         GameManager.Instance.SetActiveLevel(this);
         _selectedStars = new Godot.Collections.Array<Star>();
 
-        Tween fadeIn = GetTree().CreateTween();
-        fadeIn.TweenProperty(this, "modulate", Color.FromHtml("ffffffff"), GameManager.Instance.FadeTime).From(Color.FromHtml("ffffff00"));
+        Modulate = Color.FromHtml("ffffff00");
         
     }
 
@@ -42,6 +43,17 @@ public partial class LevelManager : Node
         {
             StarSequenceDone();
         }
+    }
+
+    public void ShowStars()
+    {
+        if (_starsAlreadyShown)
+        {
+            return;
+        }
+        _starsAlreadyShown = true;
+        Tween fadeIn = GetTree().CreateTween();
+        fadeIn.TweenProperty(this, "modulate", Color.FromHtml("ffffffff"), GameManager.Instance.FadeTime).From(Color.FromHtml("ffffff00"));
     }
 
     /// <summary>

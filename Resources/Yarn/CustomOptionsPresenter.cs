@@ -196,6 +196,55 @@ public partial class CustomOptionsPresenter : Node, DialoguePresenterBase
             GameManager.Instance.ValidInputs.Add(dialogueOptions[i].Line.Text.Text, dialogueOptions[i]);
         }
 
+        //make visible
+        presenterControl.Visible = true;
+        GameManager.Instance.FadeInCurrentStars();
+
+        if (IsInstanceValid(lastLineContainer))
+        {
+            if (lastSeenLine != null && showsLastLine)
+            {
+                // if we have a last line character name container
+                // and the last line has a character then we show the nameplate
+                // otherwise we turn off the nameplate
+                var line = lastSeenLine.Text;
+
+                if (IsInstanceValid(lastLineCharacterNameContainer))
+                {
+                    GD.Print("Last Line With NAME Was: " + line.Text);
+                    if (string.IsNullOrWhiteSpace(lastSeenLine.CharacterName))
+                    {
+                        lastLineCharacterNameContainer!.Visible = false;
+                    }
+                    else
+                    {
+                        line = lastSeenLine.TextWithoutCharacterName;
+                        lastLineCharacterNameContainer!.Visible = true;
+                        if (lastLineCharacterNameText != null)
+                        {
+                            lastLineCharacterNameText.Text = lastSeenLine.CharacterName;
+                        }
+                    }
+                }
+                else
+                {
+                    GD.Print("Last Line Was: " + line.Text);
+                    line = lastSeenLine.TextWithoutCharacterName;
+                }
+
+
+                if (lastLineText != null)
+                {
+                    lastLineText.Text = line.Text;
+                }
+
+                lastLineContainer!.Visible = true;
+            }
+            else
+            {
+                lastLineContainer!.Visible = false;
+            }
+        }
 
 
         //this completeion source represents the chosen option
@@ -207,8 +256,10 @@ public partial class CustomOptionsPresenter : Node, DialoguePresenterBase
         //now we need to wait to confirm that we've gotten a valid input.
         var completedTask = await selectedOptionCompletionSource.Task;
 
-        // finally we return the selected option
+        // make invisible and finally we return the selected option
+        presenterControl.Visible = false;
         return completedTask;
+
 
         /*
 

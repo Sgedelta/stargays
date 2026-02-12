@@ -13,11 +13,11 @@ ExactKey = "I"
 
 [node name="Star2" parent="." unique_id=787851773 instance=ExtResource("1_ss4xl")]
 position = Vector2(2672, 392)
-ExactKey = "I'm"
+ExactKey = "know."
 
 [node name="Star3" parent="." unique_id=1780023978 instance=ExtResource("1_ss4xl")]
 position = Vector2(936, 938)
-ExactKey = "know."
+ExactKey = "I'm"
 
 [node name="Star4" parent="." unique_id=1642314158 instance=ExtResource("1_ss4xl")]
 position = Vector2(2447, 1077)
