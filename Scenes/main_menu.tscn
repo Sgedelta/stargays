@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dk8xo1vexjidj"]
 
-[ext_resource type="Script" uid="uid://llhneou7b37q" path="res://Scenes/main_menu.gd" id="1_28flt"]
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_28flt"]
 [ext_resource type="SpriteFrames" uid="uid://bpiw80comy56k" path="res://Resources/Sprites/BGFrames.tres" id="2_48xlc"]
 
 [node name="MainMenu" type="Control" unique_id=666148174]
@@ -36,5 +36,7 @@ scale = Vector2(6, 6)
 sprite_frames = ExtResource("2_48xlc")
 frame_progress = 0.33616024
 offset = Vector2(320, 180)
+
+[node name="AmbientMusic" type="AudioStreamPlayer" parent="." unique_id=1197224480]
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

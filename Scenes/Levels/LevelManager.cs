@@ -7,57 +7,57 @@ public partial class LevelManager : Node2D
 
 
 
-    private Godot.Collections.Array<Star> _selectedStars;
+	private Godot.Collections.Array<Star> _selectedStars;
 
-    [Export] private Line2D _starConnectLine;
-    [Export] private float StarDeselectSpeed = 1500;
+	[Export] private Line2D _starConnectLine;
+	[Export] private float StarDeselectSpeed = 1500;
 
-    private bool _isDeselecting = false;
+	private bool _isDeselecting = false;
 
-    private string constructedKey = "";
+	private string constructedKey = "";
 
-    public bool StarsAreSelected { get { return _selectedStars.Count > 0; } }
+	public bool StarsAreSelected { get { return _selectedStars.Count > 0; } }
 
-    private bool _starsAlreadyShown = false;
-
-
-    public override void _Ready()
-    {
-        GameManager.Instance.SetActiveLevel(this);
-        _selectedStars = new Godot.Collections.Array<Star>();
-
-        Modulate = Color.FromHtml("ffffff00");
-        
-    }
-
-    public override void _Process(double delta)
-    {
-        UpdateStarLine();
-    }
+	private bool _starsAlreadyShown = false;
 
 
-    public override void _Input(InputEvent @event)
-    {
-        //we want specifically mouse button up events
-        if( @event is InputEventMouseButton mouseEvent && mouseEvent.IsActionReleased("StarSelect") )
-        {
-            StarSequenceDone();
-        }
-    }
+	public override void _Ready()
+	{
+		GameManager.Instance.SetActiveLevel(this);
+		_selectedStars = new Godot.Collections.Array<Star>();
 
-    public void ShowStars()
-    {
-        if (_starsAlreadyShown)
-        {
-            return;
-        }
-        _starsAlreadyShown = true;
-        Tween fadeIn = GetTree().CreateTween();
-        fadeIn.TweenProperty(this, "modulate", Color.FromHtml("ffffffff"), GameManager.Instance.FadeTime).From(Color.FromHtml("ffffff00"));
-    }
+		Modulate = Color.FromHtml("ffffff00");
+		
+	}
 
-    /// <summary>
-    /// Checks if the current _selectedStars is a valid input. If it is, it moves onto the next dialog. If it isn't, it undoes all star input.
+	public override void _Process(double delta)
+	{
+		UpdateStarLine();
+	}
+
+
+	public override void _Input(InputEvent @event)
+	{
+		//we want specifically mouse button up events
+		if( @event is InputEventMouseButton mouseEvent && mouseEvent.IsActionReleased("StarSelect") )
+		{
+			StarSequenceDone();
+		}
+	}
+
+	public void ShowStars()
+	{
+		if (_starsAlreadyShown)
+		{
+			return;
+		}
+		_starsAlreadyShown = true;
+		Tween fadeIn = GetTree().CreateTween();
+		fadeIn.TweenProperty(this, "modulate", Color.FromHtml("ffffffff"), GameManager.Instance.FadeTime).From(Color.FromHtml("ffffff00"));
+	}
+
+	/// <summary>
+	/// Checks if the current _selectedStars is a valid input. If it is, it moves onto the next dialog. If it isn't, it undoes all star input.
     /// </summary>
     public void StarSequenceDone()
     {
@@ -130,80 +130,80 @@ public partial class LevelManager : Node2D
         for (int i = _selectedStars.Count; i > 0; i--)
         {
 
-            //don't run on last star, because there's nothing before it (so there'd be a null error)
-            if (i != 1)
-            {
-                deselector.TweenMethod(
-                    Callable.From((Vector2 pos) => { _starConnectLine.SetPointPosition(_starConnectLine.Points.Length - 1, pos); }),
-                    _selectedStars[i - 1].Position, _selectedStars[i - 2].Position,
-                    (_selectedStars[i - 1].Position - _selectedStars[i - 2].Position).Length() / StarDeselectSpeed
-                );
-            }
+			//don't run on last star, because there's nothing before it (so there'd be a null error)
+			if (i != 1)
+			{
+				deselector.TweenMethod(
+					Callable.From((Vector2 pos) => { _starConnectLine.SetPointPosition(_starConnectLine.Points.Length - 1, pos); }),
+					_selectedStars[i - 1].Position, _selectedStars[i - 2].Position,
+					(_selectedStars[i - 1].Position - _selectedStars[i - 2].Position).Length() / StarDeselectSpeed
+				);
+			}
 
-            //remove the point and the star
-            deselector.TweenCallback(Callable.From(() =>
-            {
-                _starConnectLine.RemovePoint(_starConnectLine.Points.Length - 1);
-                _selectedStars.RemoveAt(_selectedStars.Count - 1);
-                
-            }));
-
-
-
-            
-
-        }
-
-        //allow further animations
-        deselector.TweenCallback(Callable.From(() => {
-            
-            _isDeselecting = false; 
-        }));
-
-    }
+			//remove the point and the star
+			deselector.TweenCallback(Callable.From(() =>
+			{
+				_starConnectLine.RemovePoint(_starConnectLine.Points.Length - 1);
+				_selectedStars.RemoveAt(_selectedStars.Count - 1);
+				
+			}));
 
 
 
-    public bool IsStarSelected(Star star)
-    {
-        return _selectedStars.Contains(star);
-    }
+			
 
-    public void SelectStar(Star star)
-    {
-        if (!_isDeselecting && !IsStarSelected(star))
-        {
-            GD.Print($"[LM] Added star {star.Name}");
-            _selectedStars.Add(star);
-        }
-    }
+		}
 
-    public void DeselectStar(Star star)
-    {
-        if (IsStarSelected(star))
-        {
-            _selectedStars.Remove(star);
-        }
-    }
+		//allow further animations
+		deselector.TweenCallback(Callable.From(() => {
+			
+			_isDeselecting = false; 
+		}));
 
-    public void UpdateStarLine()
-    {
-        if(_isDeselecting)
-        {
-            //can't update this, because we're already updating line position in the deanimation code!
-            return;
-        }
-
-        //clear out old points
-        _starConnectLine.ClearPoints();
+	}
 
 
-        //add points at star locations
-        foreach (Star star in _selectedStars)
-        {
-            _starConnectLine.AddPoint(star.Position);
-        }
 
-        _starConnectLine.AddPoint(GetViewport().GetMousePosition());
-    }
+	public bool IsStarSelected(Star star)
+	{
+		return _selectedStars.Contains(star);
+	}
+
+	public void SelectStar(Star star)
+	{
+		if (!_isDeselecting && !IsStarSelected(star))
+		{
+			GD.Print($"[LM] Added star {star.Name}");
+			_selectedStars.Add(star);
+		}
+	}
+
+	public void DeselectStar(Star star)
+	{
+		if (IsStarSelected(star))
+		{
+			_selectedStars.Remove(star);
+		}
+	}
+
+	public void UpdateStarLine()
+	{
+		if(_isDeselecting)
+		{
+			//can't update this, because we're already updating line position in the deanimation code!
+			return;
+		}
+
+		//clear out old points
+		_starConnectLine.ClearPoints();
+
+
+		//add points at star locations
+		foreach (Star star in _selectedStars)
+		{
+			_starConnectLine.AddPoint(star.Position);
+		}
+
+		_starConnectLine.AddPoint(GetViewport().GetMousePosition());
+	}
 }
