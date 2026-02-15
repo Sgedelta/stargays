@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_28flt"]
 [ext_resource type="SpriteFrames" uid="uid://bpiw80comy56k" path="res://Resources/Sprites/BGFrames.tres" id="2_48xlc"]
+[ext_resource type="AudioStream" uid="uid://dbee1thgp6v8" path="res://Resources/Audiofiles/Ambient.wav" id="3_1ehe0"]
 
 [node name="MainMenu" type="Control" unique_id=666148174]
 layout_mode = 3
@@ -38,5 +39,9 @@ frame_progress = 0.33616024
 offset = Vector2(320, 180)
 
 [node name="AmbientMusic" type="AudioStreamPlayer" parent="." unique_id=1197224480]
+stream = ExtResource("3_1ehe0")
+volume_db = -6.7
+autoplay = true
+stream_paused = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
