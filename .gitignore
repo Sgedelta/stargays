@@ -3,6 +3,10 @@
 .nomedia
 /android/
 
+# Build Ignores
+/[Bb]uilds/
+/[Bb]uild/
+
 # Godot-specific ignores
 .import/
 export.cfg
