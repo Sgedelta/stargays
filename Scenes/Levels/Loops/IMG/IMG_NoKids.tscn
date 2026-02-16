@@ -1,24 +1,26 @@
 [gd_scene format=3 uid="uid://h4d1sdycujho"]
 
 [ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="1_76s6g"]
+[ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_a5nku"]
 
-[node name="ImgNoKids" type="Node2D" unique_id=1226190156]
+[node name="ImgNoKids" type="Node2D" unique_id=1226190156 node_paths=PackedStringArray("_starConnectLine")]
+script = ExtResource("1_a5nku")
+_starConnectLine = NodePath("Line2D")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=685856291]
-width = 10.77
 
 [node name="No," parent="." unique_id=946213963 instance=ExtResource("1_76s6g")]
 position = Vector2(546, 585)
-ExactKey = "I'm"
+ExactKey = "No,"
 
 [node name="I" parent="." unique_id=1920630543 instance=ExtResource("1_76s6g")]
 position = Vector2(2202, 390)
-ExactKey = "I'm"
+ExactKey = "I"
 
 [node name="don\'t think" parent="." unique_id=1049161212 instance=ExtResource("1_76s6g")]
 position = Vector2(3078, 1017)
-ExactKey = "I'm"
+ExactKey = "don't think"
 
 [node name="so_" parent="." unique_id=2112303680 instance=ExtResource("1_76s6g")]
 position = Vector2(1299, 1273)
-ExactKey = "I'm"
+ExactKey = "so."

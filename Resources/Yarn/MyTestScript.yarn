@@ -8,8 +8,8 @@ Mom: 아이고, 우리 딸. 너무 말랐어! 잘 먹어야 해. aigo, my daught
                 <<jump GoodApologies>>
     -> I know. I'm sorry.
         Mom: I wish I could see you more
-        <<LoadLevel GameManager goodDontForget>>
-        <<jump GoodApologies>>
+        <<LoadLevel GameManager IMG_Gay>>
+        <<jump IMG_Gay>>
 ===
 
 title: GoodApologies
