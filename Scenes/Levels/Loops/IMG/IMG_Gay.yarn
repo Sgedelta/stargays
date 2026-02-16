@@ -1,0 +1,8 @@
+title: IMG_Gay
+---
+Mom: What do you mean?
+	-> I'm gay.
+		<<LoadLevel GameManager IMG_Husband>>
+        <<jump IMG_Husband>>
+	-> Never mind.
+===
