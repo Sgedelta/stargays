@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cu5k6kh7enopg"]
+
+[ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_tfaff"]
+[ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_3giy6"]
+
+[node name="TestLevel" type="Node2D" unique_id=1817164843 node_paths=PackedStringArray("_starConnectLine")]
+script = ExtResource("1_tfaff")
+_starConnectLine = NodePath("Line2D")
+
+[node name="I" parent="." unique_id=946213963 instance=ExtResource("2_3giy6")]
+position = Vector2(286, 281)
+ExactKey = "I"
+
+[node name="still" parent="." unique_id=1642314158 instance=ExtResource("2_3giy6")]
+position = Vector2(3166, 1347)
+ExactKey = "still"
+
+[node name="want" parent="." unique_id=1955365753 instance=ExtResource("2_3giy6")]
+position = Vector2(3919, 1037)
+ExactKey = "want"
+
+[node name="don\'t" parent="." unique_id=1179971738 instance=ExtResource("2_3giy6")]
+position = Vector2(1610, 168)
+ExactKey = "dont"
+
+[node name="kids_" parent="." unique_id=784748779 instance=ExtResource("2_3giy6")]
+position = Vector2(4032, 344)
+ExactKey = "kids."
+
+[node name="Line2D" type="Line2D" parent="." unique_id=905913903]
+width = 10.77

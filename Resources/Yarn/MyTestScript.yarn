@@ -1,4 +1,4 @@
-﻿title: GoodLoop
+title: GoodLoop
 ---
 Mom: 아이고, 우리 딸. 너무 말랐어! 잘 먹어야 해. aigo, my daughter. you’re so thin! you need to eat well. 
     -> I know.
@@ -70,9 +70,11 @@ title: GoodChoices
 Mom: ...
 Mom: How long have you known?
     -> A few years.
-        <<LoadLevel GameManager gameOver>>
+        <<LoadLevel GameManager Tell>>
+        <<jump Tell>>
     -> A long time.
-        <<LoadLevel GameManager gameOver>>
+        <<LoadLevel GameManager Tell>>
+        <<jump Tell>>
 
 
 

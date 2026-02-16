@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarnscript"
+type="Resource"
+uid="uid://xvdw6wgy75hq"
+path="res://.godot/imported/IMG_Gay.yarn-91c99f5f72f30764b499d391681edfd3.tres"
+
+[deps]
+
+source_file="res://Scenes/Levels/Loops/IMG/IMG_Gay.yarn"
+dest_files=["res://.godot/imported/IMG_Gay.yarn-91c99f5f72f30764b499d391681edfd3.tres"]
+
+[params]
+

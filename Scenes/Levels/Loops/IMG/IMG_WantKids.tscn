@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bc725rm24v1o0"]
+
+[ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_ocq5q"]
+[ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_k45wq"]
+
+[node name="TestLevel" type="Node2D" unique_id=1817164843 node_paths=PackedStringArray("_starConnectLine")]
+script = ExtResource("1_ocq5q")
+_starConnectLine = NodePath("Line2D")
+
+[node name="I\'m" parent="." unique_id=946213963 instance=ExtResource("2_k45wq")]
+position = Vector2(286, 281)
+ExactKey = "I'm"
+
+[node name="I think" parent="." unique_id=787851773 instance=ExtResource("2_k45wq")]
+position = Vector2(1373, 1441)
+ExactKey = "I think"
+
+[node name="I like" parent="." unique_id=1780023978 instance=ExtResource("2_k45wq")]
+position = Vector2(936, 938)
+ExactKey = "I like"
+
+[node name="gay_" parent="." unique_id=1642314158 instance=ExtResource("2_k45wq")]
+position = Vector2(3166, 1347)
+ExactKey = "gay."
+
+[node name="girls_" parent="." unique_id=1955365753 instance=ExtResource("2_k45wq")]
+position = Vector2(3919, 1037)
+ExactKey = "girls."
+
+[node name="Never" parent="." unique_id=1179971738 instance=ExtResource("2_k45wq")]
+position = Vector2(1610, 168)
+ExactKey = "Never"
+
+[node name="mind_" parent="." unique_id=784748779 instance=ExtResource("2_k45wq")]
+position = Vector2(4032, 344)
+ExactKey = "mind."
+
+[node name="Line2D" type="Line2D" parent="." unique_id=905913903]
+width = 10.77

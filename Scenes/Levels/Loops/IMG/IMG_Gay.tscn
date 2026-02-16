@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bwtr85wkba343"]
+
+[ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_l3dhs"]
+[ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_5dh4l"]
+
+[node name="TestLevel" type="Node2D" unique_id=1817164843 node_paths=PackedStringArray("_starConnectLine")]
+script = ExtResource("1_l3dhs")
+_starConnectLine = NodePath("Line2D")
+
+[node name="I\'m" parent="." unique_id=946213963 instance=ExtResource("2_5dh4l")]
+position = Vector2(842, 492)
+ExactKey = "I'm"
+
+[node name="gay_" parent="." unique_id=1642314158 instance=ExtResource("2_5dh4l")]
+position = Vector2(3355, 1606)
+ExactKey = "gay."
+
+[node name="Never" parent="." unique_id=1179971738 instance=ExtResource("2_5dh4l")]
+position = Vector2(2366, 571)
+ExactKey = "Never"
+
+[node name="mind_" parent="." unique_id=784748779 instance=ExtResource("2_5dh4l")]
+position = Vector2(3028, 780)
+ExactKey = "mind."
+
+[node name="Line2D" type="Line2D" parent="." unique_id=905913903]
+width = 10.77
