@@ -23,9 +23,16 @@ public partial class Star : Area2D
     }
 
     //a helper method for selecting the star, so multiple input paths can route to here. In case we want keyboard support and to stay DRY
-    public void SelectThisStar()
+    public void SetStarSelected(bool select)
     {
-        GameManager.Instance.LevelManager.SelectStar(this);
+        if(select)
+        {
+            GameManager.Instance.LevelManager.SelectStar(this);
+        }
+        else
+        {
+            GameManager.Instance.LevelManager.DeselectStar(this);
+        }
     }
 
     //handles mouse input from input_event signal
@@ -52,7 +59,7 @@ public partial class Star : Area2D
     {
         if(@event.IsAction("StarSelect") && @event.Pressed)
         {
-            SelectThisStar();
+            SetStarSelected(true);
         }
     }
 
@@ -60,7 +67,14 @@ public partial class Star : Area2D
     {
         if (GameManager.Instance.LevelManager.StarsAreSelected)
         {
-            SelectThisStar();
+            if(GameManager.Instance.LevelManager.IsStarSelected(this))
+            {
+                GameManager.Instance.LevelManager.DeselectStarsIncludingIndex(GameManager.Instance.LevelManager.GetStarIndex(this));
+            }
+            else
+            {
+                SetStarSelected(true);
+            }
         }
     }
 

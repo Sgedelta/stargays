@@ -27,7 +27,18 @@ public partial class LevelManager : Node2D
         _selectedStars = new Godot.Collections.Array<Star>();
 
         Modulate = Color.FromHtml("ffffff00");
-        
+
+        Tween starConnectTween = GetTree().CreateTween();
+
+        //make loop and animate right
+        starConnectTween.SetLoops();
+        starConnectTween.SetTrans(Tween.TransitionType.Sine);
+
+        //do the animation
+        starConnectTween.TweenProperty(_starConnectLine, "width", 14, 2).From(8);
+        starConnectTween.TweenProperty(_starConnectLine, "width", 8, 2).From(14);
+
+
     }
 
     public override void _Process(double delta)
@@ -64,9 +75,8 @@ public partial class LevelManager : Node2D
         ConstructKey();
         if (IsStarSequenceValid())
         {
-            //Nothing for now! lol. TODO
             GameManager.Instance.InputTaskCompletionSource.TrySetResult(GameManager.Instance.ValidInputs[constructedKey]);
-            DeselectAllStarsAnimated();
+            //DeselectAllStarsAnimated();
         } 
         else
         {
@@ -182,8 +192,22 @@ public partial class LevelManager : Node2D
     {
         if (IsStarSelected(star))
         {
+            GD.Print($"[LM] Removed star {star.Name}");
             _selectedStars.Remove(star);
         }
+    }
+
+    public void DeselectStarsIncludingIndex(int index)
+    {
+        for(int i = _selectedStars.Count-1; i >= index; i--)
+        {
+            _selectedStars.RemoveAt(i);
+        }
+    }
+
+    public int GetStarIndex(Star star)
+    {
+        return _selectedStars.IndexOf(star);
     }
 
     public void UpdateStarLine()
