@@ -4,12 +4,12 @@ Mom: 아이고, 우리 딸. 너무 말랐어! 잘 먹어야 해. aigo, my daught
     -> I know.
         Mom: I wish I could see you more
             -> I'm sorry.
-                <<LoadLevel GameManager goodDontForget>>
-                <<jump GoodApologies>>
+                <<LoadLevel GameManager IMG_Gay>>
+                <<jump IMG_Gay>>
     -> I know. I'm sorry.
         Mom: I wish I could see you more
-        <<LoadLevel GameManager IMG_Gay>>
-        <<jump IMG_Gay>>
+        <<LoadLevel GameManager goodDontForget>>
+        <<jump GoodApologies>>
 ===
 
 title: GoodApologies

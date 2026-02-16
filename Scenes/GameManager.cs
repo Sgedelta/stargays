@@ -23,11 +23,11 @@ public partial class GameManager : Node
 		{"goodConfession",  ResourceLoader.Load<PackedScene>("res://Scenes/Levels/ThirdTest.tscn")},
 		{"goodClarify",     ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FourthTest.tscn") },
 		{"goodChoices",     ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FifthTest.tscn") },
-		{"Tell",     ResourceLoader.Load<PackedScene>("res://Scenes/Levels/Loops/TELL.tscn") }, 
-		{"IMG_Gay", ResourceLoader.Load<PackedScene>("res://Scenes/Levels/Loops/IMG/IMG_Gay.tscn")},
-		{"IMG_Husband", ResourceLoader.Load<PackedScene>("res://Scenes/Levels/Loops/IMG/IMG_Husband.tscn")},
-		{"IMG_WantKids", ResourceLoader.Load<PackedScene>("res://Scenes/Levels/Loops/IMG/IMG_WantKids.tscn")},
-		{"IMG_NoKids", ResourceLoader.Load<PackedScene>("res://Scenes/Levels/Loops/IMG/IMG_NoKids.tscn") }
+		{"Tell",			ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/TELL.tscn") }, 
+		{"IMG_Gay",			ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/IMG/IMG_Gay.tscn")},
+		{"IMG_Husband",		ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/IMG/IMG_Husband.tscn")},
+		{"IMG_WantKids",	ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/IMG/IMG_WantKids.tscn")},
+		{"IMG_NoKids",		ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/IMG/IMG_NoKids.tscn") }
 
 	};
 

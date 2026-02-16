@@ -1,9 +1,7 @@
 {
   "projectFileVersion": 3,
   "sourceFiles": [
-    "**/*.yarn",
-    "res://Scenes/Levels/**/*.yarn",
-    "Scenes/Levels/**/*.yarn"
+    "**/*.yarn"
   ],
   "excludeFiles": [],
   "localisation": {},

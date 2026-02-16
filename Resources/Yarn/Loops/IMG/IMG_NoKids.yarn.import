@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarnscript"
+type="Resource"
+uid="uid://cd7sjl33jxkrs"
+path="res://.godot/imported/IMG_NoKids.yarn-8b505f759cd301e75695b46e9e362f74.tres"
+
+[deps]
+
+source_file="res://Resources/Yarn/Loops/IMG/IMG_NoKids.yarn"
+dest_files=["res://.godot/imported/IMG_NoKids.yarn-8b505f759cd301e75695b46e9e362f74.tres"]
+
+[params]
+
