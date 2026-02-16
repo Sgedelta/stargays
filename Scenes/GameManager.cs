@@ -27,7 +27,7 @@ public partial class GameManager : Node
 		{"IMG_Gay", ResourceLoader.Load<PackedScene>("res://Scenes/Levels/Loops/IMG/IMG_Gay.tscn")},
 		{"IMG_Husband", ResourceLoader.Load<PackedScene>("res://Scenes/Levels/Loops/IMG/IMG_Husband.tscn")},
 		{"IMG_WantKids", ResourceLoader.Load<PackedScene>("res://Scenes/Levels/Loops/IMG/IMG_WantKids.tscn")},
-
+		{"IMG_NoKids", ResourceLoader.Load<PackedScene>("res://Scenes/Levels/Loops/IMG/IMG_NoKids.tscn") }
 
 	};
 
