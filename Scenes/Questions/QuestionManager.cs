@@ -22,6 +22,8 @@ public partial class QuestionManager : CanvasLayer
 
     private bool _firstShow = true;
 
+    private bool _allowInput = true;
+
 
     public override void _Ready()
     {
@@ -33,9 +35,29 @@ public partial class QuestionManager : CanvasLayer
         
     }
 
+    public void ModulateAll(float progress)
+    {
+        try
+        {
+            Color c = new Color(1, 1, 1, progress);
+            _questionText.Modulate = c;
+            _container.Modulate = c;
+            GetNode<Sprite2D>("%QuestionsBG").Modulate = c;
+        }
+        catch (Exception ex)
+        {
+            //sometimes they are disposed and womp womp. nothin to do about it.
+            return;
+        }
+
+    }
+
 
     public void DisplayQuestion(QuestionSettings newQuestion)
     {
+        if(!_allowInput) { return; }
+        _allowInput = false;
+
         //if we didn't get a question, don't do anything
         if(newQuestion == null)
         {
@@ -74,7 +96,7 @@ public partial class QuestionManager : CanvasLayer
                 case ButtonStates.ACTIVE:
                     newBut.Disabled = false; //should be false by default, but jic
                     newBut.Pressed += () => 
-                    { 
+                    {
                         DisplayQuestion(GameManager.Instance.LoadNextQuestion()); 
                     };
                     break;
@@ -108,13 +130,17 @@ public partial class QuestionManager : CanvasLayer
         VSeparator finalSep = (VSeparator)_separator.Duplicate();
         _container.AddChild(finalSep);
         finalSep.Modulate = Color.FromHtml("#ffffff00");
-        
+        _separatorsAndButtons.Add(finalSep);
+
         //set visible and update text later
-        GetTree().CreateTween().TweenCallback(Callable.From(() => {
+        Tween finalSepTween = GetTree().CreateTween();
+            
+        finalSepTween.TweenCallback(Callable.From(() => {
             finalSep.Visible = true;
             _questionText.Text = _activeQuestion.QuestionText;
         })).SetDelay(GameManager.Instance.FadeTime);
 
+        finalSepTween.TweenCallback(Callable.From(() => { _allowInput = true; }));
 
 
         // now show new buttons

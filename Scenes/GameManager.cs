@@ -33,6 +33,7 @@ public partial class GameManager : Node
    
 	private Godot.Collections.Dictionary<string, PackedScene> _levels = new Godot.Collections.Dictionary<string, PackedScene> 
 	{
+        {"questions",       ResourceLoader.Load<PackedScene>("res://Scenes/Questions/question_base.tscn")},
 		{"firstLevel",      ResourceLoader.Load<PackedScene>("res://Scenes/Levels/TestLevel.tscn")},
 		{"goodDontForget",  ResourceLoader.Load<PackedScene>("res://Scenes/Levels/SecondTest.tscn")},
 		{"gameOver",        ResourceLoader.Load<PackedScene>("res://Scenes/game_over.tscn")},
@@ -93,7 +94,17 @@ public partial class GameManager : Node
 	[YarnCommand("LoadLevel")]
 	public void LoadLevel(string name)
 	{
-		PackedScene newLevel;
+        //check of questions to hide the 
+        if(name == "questions")
+        {
+            GetNode<CanvasLayer>("../MainGame/YarnSpinnerCanvasLayer").Visible = false;
+        }
+        else
+        {
+            GetNode<CanvasLayer>("../MainGame/YarnSpinnerCanvasLayer").Visible = true;
+        }
+
+        PackedScene newLevel;
 		if (!_levels.TryGetValue(name, out newLevel))
 		{
 			GD.PrintErr($"[GM] Failed to load level {name} because level was not in levelDictionary!");
@@ -106,20 +117,19 @@ public partial class GameManager : Node
 		{
 			Node oldLevel = _levelManager;
 			fadeOut.TweenProperty(_levelManager, "modulate", Color.FromHtml("ffffff00"), FadeTime).From(Color.FromHtml("ffffffff"));
-			fadeOut.TweenCallback(Callable.From(() => { oldLevel.QueueFree(); }));
+			fadeOut.TweenCallback(Callable.From(() => { 
+                oldLevel.QueueFree();
+                if (_levelManager == oldLevel)
+                {
+                    _levelManager = null;
+                }
+            }));
 		}
 
 		Node loadedLevel = newLevel.Instantiate();
 
 		GetTree().Root.GetNode("MainGame").AddChild(loadedLevel);
 
-		fadeOut.TweenCallback(Callable.From(() => {
-
-			
-
-			//loadedLevel.Modulate = Color.FromHtml("ffffff00");
-
-		}));
 
 		
 		
@@ -171,6 +181,12 @@ public partial class GameManager : Node
         {
             GenerateQuestionList();
             LoadLevel("Tell");
+            //we need to manually fade out questions, because LoadLevel attempts to fade out the prev level manager
+            //  (this is a terrible way to do this, and not at ALL DRY. Womp Womp! three week project)
+            Tween fadeOut = GetTree().CreateTween();
+            QuestionManager questionsLevel = (QuestionManager)GetNode("/root/MainGame/QuestionBase");
+            fadeOut.TweenMethod(Callable.From<float>((x) => { questionsLevel.ModulateAll(x); }), 1.0f, 0.0f, FadeTime);
+            fadeOut.TweenCallback(Callable.From(() => { questionsLevel.QueueFree(); }));
         }
         return null;
     }

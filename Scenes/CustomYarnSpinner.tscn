@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://cw34krhlw8yvs" path="res://Resources/Yarn/CustomLineAdvancer.cs" id="10_8o7va"]
 
 [node name="YarnSpinnerCanvasLayer" type="CanvasLayer" unique_id=959613526]
+layer = 5
 
 [node name="DialogueRunner" type="Control" parent="." unique_id=1203846596 node_paths=PackedStringArray("variableStorage", "lineProvider", "dialoguePresenters")]
 layout_mode = 3

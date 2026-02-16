@@ -2,11 +2,10 @@
 
 [ext_resource type="Script" uid="uid://c0sn840uv78kd" path="res://Scenes/Questions/QuestionManager.cs" id="1_wbvru"]
 [ext_resource type="Theme" uid="uid://f2xm7rbj65bb" path="res://Resources/Themes/ButtonTheme.tres" id="2_eeayp"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wbvru"]
-size = Vector2(3840, 2160)
+[ext_resource type="Texture2D" uid="uid://dqv5kv5s706ho" path="res://Resources/Sprites/BlackScreen.png" id="3_eeayp"]
 
 [node name="QuestionBase" type="CanvasLayer" unique_id=1226519693 node_paths=PackedStringArray("_questionText", "_container", "_separator", "_button")]
+layer = 80
 script = ExtResource("1_wbvru")
 _questionText = NodePath("QuestionLabel")
 _container = NodePath("OptionsHFlow")
@@ -52,10 +51,11 @@ size_flags_stretch_ratio = 5.0
 theme = ExtResource("2_eeayp")
 text = "Yes"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1642471013]
+[node name="QuestionsBG" type="Sprite2D" parent="." unique_id=1642471013]
+unique_name_in_owner = true
 modulate = Color(0, 0, 0, 1)
 show_behind_parent = true
 z_index = -1
 texture_filter = 1
 position = Vector2(1920, 1080)
-texture = SubResource("PlaceholderTexture2D_wbvru")
+texture = ExtResource("3_eeayp")
