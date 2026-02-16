@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using YarnSpinnerGodot;
 
 public partial class GameManager : Node
@@ -13,6 +14,23 @@ public partial class GameManager : Node
     //we should use godot arrays/dictionaries, but DialogueOptions are not Variant type!
     public Dictionary<string, DialogueOption> ValidInputs;
     public YarnTaskCompletionSource<DialogueOption> InputTaskCompletionSource;
+    
+    
+    private Godot.RandomNumberGenerator rng = new Godot.RandomNumberGenerator();
+
+    private PackedScene _questionBase = ResourceLoader.Load<PackedScene>("res://Scenes/Questions/question_base.tscn");
+
+    private int _questionIndex = 0;
+
+    private Godot.Collections.Array<QuestionSettings> _possibleQuestions = new Godot.Collections.Array<QuestionSettings>()
+    {
+        ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/IsThatHowItHappenedYesNo.tres"),
+        ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/AreYouHappy.tres")
+    };
+
+    private List<QuestionSettings> _generatedQuestions = new List<QuestionSettings>();
+
+   
 
 
     private Godot.Collections.Dictionary<string, PackedScene> _levels = new Godot.Collections.Dictionary<string, PackedScene> 
@@ -35,6 +53,7 @@ public partial class GameManager : Node
         if(Instance == null)
         {
             Instance = this;
+            StartNewGame();
         }
         else
         {
@@ -48,6 +67,19 @@ public partial class GameManager : Node
     public override void _Process(double delta)
     {
         
+    }
+
+    /// <summary>
+    /// Sets the internal data to a "new game" state, (currently) run on startup
+    /// </summary>
+    public void StartNewGame()
+    {
+        _questionIndex = 0;
+
+        _generatedQuestions.Clear();
+        _generatedQuestions.Add(ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/IsThatHowItHappenedNo.tres"));
+        _generatedQuestions.Add(ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/AreYouHappyNo.tres"));
+
     }
 
     public void SetActiveLevel(LevelManager newLevel)
@@ -98,4 +130,47 @@ public partial class GameManager : Node
         _levelManager.ShowStars();
     }
 
+
+    public void GenerateQuestionList()
+    {
+        //clear the old list and reset where we are
+        _generatedQuestions.Clear();
+        _questionIndex = 0;
+
+        //shuffle array order the _possibleQuestions correctly. 
+        //  this randomizes order of equally "ordered" questions. Not great but like. fuck effeciency this does not run a lot.
+        QuestionSettings[] shuffledSettings = _possibleQuestions.OrderBy(x => rng.RandiRange(0, 100)).ToArray();
+                           shuffledSettings = _possibleQuestions.OrderBy(_possibleQuestions => _possibleQuestions.QuestionOrder).ToArray();
+
+        //roll for each question and add them
+        foreach (var question in _possibleQuestions)
+        {
+            if(rng.Randf() <= question.ChanceToPick)
+            {
+                _generatedQuestions.Add(question);
+            }
+        }
+
+    }
+
+    /// <summary>
+    /// either passes a QuestionSettings to the Level Manager which calls this, OR returns null if there are no questions left
+    /// </summary>
+    /// <returns></returns>
+    public QuestionSettings LoadNextQuestion()
+    {
+        //we have questions
+        if(_questionIndex < _generatedQuestions.Count)
+        {
+            _questionIndex++;
+            return _generatedQuestions[_questionIndex-1];
+        }
+        //we're out of questions now - go back to the start for now
+        else
+        {
+            GenerateQuestionList();
+            LoadLevel("Tell");
+        }
+        return null;
+    }
 }

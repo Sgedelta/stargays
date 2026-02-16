@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="QuestionSettings" format=3 uid="uid://cjjh27n5mmq7r"]
+
+[ext_resource type="Script" uid="uid://b2lryroerg587" path="res://Resources/Questions/QuestionSettings.cs" id="1_4ynbr"]
+
+[resource]
+script = ExtResource("1_4ynbr")
+QuestionText = "Is that how it happened?"
+ChanceToPick = 1.0
+QuestionOrder = 99
+Options = Array[String](["Yes", "No"])
+OptionStates = Array[int]([1, 0])
+metadata/_custom_type_script = "uid://b2lryroerg587"

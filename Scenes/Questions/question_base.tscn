@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bt55mb1ic25bq"]
+
+[ext_resource type="Script" uid="uid://c0sn840uv78kd" path="res://Scenes/Questions/QuestionManager.cs" id="1_wbvru"]
+[ext_resource type="Theme" uid="uid://f2xm7rbj65bb" path="res://Resources/Themes/ButtonTheme.tres" id="2_eeayp"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wbvru"]
+size = Vector2(3840, 2160)
+
+[node name="QuestionBase" type="CanvasLayer" unique_id=1226519693 node_paths=PackedStringArray("_questionText", "_container", "_separator", "_button")]
+script = ExtResource("1_wbvru")
+_questionText = NodePath("QuestionLabel")
+_container = NodePath("OptionsHFlow")
+_separator = NodePath("OptionsHFlow/VSeparator")
+_button = NodePath("OptionsHFlow/Button")
+
+[node name="QuestionLabel" type="Label" parent="." unique_id=2129756820]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 240.0
+offset_top = 585.0
+offset_right = -240.0
+offset_bottom = 855.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 128
+text = "Is that how it happened?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionsHFlow" type="HFlowContainer" parent="." unique_id=69079448]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 240.0
+offset_top = 1125.0
+offset_right = -240.0
+offset_bottom = 1395.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="OptionsHFlow" unique_id=2055229692]
+visible = false
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="OptionsHFlow" unique_id=1053175939]
+visible = false
+custom_minimum_size = Vector2(270, 270)
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_stretch_ratio = 5.0
+theme = ExtResource("2_eeayp")
+text = "Yes"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1642471013]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+z_index = -1
+texture_filter = 1
+position = Vector2(1920, 1080)
+texture = SubResource("PlaceholderTexture2D_wbvru")
