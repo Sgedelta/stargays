@@ -1,15 +1,17 @@
 title: IMG_Change
 ---
-Mom: You son't know what you're talking about.
+Mom: You don't know what you're talking about.
 Mom: Just forget about all of this.
 	-> This is who I am.
 		Mom: I know you, my daughter. This isn't you.
 		Mom: Stop talking nonsense. Stop thinking nonsense.
 		Mom: You'll regret lying to yourself like this.
-		<<LoadLevel GameManager gameOver>>
+		<<LoadLevel GameManager questions>>
+		<<jump Tell>>
 	-> I can't change who I am.
 		Mom: I know you, my daughter. This isn't you.
 		Mom: Stop talking nonsense. Stop thinking nonsense.
 		Mom: You'll regret lying to yourself like this.
-		<<LoadLevel GameManager gameOver>>
+		<<LoadLevel GameManager questions>>
+		<<jump Tell>>
 ===

@@ -8,8 +8,12 @@ public partial class GameManager : Node
 {
 	public static GameManager Instance {get; private set;}
 
+    public GameManager InstanceButForGD { get { return Instance;} }
+
 	private LevelManager _levelManager;
 	public LevelManager LevelManager { get { return _levelManager; } }
+
+    public string FirstLevelName;
 
     //we should use godot arrays/dictionaries, but DialogueOptions are not Variant type!
     public Dictionary<string, DialogueOption> ValidInputs;
@@ -190,5 +194,14 @@ public partial class GameManager : Node
             fadeOut.TweenCallback(Callable.From(() => { questionsLevel.QueueFree(); }));
         }
         return null;
+    }
+
+
+
+    //Yarn Data Retrieval (because I can't figure out how to query it in yarn for godot :[ )
+    [YarnFunction("get_first_level_name")]
+    public static string GetFirstLevelName()
+    {
+        return Instance.FirstLevelName;
     }
 }

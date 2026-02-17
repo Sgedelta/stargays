@@ -164,6 +164,8 @@ public partial class QuestionManager : CanvasLayer
         _separatorsAndButtons.Clear();
 
         GetTree().CreateTween().TweenProperty(_questionText, "modulate", Color.FromHtml("#ffffff00"), GameManager.Instance.FadeTime);
+
+
     }
 
 

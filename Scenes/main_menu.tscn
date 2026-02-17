@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dk8xo1vexjidj"]
 
-[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_28flt"]
+[ext_resource type="Script" uid="uid://llhneou7b37q" path="res://Scenes/main_menu.gd" id="1_28flt"]
 [ext_resource type="SpriteFrames" uid="uid://bpiw80comy56k" path="res://Resources/Sprites/BGFrames.tres" id="2_48xlc"]
 [ext_resource type="AudioStream" uid="uid://dbee1thgp6v8" path="res://Resources/Audiofiles/Ambient.wav" id="3_1ehe0"]
 
-[node name="MainMenu" type="Control" unique_id=666148174]
+[node name="MainMenu" type="Control" unique_id=912024622]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,35 +14,51 @@ grow_vertical = 2
 script = ExtResource("1_28flt")
 firstLevelName = "Tell"
 
-[node name="Button" type="Button" parent="." unique_id=1819916982]
+[node name="GoodLoop" type="Button" parent="." unique_id=1898732536]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -125.0
+offset_left = -400.0
 offset_top = -50.0
-offset_right = 125.0
+offset_right = -150.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
-text = "Play"
+text = "Play Good"
 
-[node name="Background" type="AnimatedSprite2D" parent="." unique_id=1059017384]
+[node name="BadLoop" type="Button" parent="." unique_id=1288789514]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -50.0
+offset_right = 350.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+text = "Play Bad"
+
+[node name="Background" type="AnimatedSprite2D" parent="." unique_id=1372086288]
 unique_name_in_owner = true
 z_index = -100
 texture_filter = 1
 scale = Vector2(6, 6)
 sprite_frames = ExtResource("2_48xlc")
-frame_progress = 0.33616024
+frame_progress = 0.33616
 offset = Vector2(320, 180)
 
-[node name="AmbientMusic" type="AudioStreamPlayer" parent="." unique_id=1197224480]
+[node name="AmbientMusic" type="AudioStreamPlayer" parent="." unique_id=1459831981]
 stream = ExtResource("3_1ehe0")
 volume_db = -6.7
 autoplay = true
-stream_paused = true
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="GoodLoop" to="." method="_on_chose_good_loop"]
+[connection signal="pressed" from="BadLoop" to="." method="_on_chose_bad_loop"]

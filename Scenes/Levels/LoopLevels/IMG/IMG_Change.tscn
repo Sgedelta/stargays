@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_fm6hq"]
 [ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_ro1kn"]
 
-[node name="TestLevel" type="Node2D" unique_id=1817164843 node_paths=PackedStringArray("_starConnectLine")]
+[node name="TestLevel" type="Node2D" unique_id=1817164843]
 script = ExtResource("1_fm6hq")
-_starConnectLine = NodePath("Line2D")
 
 [node name="This is" parent="." unique_id=946213963 instance=ExtResource("2_ro1kn")]
 position = Vector2(1676, 137)
@@ -31,5 +30,6 @@ ExactKey = "can't"
 position = Vector2(2694, 1121)
 ExactKey = "change"
 
-[node name="Line2D" type="Line2D" parent="." unique_id=905913903]
+[node name="StarInputLine" type="Line2D" parent="." unique_id=905913903]
+unique_name_in_owner = true
 width = 10.77

@@ -9,7 +9,7 @@ public partial class LevelManager : Node2D
 
 	private Godot.Collections.Array<Star> _selectedStars;
 
-	[Export] private Line2D _starConnectLine;
+	private Line2D _starConnectLine;
 	[Export] private float StarDeselectSpeed = 1500;
 
 	private bool _isDeselecting = false;
@@ -19,7 +19,7 @@ public partial class LevelManager : Node2D
 	public bool StarsAreSelected { get { return _selectedStars.Count > 0; } }
 
 	private bool _starsAlreadyShown = false;
-
+	private bool _lineFollowsMouse = true;
 
 	public override void _Ready()
 	{
@@ -27,8 +27,9 @@ public partial class LevelManager : Node2D
 		_selectedStars = new Godot.Collections.Array<Star>();
 
 		Modulate = Color.FromHtml("ffffff00");
-		
-	}
+
+		_starConnectLine = GetNode<Line2D>("%StarInputLine"); 
+    }
 
 	public override void _Process(double delta)
 	{
@@ -66,7 +67,8 @@ public partial class LevelManager : Node2D
 		{
 			//Nothing for now! lol. TODO
 			GameManager.Instance.InputTaskCompletionSource.TrySetResult(GameManager.Instance.ValidInputs[constructedKey]);
-			DeselectAllStarsAnimated();
+			_lineFollowsMouse = false;
+			//DeselectAllStarsAnimated();
 		} 
 		else
 		{
@@ -188,7 +190,8 @@ public partial class LevelManager : Node2D
 
 	public void UpdateStarLine()
 	{
-		if(_isDeselecting)
+
+        if (_isDeselecting)
 		{
 			//can't update this, because we're already updating line position in the deanimation code!
 			return;
@@ -204,6 +207,14 @@ public partial class LevelManager : Node2D
 			_starConnectLine.AddPoint(star.Position);
 		}
 
-		_starConnectLine.AddPoint(GetViewport().GetMousePosition());
+		if(_lineFollowsMouse)
+		{
+            _starConnectLine.AddPoint(GetViewport().GetMousePosition());
+        }
+
+		
+		
 	}
+
+
 }

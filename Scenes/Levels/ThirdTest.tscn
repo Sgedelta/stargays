@@ -3,10 +3,9 @@
 [ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_osbg1"]
 [ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_fl1jy"]
 
-[node name="TestLevel" type="Node2D" unique_id=1817164843 node_paths=PackedStringArray("_starConnectLine")]
+[node name="TestLevel" type="Node2D" unique_id=1817164843]
 texture_filter = 1
 script = ExtResource("1_osbg1")
-_starConnectLine = NodePath("Line2D")
 
 [node name="Star" parent="." unique_id=946213963 instance=ExtResource("2_fl1jy")]
 position = Vector2(763, 719)
@@ -56,5 +55,6 @@ ExactKey = "you"
 position = Vector2(2528, 479)
 ExactKey = "something"
 
-[node name="Line2D" type="Line2D" parent="." unique_id=905913903]
+[node name="StarInputLine" type="Line2D" parent="." unique_id=905913903]
+unique_name_in_owner = true
 width = 10.77

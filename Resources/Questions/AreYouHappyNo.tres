@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="QuestionSettings" format=3 uid="uid://djbh2rxhv7ef6"]
+[gd_resource type="Resource" format=3 uid="uid://djbh2rxhv7ef6"]
 
 [ext_resource type="Script" uid="uid://b2lryroerg587" path="res://Resources/Questions/QuestionSettings.cs" id="1_v0xod"]
 

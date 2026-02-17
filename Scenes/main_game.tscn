@@ -3,28 +3,34 @@
 [ext_resource type="SpriteFrames" uid="uid://bpiw80comy56k" path="res://Resources/Sprites/BGFrames.tres" id="1_l756w"]
 [ext_resource type="Script" uid="uid://wsytftlk8qgo" path="res://Scenes/MainGame.cs" id="2_pu3va"]
 [ext_resource type="PackedScene" uid="uid://bcjsaqxmdlw5o" path="res://Scenes/CustomYarnSpinner.tscn" id="3_0e3vx"]
+[ext_resource type="AudioStream" uid="uid://dbee1thgp6v8" path="res://Resources/Audiofiles/Ambient.wav" id="4_6j5ir"]
 
-[node name="MainGame" type="Node2D" unique_id=1481302335]
+[node name="MainGame" type="Node2D" unique_id=831551570]
 script = ExtResource("2_pu3va")
 
-[node name="Background" type="AnimatedSprite2D" parent="." unique_id=68461879]
+[node name="Background" type="AnimatedSprite2D" parent="." unique_id=1132984170]
 unique_name_in_owner = true
 z_index = -100
 texture_filter = 1
 scale = Vector2(6, 6)
 sprite_frames = ExtResource("1_l756w")
-frame_progress = 0.1294048
+frame_progress = 0.129405
 offset = Vector2(320, 180)
 
-[node name="YarnSpinnerCanvasLayer" parent="." unique_id=959613526 instance=ExtResource("3_0e3vx")]
+[node name="YarnSpinnerCanvasLayer" parent="." unique_id=362095363 instance=ExtResource("3_0e3vx")]
 layer = 88
 
-[node name="DialogueRunner" parent="YarnSpinnerCanvasLayer" index="0" unique_id=1203846596]
+[node name="DialogueRunner" parent="YarnSpinnerCanvasLayer" index="0"]
 autoStart = true
-startNode = "Tell"
+startNode = "JumpGoodOrBad"
 
-[node name="CharacterNameText" parent="YarnSpinnerCanvasLayer/LinePresenter/PresenterControl" parent_id_path=PackedInt32Array(959613526, 1521915086) index="2" unique_id=1582859137]
+[node name="CharacterNameText" parent="YarnSpinnerCanvasLayer/LinePresenter/PresenterControl" index="2"]
 offset_top = -219.0
 offset_bottom = -166.0
+
+[node name="AmbientMusic" type="AudioStreamPlayer" parent="." unique_id=1073870348]
+stream = ExtResource("4_6j5ir")
+volume_db = -6.7
+autoplay = true
 
 [editable path="YarnSpinnerCanvasLayer"]

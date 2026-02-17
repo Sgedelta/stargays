@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="1_76s6g"]
 [ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_a5nku"]
 
-[node name="ImgNoKids" type="Node2D" unique_id=1226190156 node_paths=PackedStringArray("_starConnectLine")]
+[node name="ImgNoKids" type="Node2D" unique_id=1226190156]
 script = ExtResource("1_a5nku")
-_starConnectLine = NodePath("Line2D")
 
-[node name="Line2D" type="Line2D" parent="." unique_id=685856291]
+[node name="StarInputLine" type="Line2D" parent="." unique_id=685856291]
+unique_name_in_owner = true
 
 [node name="No," parent="." unique_id=946213963 instance=ExtResource("1_76s6g")]
 position = Vector2(546, 585)
