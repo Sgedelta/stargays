@@ -10,6 +10,9 @@ Mom: What about kids?
 	<<LoadLevel GameManager IMG_WantKids>>
         <<jump IMG_WantKids>>
 	-> I don't want kids.
-
+	<<LoadLevel GameManager IMG_NoKids>>
+	<<jump IMG_NoKids>>
 	-> I still don't want kids.
+	<<LoadLevel GameManager IMG_NoKids>>
+	<<jump IMG_NoKids>>
 ===

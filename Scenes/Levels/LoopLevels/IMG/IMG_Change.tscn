@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bamyccfun26qq"]
+
+[ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_fm6hq"]
+[ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_ro1kn"]
+
+[node name="TestLevel" type="Node2D" unique_id=1817164843 node_paths=PackedStringArray("_starConnectLine")]
+script = ExtResource("1_fm6hq")
+_starConnectLine = NodePath("Line2D")
+
+[node name="This is" parent="." unique_id=946213963 instance=ExtResource("2_ro1kn")]
+position = Vector2(2136, 286)
+ExactKey = "This is"
+
+[node name="who" parent="." unique_id=432041246 instance=ExtResource("2_ro1kn")]
+position = Vector2(1642, 1022)
+ExactKey = "who"
+
+[node name="I" parent="." unique_id=1752437096 instance=ExtResource("2_ro1kn")]
+position = Vector2(1102, 1964)
+ExactKey = "I"
+
+[node name="I am_" parent="." unique_id=1642314158 instance=ExtResource("2_ro1kn")]
+position = Vector2(3075, 610)
+ExactKey = "I am."
+
+[node name="can\'t" parent="." unique_id=165119371 instance=ExtResource("2_ro1kn")]
+position = Vector2(2395, 2002)
+ExactKey = "can't"
+
+[node name="change" parent="." unique_id=784748779 instance=ExtResource("2_ro1kn")]
+position = Vector2(3154, 1270)
+ExactKey = "change"
+
+[node name="Line2D" type="Line2D" parent="." unique_id=905913903]
+width = 10.77
