@@ -84,8 +84,10 @@ public partial class GameManager : Node
         _questionIndex = 0;
 
         _generatedQuestions.Clear();
-        _generatedQuestions.Add(ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/IsThatHowItHappenedNo.tres"));
-        _generatedQuestions.Add(ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/AreYouHappyNo.tres"));
+        _generatedQuestions.Add(ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/FirstLoopQuestions/MomDead.tres"));
+        _generatedQuestions.Add(ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/FirstLoopQuestions/LastConversation.tres"));
+        _generatedQuestions.Add(ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/FirstLoopQuestions/IsThatHowItHappenedNo.tres"));
+        _generatedQuestions.Add(ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/FirstLoopQuestions/AreYouHappyNo.tres"));
 
     }
 
