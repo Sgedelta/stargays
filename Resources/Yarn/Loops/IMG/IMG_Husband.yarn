@@ -5,10 +5,10 @@ Mom: You need a husband to protect you.
 Mom: What about kids?
 	-> I want kids.
 		<<LoadLevel GameManager IMG_WantKids>>
-        <<jump IMG_WantKids>>
+		<<jump IMG_WantKids>>
 	-> I still want kids.
 		<<LoadLevel GameManager IMG_WantKids>>
-        <<jump IMG_WantKids>>
+		<<jump IMG_WantKids>>
 	-> I don't want kids.
 		<<LoadLevel GameManager IMG_NoKids>>
 		<<jump IMG_NoKids>>

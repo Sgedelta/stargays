@@ -21,7 +21,7 @@ layer = 88
 
 [node name="DialogueRunner" parent="YarnSpinnerCanvasLayer" index="0" unique_id=1203846596]
 autoStart = true
-startNode = "GoodLoop"
+startNode = "Tell"
 
 [node name="CharacterNameText" parent="YarnSpinnerCanvasLayer/LinePresenter/PresenterControl" parent_id_path=PackedInt32Array(959613526, 1521915086) index="2" unique_id=1582859137]
 offset_top = -219.0
