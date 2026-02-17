@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarnscript"
+type="Resource"
+uid="uid://dofaii6bfydlk"
+path="res://.godot/imported/IMG_Change.yarn-f1eb93d3e87e2df46c6220afe4b9e679.tres"
+
+[deps]
+
+source_file="res://Resources/Yarn/Loops/IMG/IMG_Change.yarn"
+dest_files=["res://.godot/imported/IMG_Change.yarn-f1eb93d3e87e2df46c6220afe4b9e679.tres"]
+
+[params]
+

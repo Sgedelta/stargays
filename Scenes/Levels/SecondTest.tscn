@@ -18,7 +18,7 @@ ExactKey = "dipper?"
 
 [node name="Star2" parent="." unique_id=787851773 instance=ExtResource("2_xqbku")]
 position = Vector2(1305, 562)
-ExactKey = "really"
+ExactKey = "really."
 
 [node name="Star3" parent="." unique_id=1780023978 instance=ExtResource("2_xqbku")]
 position = Vector2(2510, 850)
@@ -29,4 +29,3 @@ position = Vector2(693, 346)
 ExactKey = "The"
 
 [node name="Line2D" type="Line2D" parent="." unique_id=905913903]
-width = 10.77

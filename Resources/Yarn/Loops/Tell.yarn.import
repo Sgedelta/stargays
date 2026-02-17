@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarnscript"
+type="Resource"
+uid="uid://bf4vp4dv5fwui"
+path="res://.godot/imported/Tell.yarn-ee001980f4731259a9cd5d8cb7259969.tres"
+
+[deps]
+
+source_file="res://Resources/Yarn/Loops/Tell.yarn"
+dest_files=["res://.godot/imported/Tell.yarn-ee001980f4731259a9cd5d8cb7259969.tres"]
+
+[params]
+

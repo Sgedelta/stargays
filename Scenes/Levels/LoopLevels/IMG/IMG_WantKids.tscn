@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bc725rm24v1o0"]
+
+[ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_ocq5q"]
+[ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_k45wq"]
+
+[node name="TestLevel" type="Node2D" unique_id=1817164843 node_paths=PackedStringArray("_starConnectLine")]
+script = ExtResource("1_ocq5q")
+_starConnectLine = NodePath("Line2D")
+
+[node name="I" parent="." unique_id=787851773 instance=ExtResource("2_k45wq")]
+position = Vector2(3403, 1113)
+ExactKey = "I"
+
+[node name="don\'t know_" parent="." unique_id=1780023978 instance=ExtResource("2_k45wq")]
+position = Vector2(562, 1187)
+ExactKey = "don't know."
+
+[node name="think so_" parent="." unique_id=1642314158 instance=ExtResource("2_k45wq")]
+position = Vector2(578, 187)
+ExactKey = "think so."
+
+[node name="Line2D" type="Line2D" parent="." unique_id=905913903]
+width = 10.77

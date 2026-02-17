@@ -24,4 +24,4 @@ position = Vector2(2447, 1077)
 ExactKey = "sorry."
 
 [node name="Line2D" type="Line2D" parent="." unique_id=905913903]
-width = 10.77
+position = Vector2(-3622, 814)
