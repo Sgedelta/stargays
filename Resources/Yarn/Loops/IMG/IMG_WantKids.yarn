@@ -4,9 +4,9 @@ Mom: So you'll be raising a kid that isn't your own?
 Mom: Don't you want to be a mother to your own child?
 Mom: Will you really be happy like that?
 	->I think so.
-		<<LoadLevel GameManager IMC_Upset>>
+		<<LoadLevel GameManager IMG_Upset>>
 		<<jump IMG_Upset>>
 	->I don't know.
-		<<LoadLevel GameManager IMC_Change>>
+		<<LoadLevel GameManager IMG_Change>>
 		<<jump IMG_Change>>
 ===

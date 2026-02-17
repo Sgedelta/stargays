@@ -7,33 +7,17 @@
 script = ExtResource("1_ocq5q")
 _starConnectLine = NodePath("Line2D")
 
-[node name="I\'m" parent="." unique_id=946213963 instance=ExtResource("2_k45wq")]
-position = Vector2(289, 281)
-ExactKey = "I'm"
+[node name="I" parent="." unique_id=787851773 instance=ExtResource("2_k45wq")]
+position = Vector2(3403, 1113)
+ExactKey = "I"
 
-[node name="I think" parent="." unique_id=787851773 instance=ExtResource("2_k45wq")]
-position = Vector2(1472, 1011)
-ExactKey = "I think"
+[node name="don\'t know_" parent="." unique_id=1780023978 instance=ExtResource("2_k45wq")]
+position = Vector2(562, 1187)
+ExactKey = "don't know."
 
-[node name="I like" parent="." unique_id=1780023978 instance=ExtResource("2_k45wq")]
-position = Vector2(524, 730)
-ExactKey = "I like"
-
-[node name="gay_" parent="." unique_id=1642314158 instance=ExtResource("2_k45wq")]
-position = Vector2(1437, 528)
-ExactKey = "gay."
-
-[node name="girls_" parent="." unique_id=1955365753 instance=ExtResource("2_k45wq")]
-position = Vector2(2678, 819)
-ExactKey = "girls."
-
-[node name="Never" parent="." unique_id=1179971738 instance=ExtResource("2_k45wq")]
-position = Vector2(1610, 168)
-ExactKey = "Never"
-
-[node name="mind_" parent="." unique_id=784748779 instance=ExtResource("2_k45wq")]
-position = Vector2(2399, 379)
-ExactKey = "mind."
+[node name="think so_" parent="." unique_id=1642314158 instance=ExtResource("2_k45wq")]
+position = Vector2(578, 187)
+ExactKey = "think so."
 
 [node name="Line2D" type="Line2D" parent="." unique_id=905913903]
 width = 10.77

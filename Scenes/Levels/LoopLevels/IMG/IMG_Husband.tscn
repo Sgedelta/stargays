@@ -12,19 +12,19 @@ position = Vector2(286, 281)
 ExactKey = "I"
 
 [node name="still" parent="." unique_id=1642314158 instance=ExtResource("2_3giy6")]
-position = Vector2(3166, 1347)
+position = Vector2(1203, 1001)
 ExactKey = "still"
 
 [node name="want" parent="." unique_id=1955365753 instance=ExtResource("2_3giy6")]
-position = Vector2(3919, 1037)
+position = Vector2(2769, 1236)
 ExactKey = "want"
 
 [node name="don\'t" parent="." unique_id=1179971738 instance=ExtResource("2_3giy6")]
-position = Vector2(1610, 168)
-ExactKey = "dont"
+position = Vector2(2096, 364)
+ExactKey = "don't"
 
 [node name="kids_" parent="." unique_id=784748779 instance=ExtResource("2_3giy6")]
-position = Vector2(4032, 344)
+position = Vector2(2882, 543)
 ExactKey = "kids."
 
 [node name="Line2D" type="Line2D" parent="." unique_id=905913903]

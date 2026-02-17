@@ -8,27 +8,27 @@ script = ExtResource("1_fm6hq")
 _starConnectLine = NodePath("Line2D")
 
 [node name="This is" parent="." unique_id=946213963 instance=ExtResource("2_ro1kn")]
-position = Vector2(2136, 286)
+position = Vector2(1676, 137)
 ExactKey = "This is"
 
 [node name="who" parent="." unique_id=432041246 instance=ExtResource("2_ro1kn")]
-position = Vector2(1642, 1022)
+position = Vector2(1541, 777)
 ExactKey = "who"
 
 [node name="I" parent="." unique_id=1752437096 instance=ExtResource("2_ro1kn")]
-position = Vector2(1102, 1964)
+position = Vector2(538, 1219)
 ExactKey = "I"
 
 [node name="I am_" parent="." unique_id=1642314158 instance=ExtResource("2_ro1kn")]
-position = Vector2(3075, 610)
+position = Vector2(2615, 461)
 ExactKey = "I am."
 
 [node name="can\'t" parent="." unique_id=165119371 instance=ExtResource("2_ro1kn")]
-position = Vector2(2395, 2002)
+position = Vector2(2142, 1267)
 ExactKey = "can't"
 
 [node name="change" parent="." unique_id=784748779 instance=ExtResource("2_ro1kn")]
-position = Vector2(3154, 1270)
+position = Vector2(2694, 1121)
 ExactKey = "change"
 
 [node name="Line2D" type="Line2D" parent="." unique_id=905913903]

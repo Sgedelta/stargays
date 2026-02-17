@@ -2,11 +2,11 @@ title: IMG_NoKids
 ---
 Mom: You don't know that.
 Mom: Who's going to take care of you when you're older?
-Mom: A child iss the greatest blesssing. Don't you want that?
+Mom: A child is the greatest blessing. Don't you want that?
 	->I don't think so.
 		<<LoadLevel GameManager IMG_Change>>
-		<<Jump IMG_Change>>
+		<<jump IMG_Change>>
 	->No, I don't think so.
 		<<LoadLevel GameManager IMG_Change>>
-		<<Jump IMG_Change>>
+		<<jump IMG_Change>>
 ===

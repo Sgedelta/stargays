@@ -2,14 +2,15 @@ title: GoodLoop
 ---
 Mom: 아이고, 우리 딸. 너무 말랐어! 잘 먹어야 해. aigo, my daughter. you’re so thin! you need to eat well. 
     -> I know.
-        Mom: I wish I could see you more
+        Mom: I wish I could see you more.
             -> I'm sorry.
-                <<LoadLevel GameManager IMG_Gay>>
-                <<jump IMG_Gay>>
+                <<LoadLevel GameManager goodDontForget>>
+                <<jump GoodApologies>>
     -> I know. I'm sorry.
-        Mom: I wish I could see you more
-        <<LoadLevel GameManager goodDontForget>>
-        <<jump GoodApologies>>
+        Mom: I wish I could see you more.
+        Josh: Hi! This is a shortcut to see our new content! This was added because I am a lazy bum. Hi testers!!
+       <<LoadLevel GameManager Tell>>
+	    <<jump Tell>>
 ===
 
 title: GoodApologies
@@ -17,7 +18,7 @@ title: GoodApologies
 Mom: Don't forget you can always come home.
 Mom: The stars are so beautiful.
 Mom: When you were a baby, we used to look at the sky all the time. Do you remember?
-    -> Not really
+    -> Not really.
         Mom: When you were born, you were so small.
         Mom: The doctors said they didn’t know if you would make it past the night.
         Mom: I prayed to those stars, right there.
@@ -52,7 +53,7 @@ title: GoodConfession
 
 title: GoodClarify
 ---
-Mom: oh...
+Mom: Oh...
 Mom: What about (BOY)?
     -> He's just a friend
         Mom: You... don't like boys?
