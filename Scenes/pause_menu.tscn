@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bvfvitntke4kv"]
+
+[ext_resource type="Script" uid="uid://c3eyrqujotar4" path="res://Scenes/PauseMenu.cs" id="1_emv3i"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=2111612031 node_paths=PackedStringArray("_mod")]
+process_mode = 3
+script = ExtResource("1_emv3i")
+_mod = NodePath("Moduate")
+
+[node name="Panel" type="Panel" parent="." unique_id=218709146]
+modulate = Color(0, 0.57379013, 0.57715225, 0.4862745)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuContainer" type="VBoxContainer" parent="." unique_id=1994339787]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1720.0
+offset_top = 200.0
+offset_right = 1720.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MenuContainer" unique_id=720045731]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+theme_override_font_sizes/font_size = 240
+text = "Game Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonContainer" type="VBoxContainer" parent="MenuContainer" unique_id=1293796920]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 90
+
+[node name="ResumeButton" type="Button" parent="MenuContainer/ButtonContainer" unique_id=2063421882]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "Resume Game"
+
+[node name="QuitButton" type="Button" parent="MenuContainer/ButtonContainer" unique_id=2096848692]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "Quit Game"
+
+[node name="Moduate" type="CanvasModulate" parent="." unique_id=287487776]
+color = Color(1.0413129, 1.0413129, 1.0413129, 1)
+
+[connection signal="pressed" from="MenuContainer/ButtonContainer/ResumeButton" to="." method="UnpauseGame"]

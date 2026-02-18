@@ -55,11 +55,15 @@ public partial class GameManager : Node
 
 	public int FadeTime = 1;
 
+    private PauseMenu _pauseMenu;
+
     public override void _Ready()
     {
         if(Instance == null)
         {
             Instance = this;
+            Callable.From(SetupPause).CallDeferred();
+            this.ProcessMode = ProcessModeEnum.Always;
             StartNewGame();
         }
         else
@@ -75,6 +79,12 @@ public partial class GameManager : Node
 	{
 		
 	}
+
+    private void SetupPause()
+    {
+        _pauseMenu = ResourceLoader.Load<PackedScene>("res://Scenes/pause_menu.tscn").Instantiate<PauseMenu>();
+        GetTree().Root.AddChild(_pauseMenu);
+    }
 
     /// <summary>
     /// Sets the internal data to a "new game" state, (currently) run on startup
@@ -206,4 +216,15 @@ public partial class GameManager : Node
     {
         return Instance.FirstLevelName;
     }
+
+
+    public override void _Input(InputEvent @event)
+    {
+        if(@event.IsActionPressed("ui_cancel"))
+        {
+            _pauseMenu.PauseGame();
+        }
+    }
+
+
 }
