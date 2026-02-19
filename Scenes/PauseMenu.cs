@@ -11,6 +11,7 @@ public partial class PauseMenu : CanvasLayer
 	public override void _Ready()
 	{
 		_mod.Color = new Color(1, 1, 1, 0);
+		Visible = false;
 		
 	}
 
@@ -21,7 +22,12 @@ public partial class PauseMenu : CanvasLayer
 
 	public void PauseGame()
 	{
-        GD.Print("PAUSE");
+		//you can't pause the main menu...
+		if(!GameManager.Instance.GameStarted)
+		{
+			return;
+		}
+
         GetTree().Paused = true;
 
 		if (_activeShowHide)
@@ -32,15 +38,14 @@ public partial class PauseMenu : CanvasLayer
         _activeShowHide = true;
         _showHideTweener = GetTree().CreateTween().SetPauseMode(Tween.TweenPauseMode.Process);
 
-		_showHideTweener.TweenProperty(_mod, "color", Color.FromHtml("#ffffffff"), GameManager.Instance.FadeTime * 1.5f);
+		_showHideTweener.TweenCallback(Callable.From(() => { Visible = true; }));
+		_showHideTweener.TweenProperty(_mod, "color", Color.FromHtml("#ffffffff"), GameManager.Instance.FadeTime);
 		_showHideTweener.TweenCallback(Callable.From(() => { _activeShowHide = false; }));
 
 	}
 
 	public void UnpauseGame()
 	{
-		GD.Print("UNPAUSE");
-		
 
         if (_activeShowHide)
         {
@@ -50,9 +55,21 @@ public partial class PauseMenu : CanvasLayer
 		_activeShowHide = true;
         _showHideTweener = GetTree().CreateTween().SetPauseMode(Tween.TweenPauseMode.Process);
 
-        _showHideTweener.TweenProperty(_mod, "color", Color.FromHtml("#ffffff00"), GameManager.Instance.FadeTime * 1.5f);
-        _showHideTweener.TweenCallback(Callable.From(() => { _activeShowHide = false; GetTree().Paused = false; }));
+        _showHideTweener.TweenProperty(_mod, "color", Color.FromHtml("#ffffff00"), GameManager.Instance.FadeTime);
+        _showHideTweener.TweenCallback(Callable.From(() => { _activeShowHide = false; GetTree().Paused = false; Visible = false; }));
 
     }
 
+	public void OnQuitPressed()
+	{
+		//send signal to game to reset
+		GameManager.Instance.ResetGameToMainMenu();
+
+		//reset internal
+		_showHideTweener.Kill();
+        _activeShowHide = false; 
+		GetTree().Paused = false;
+		Visible = false;
+        _mod.Color = new Color(1, 1, 1, 0);
+    }
 }

@@ -21,30 +21,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -50.0
-offset_right = -150.0
-offset_bottom = 50.0
+offset_left = -125.0
+offset_top = 150.0
+offset_right = 125.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
-text = "Play Good"
-
-[node name="BadLoop" type="Button" parent="." unique_id=1288789514]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 100.0
-offset_top = -50.0
-offset_right = 350.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 36
-text = "Play Bad"
+text = "Play"
 
 [node name="Background" type="AnimatedSprite2D" parent="." unique_id=1372086288]
 unique_name_in_owner = true
@@ -60,5 +44,4 @@ stream = ExtResource("3_1ehe0")
 volume_db = -6.7
 autoplay = true
 
-[connection signal="pressed" from="GoodLoop" to="." method="_on_chose_good_loop"]
-[connection signal="pressed" from="BadLoop" to="." method="_on_chose_bad_loop"]
+[connection signal="pressed" from="GoodLoop" to="." method="_on_game_start"]

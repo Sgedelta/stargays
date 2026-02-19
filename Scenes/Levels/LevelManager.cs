@@ -28,7 +28,7 @@ public partial class LevelManager : Node2D
 
         Modulate = Color.FromHtml("ffffff00");
 
-        _starConnectLine = GetNode<Line2D>("%StarInputLine");
+        _starConnectLine = GetNode<Line2D>("StarInputLine");
 
         Tween starConnectTween = GetTree().CreateTween();
 

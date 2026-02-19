@@ -1,14 +1,15 @@
-[gd_scene format=3 uid="uid://bvfvitntke4kv"]
+[gd_scene format=3 uid="uid://c3b2pf7bosptn"]
 
 [ext_resource type="Script" uid="uid://c3eyrqujotar4" path="res://Scenes/PauseMenu.cs" id="1_emv3i"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=2111612031 node_paths=PackedStringArray("_mod")]
 process_mode = 3
+layer = 100
 script = ExtResource("1_emv3i")
 _mod = NodePath("Moduate")
 
 [node name="Panel" type="Panel" parent="." unique_id=218709146]
-modulate = Color(0, 0.57379013, 0.57715225, 0.4862745)
+modulate = Color(0, 0.57254905, 0.5764706, 0.70980394)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -58,3 +59,4 @@ text = "Quit Game"
 color = Color(1.0413129, 1.0413129, 1.0413129, 1)
 
 [connection signal="pressed" from="MenuContainer/ButtonContainer/ResumeButton" to="." method="UnpauseGame"]
+[connection signal="pressed" from="MenuContainer/ButtonContainer/QuitButton" to="." method="OnQuitPressed"]

@@ -11,12 +11,7 @@ func _ready():
 		#this is the end and its not loading right for some reason so BRUTE FORCE IT WEEEEEE
 		get_tree().change_scene_to_packed(gameOverPackedScene)
 
-func _on_chose_good_loop() -> void:
+func _on_game_start() -> void:
 	get_tree().change_scene_to_packed(mainGamePackedScene)
-	GameManager.InstanceButForGD.FirstLevelName = "firstLevel"
-	GameManager.InstanceButForGD.StartNewGame();
-
-func _on_chose_bad_loop() -> void:
-	get_tree().change_scene_to_packed(mainGamePackedScene)
-	GameManager.InstanceButForGD.FirstLevelName = "Tell"	
+	GameManager.InstanceButForGD.FirstLevelName = firstLevelName
 	GameManager.InstanceButForGD.StartNewGame();

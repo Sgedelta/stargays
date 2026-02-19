@@ -57,6 +57,10 @@ public partial class GameManager : Node
 
     private PauseMenu _pauseMenu;
 
+    //TODO: replace this with a game state enum if it ever does anything more than making sure you can't pause the main menu...
+    private bool _gameStarted = false;
+    public bool GameStarted { get { return _gameStarted; } }
+
     public override void _Ready()
     {
         if(Instance == null)
@@ -64,7 +68,6 @@ public partial class GameManager : Node
             Instance = this;
             Callable.From(SetupPause).CallDeferred();
             this.ProcessMode = ProcessModeEnum.Always;
-            StartNewGame();
         }
         else
         {
@@ -75,11 +78,6 @@ public partial class GameManager : Node
 		ValidInputs = new Dictionary<string, DialogueOption>();
 	}
 
-	public override void _Process(double delta)
-	{
-		
-	}
-
     private void SetupPause()
     {
         _pauseMenu = ResourceLoader.Load<PackedScene>("res://Scenes/pause_menu.tscn").Instantiate<PauseMenu>();
@@ -87,7 +85,7 @@ public partial class GameManager : Node
     }
 
     /// <summary>
-    /// Sets the internal data to a "new game" state, (currently) run on startup
+    /// Sets the internal data to a "new game" state, run when play is pressed
     /// </summary>
     public void StartNewGame()
     {
@@ -99,11 +97,19 @@ public partial class GameManager : Node
         _generatedQuestions.Add(ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/FirstLoopQuestions/IsThatHowItHappenedNo.tres"));
         _generatedQuestions.Add(ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/FirstLoopQuestions/AreYouHappyNo.tres"));
 
+        _gameStarted = true;
+
+    }
+
+    public void ResetGameToMainMenu()
+    {
+        GetTree().ChangeSceneToFile("res://Scenes/main_menu.tscn");
+        _gameStarted = false;
     }
 
     public void SetActiveLevel(LevelManager newLevel)
     {
-        string oldName = _levelManager == null ? "[Manager Null or Deleted!]" : _levelManager.Name;
+        string oldName = !IsInstanceValid(_levelManager) ? "[Manager Null or Deleted!]" : _levelManager.Name;
         GD.Print($"[GM] Setting {newLevel.Name} to the active level manager. Previous one was {oldName}");
         _levelManager = newLevel;
     }
@@ -130,7 +136,7 @@ public partial class GameManager : Node
 
 
 		Tween fadeOut = GetTree().CreateTween();
-		if (_levelManager != null)
+		if (IsInstanceValid(_levelManager))
 		{
 			Node oldLevel = _levelManager;
 			fadeOut.TweenProperty(_levelManager, "modulate", Color.FromHtml("ffffff00"), FadeTime).From(Color.FromHtml("ffffffff"));
