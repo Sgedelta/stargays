@@ -58,77 +58,77 @@ public partial class LevelManager : Node2D
 
 	/// <summary>
 	/// Checks if the current _selectedStars is a valid input. If it is, it moves onto the next dialog. If it isn't, it undoes all star input.
-    /// </summary>
-    public void StarSequenceDone()
-    {
-        ConstructKey();
-        if (IsStarSequenceValid())
-        {
-            //Nothing for now! lol. TODO
-            GameManager.Instance.InputTaskCompletionSource.TrySetResult(GameManager.Instance.ValidInputs[constructedKey]);
-            DeselectAllStarsAnimated();
-        } 
-        else
-        {
-            DeselectAllStarsAnimated();
-        }
-    }
+	/// </summary>
+	public void StarSequenceDone()
+	{
+		ConstructKey();
+		if (IsStarSequenceValid())
+		{
+			//Nothing for now! lol. TODO
+			GameManager.Instance.InputTaskCompletionSource.TrySetResult(GameManager.Instance.ValidInputs[constructedKey]);
+			DeselectAllStarsAnimated();
+		} 
+		else
+		{
+			DeselectAllStarsAnimated();
+		}
+	}
 
-    /// <summary>
-    /// returns true if _selectedStars is a valid input for this level
-    /// </summary>
-    /// <returns></returns>
-    private bool IsStarSequenceValid()
-    {
-        GD.Print($"[LM] constructed key is: {constructedKey}");
+	/// <summary>
+	/// returns true if _selectedStars is a valid input for this level
+	/// </summary>
+	/// <returns></returns>
+	private bool IsStarSequenceValid()
+	{
+		GD.Print($"[LM] constructed key is: {constructedKey}");
 
-        return GameManager.Instance.ValidInputs.ContainsKey( constructedKey );
-    }
+		return GameManager.Instance.ValidInputs.ContainsKey( constructedKey );
+	}
 
-    private void ConstructKey()
-    {
-        constructedKey = "";
-        for(int i = 0; i < _selectedStars.Count; i++)
-        {
-            constructedKey += _selectedStars[i].ExactKey;
-            if( i !=  _selectedStars.Count - 1 )
-            {
-                constructedKey += " ";
-            }
-        }
+	private void ConstructKey()
+	{
+		constructedKey = "";
+		for(int i = 0; i < _selectedStars.Count; i++)
+		{
+			constructedKey += _selectedStars[i].ExactKey;
+			if( i !=  _selectedStars.Count - 1 )
+			{
+				constructedKey += " ";
+			}
+		}
 
-    }
+	}
 
-    private void DeselectAllStarsAnimated()
-    {
-        //make sure we only do this once and not multiple times, and reset key
-        if (_selectedStars.Count == 0)
-        {
-            return;
-        }
-        if (_isDeselecting) { return; }
-        _isDeselecting = true;
-        
-        //make a tweener
-        Tween deselector = GetTree().CreateTween();
+	private void DeselectAllStarsAnimated()
+	{
+		//make sure we only do this once and not multiple times, and reset key
+		if (_selectedStars.Count == 0)
+		{
+			return;
+		}
+		if (_isDeselecting) { return; }
+		_isDeselecting = true;
+		
+		//make a tweener
+		Tween deselector = GetTree().CreateTween();
 
-        //remove from mouse pos 
-            // Note: we may need to change this if mouse is not being used!
-        deselector.TweenMethod(
-            Callable.From((Vector2 pos) => { 
+		//remove from mouse pos 
+			// Note: we may need to change this if mouse is not being used!
+		deselector.TweenMethod(
+			Callable.From((Vector2 pos) => { 
 
-                _starConnectLine.SetPointPosition(_starConnectLine.Points.Length - 1, pos); }),
-                GetViewport().GetMousePosition(), _selectedStars[^1].Position, 
-                (GetViewport().GetMousePosition() - _selectedStars[^1].Position).Length() / StarDeselectSpeed
-            );
-        deselector.TweenCallback(Callable.From(() => 
-        { 
-            _starConnectLine.RemovePoint(_starConnectLine.Points.Length - 1);
-        }));
+				_starConnectLine.SetPointPosition(_starConnectLine.Points.Length - 1, pos); }),
+				GetViewport().GetMousePosition(), _selectedStars[^1].Position, 
+				(GetViewport().GetMousePosition() - _selectedStars[^1].Position).Length() / StarDeselectSpeed
+			);
+		deselector.TweenCallback(Callable.From(() => 
+		{ 
+			_starConnectLine.RemovePoint(_starConnectLine.Points.Length - 1);
+		}));
 
-        //now denaimate from all stars
-        for (int i = _selectedStars.Count; i > 0; i--)
-        {
+		//now denaimate from all stars
+		for (int i = _selectedStars.Count; i > 0; i--)
+		{
 
 			//don't run on last star, because there's nothing before it (so there'd be a null error)
 			if (i != 1)
