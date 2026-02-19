@@ -54,7 +54,7 @@ public partial class LevelManager : Node2D
 	public override void _Input(InputEvent @event)
 	{
 		//we want specifically mouse button up events
-		if( @event is InputEventMouseButton mouseEvent && mouseEvent.IsActionReleased("StarSelect") )
+		if( @event is InputEventMouseButton mouseEvent && mouseEvent.IsActionReleased("StarSelect") && !_isDeselecting)
 		{
 			StarSequenceDone();
 		}
@@ -77,6 +77,12 @@ public partial class LevelManager : Node2D
     public void StarSequenceDone()
     {
         ConstructKey();
+		if(constructedKey == "")
+		{
+			return;
+		}
+
+		GameManager.Instance.LogAttemptedDialog(constructedKey);
         if (IsStarSequenceValid())
         {
             GameManager.Instance.InputTaskCompletionSource.TrySetResult(GameManager.Instance.ValidInputs[constructedKey]);

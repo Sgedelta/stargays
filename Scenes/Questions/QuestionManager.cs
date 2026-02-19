@@ -97,7 +97,9 @@ public partial class QuestionManager : CanvasLayer
                     newBut.Disabled = false; //should be false by default, but jic
                     newBut.Pressed += () => 
                     {
+                        GameManager.Instance.LogQuestionAnswer(_activeQuestion.QuestionText, newBut.Text);
                         DisplayQuestion(GameManager.Instance.LoadNextQuestion()); 
+                        
                     };
                     break;
 
@@ -110,6 +112,7 @@ public partial class QuestionManager : CanvasLayer
                     newBut.Pressed += () => 
                     {
                         //todo: replace with code to end the game!
+                        GameManager.Instance.LogQuestionAnswer(_activeQuestion.QuestionText, _activeQuestion.Options[i]);
                         DisplayQuestion(GameManager.Instance.LoadNextQuestion()); 
                     };
                     break;

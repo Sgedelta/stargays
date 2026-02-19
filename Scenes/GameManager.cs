@@ -61,6 +61,15 @@ public partial class GameManager : Node
     private bool _gameStarted = false;
     public bool GameStarted { get { return _gameStarted; } }
 
+
+    //==== DATA TRACKING ====
+    private Godot.Collections.Dictionary<string, int> _dataNodeVisitedCount = new Godot.Collections.Dictionary<string, int>();
+    private Godot.Collections.Dictionary<int, Godot.Collections.Array<string>> _dataLoopDialoguesTried = new Godot.Collections.Dictionary<int, Godot.Collections.Array<string>>();
+    private Godot.Collections.Dictionary<int, Godot.Collections.Dictionary<string, string>> _dataLoopQuestionAnswers = new();
+    private int _dataLoopCount = 0;
+
+
+
     public override void _Ready()
     {
         if(Instance == null)
@@ -89,6 +98,7 @@ public partial class GameManager : Node
     /// </summary>
     public void StartNewGame()
     {
+        //reset questions to first loop questions
         _questionIndex = 0;
 
         _generatedQuestions.Clear();
@@ -97,6 +107,12 @@ public partial class GameManager : Node
         _generatedQuestions.Add(ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/FirstLoopQuestions/IsThatHowItHappenedNo.tres"));
         _generatedQuestions.Add(ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/FirstLoopQuestions/AreYouHappyNo.tres"));
 
+        //reset tracked data (SAVE THIS BEFORE CALLING NEW GAME UNLESS YOU WANT TO LOSE IT FOREVER!!)
+        _dataLoopDialoguesTried.Clear();
+        _dataNodeVisitedCount.Clear();
+        _dataLoopCount = 0;
+
+        //tell the game we're started.
         _gameStarted = true;
 
     }
@@ -127,6 +143,11 @@ public partial class GameManager : Node
             GetNode<CanvasLayer>("../MainGame/YarnSpinnerCanvasLayer").Visible = true;
         }
 
+        if(name == "Tell") //Tell is always the first node of the loop - change this if that fact changes
+        {
+            _dataLoopCount++;
+        }
+
         PackedScene newLevel;
 		if (!_levels.TryGetValue(name, out newLevel))
 		{
@@ -153,7 +174,17 @@ public partial class GameManager : Node
 
 		GetTree().Root.GetNode("MainGame").AddChild(loadedLevel);
 
+        //now do data tracking
+        if(_dataNodeVisitedCount.ContainsKey(name))
+        {
+            _dataNodeVisitedCount[name] += 1;
+        } else
+        {
+            _dataNodeVisitedCount.Add(name, 1);
+        }
 
+
+        GD.Print("[GM] DATA IN PROGRESS: " + GetDataAsJSON());
 		
 		
 
@@ -214,6 +245,57 @@ public partial class GameManager : Node
         return null;
     }
 
+    public void LogAttemptedDialog(string attempt)
+    {
+        if(_dataLoopDialoguesTried.TryGetValue(_dataLoopCount, out Godot.Collections.Array<string> opts))
+        {
+            opts.Add(attempt);
+        } else
+        {
+            _dataLoopDialoguesTried.Add(_dataLoopCount, new Godot.Collections.Array<string>() { attempt });
+        }
+    }
+
+    public void LogQuestionAnswer(string question, string answer)
+    {
+        if (_dataLoopQuestionAnswers.TryGetValue(_dataLoopCount, out Godot.Collections.Dictionary<string, string> questions))
+        {
+            if (questions.ContainsKey(question))
+            {
+                questions[question] = answer;
+            }
+            else
+            {
+                questions.Add(question, answer);
+            }
+        } else
+        {
+            _dataLoopQuestionAnswers.Add(_dataLoopCount, new Godot.Collections.Dictionary<string, string>() { {question, answer } });
+        }
+    }
+
+    private string GetDataAsJSON()
+    {
+        //create an object to hold all the highest levels of data we want
+        Godot.Collections.Dictionary<string, string> jsonDatas = new Godot.Collections.Dictionary<string, string>();
+        
+        //add all the data
+        jsonDatas.Add("nodes_visited", Json.Stringify(_dataNodeVisitedCount));
+        jsonDatas.Add("loop_count", Json.Stringify(_dataLoopCount));
+        jsonDatas.Add("dialogue_attempts_by_loop_count", Json.Stringify(_dataLoopDialoguesTried));
+        jsonDatas.Add("question_answers_by_loop_count", Json.Stringify(_dataLoopQuestionAnswers));
+
+        //construct a Json object with all the data
+        string constructedJson = "{ ";
+        foreach (string key in jsonDatas.Keys)
+        {
+            constructedJson += $"\"{key}\": {jsonDatas[key]}, ";
+        }
+        constructedJson = constructedJson.Substr(0, constructedJson.Length - 2) + " }"; //trim last space and comma, add ending }
+
+        //return a Jsonified collection of the jsons
+        return constructedJson;
+    }
 
 
     //Yarn Data Retrieval (because I can't figure out how to query it in yarn for godot :[ )
@@ -231,6 +313,7 @@ public partial class GameManager : Node
             _pauseMenu.PauseGame();
         }
     }
+
 
 
 }
