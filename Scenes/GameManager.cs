@@ -62,7 +62,7 @@ public partial class GameManager : Node
     public bool GameStarted { get { return _gameStarted; } }
 
 
-    //==== DATA TRACKING ====
+    //====== DATA TRACKING ======
     private Godot.Collections.Dictionary<string, int> _dataNodeVisitedCount = new Godot.Collections.Dictionary<string, int>();
     private Godot.Collections.Dictionary<int, Godot.Collections.Array<string>> _dataLoopDialoguesTried = new Godot.Collections.Dictionary<int, Godot.Collections.Array<string>>();
     private Godot.Collections.Dictionary<int, Godot.Collections.Dictionary<string, string>> _dataLoopQuestionAnswers = new();
@@ -110,6 +110,7 @@ public partial class GameManager : Node
         //reset tracked data (SAVE THIS BEFORE CALLING NEW GAME UNLESS YOU WANT TO LOSE IT FOREVER!!)
         _dataLoopDialoguesTried.Clear();
         _dataNodeVisitedCount.Clear();
+        _dataLoopQuestionAnswers.Clear();
         _dataLoopCount = 0;
 
         //tell the game we're started.
@@ -119,6 +120,7 @@ public partial class GameManager : Node
 
     public void ResetGameToMainMenu()
     {
+        SaveGameDataToFile();
         GetTree().ChangeSceneToFile("res://Scenes/main_menu.tscn");
         _gameStarted = false;
     }
@@ -183,8 +185,6 @@ public partial class GameManager : Node
             _dataNodeVisitedCount.Add(name, 1);
         }
 
-
-        GD.Print("[GM] DATA IN PROGRESS: " + GetDataAsJSON());
 		
 		
 
@@ -272,6 +272,17 @@ public partial class GameManager : Node
         {
             _dataLoopQuestionAnswers.Add(_dataLoopCount, new Godot.Collections.Dictionary<string, string>() { {question, answer } });
         }
+    }
+
+    private void SaveGameDataToFile()
+    {
+        GD.Print("res://Saves/" + Time.GetDateStringFromSystem() + "-" + Time.GetTimeStringFromSystem().Replace(":", "-") + ".txt");
+        //we don't have to come up with good names that we can reopen because fuck you! we never load data
+        using FileAccess saveFile = FileAccess.Open("res://Saves/" + Time.GetDateStringFromSystem() + "_" + Time.GetTimeStringFromSystem().Replace(":", "-") + ".txt", FileAccess.ModeFlags.Write);
+
+        saveFile.StoreString(GetDataAsJSON());
+
+        saveFile.Close();
     }
 
     private string GetDataAsJSON()
