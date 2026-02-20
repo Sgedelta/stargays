@@ -274,6 +274,34 @@ public partial class GameManager : Node
         }
     }
 
+    public bool ShouldStarBeEnabled(Godot.Collections.Dictionary<string, int> reqs)
+    {
+        //check all requirements for any false ones
+        foreach (var req in reqs)
+        {
+            //if the key is in nodes visited and the count is less than the required amount, return false
+            if (_dataNodeVisitedCount.TryGetValue(req.Key, out int count))
+            {
+                if (count < req.Value) //nested loops so we can fail out of this case in case of passing and not hit next case
+                {
+                    GD.Print($"[GM] Hiding star because required node {req.Key} needs {req.Value} and was only visited {count} times");
+                    return false;
+                }
+            }
+            //if the key is not in node and it's positive (in case someone forgot to delete it or set it negative for some reason), return false 
+            else if (req.Value > 0)
+            {
+                GD.Print($"[GM] Hiding star because required node {req.Key} was not found in _dataNodeVisitedCount dictionary and it must be visited");
+                return false;
+            }
+            //otherwise continue on because this requirement has been passed
+        }
+
+        //otherwise all requirements (including case of no requirements) passed, return true
+        return true;
+
+    }
+
     private void SaveGameDataToFile()
     {
         GD.Print("res://Saves/" + Time.GetDateStringFromSystem() + "-" + Time.GetTimeStringFromSystem().Replace(":", "-") + ".txt");

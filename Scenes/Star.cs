@@ -10,11 +10,17 @@ public partial class Star : Area2D
 
 	private RandomNumberGenerator rng;
 
+    //a dictionary of node names and the amount of times they need to be visited for this star to be enabled. If empty, star will start enabled. use Tell to count # of loops (1 indexed)
+    [Export] private Godot.Collections.Dictionary<string, int> _requiredNodeAmounts = new Godot.Collections.Dictionary<string, int>();
+
 	public override void _Ready()
 	{
 		rng = new RandomNumberGenerator();
 		AnimatedSprite.Play(AnimatedSprite.SpriteFrames.GetAnimationNames()[rng.RandiRange(0, AnimatedSprite.SpriteFrames.GetAnimationNames().Length - 1)]);
 		_label.Text = ExactKey;
+
+        Visible = GameManager.Instance.ShouldStarBeEnabled(_requiredNodeAmounts);
+
 	}
 
 	public override void _Process(double delta)

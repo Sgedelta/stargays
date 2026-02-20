@@ -29,10 +29,16 @@ ExactKey = "girls."
 [node name="Never" parent="." unique_id=1179971738 instance=ExtResource("2_xbbam")]
 position = Vector2(1610, 168)
 ExactKey = "Never"
+_requiredNodeAmounts = Dictionary[String, int]({
+"Tell": 1
+})
 
 [node name="mind_" parent="." unique_id=784748779 instance=ExtResource("2_xbbam")]
 position = Vector2(3336, 267)
 ExactKey = "mind."
+_requiredNodeAmounts = Dictionary[String, int]({
+"Tell": 1
+})
 
 [node name="StarInputLine" type="Line2D" parent="." unique_id=905913903]
 unique_name_in_owner = true
