@@ -94,17 +94,21 @@ public partial class DialogueRunner : Godot.Node
 	}
 public void AdvanceDialogueNow()
 {
-	// Check if we are actually running dialogue
-	if (currentLineCancellationSource == null) 
+	if (currentLineCancellationSource == null) return;
+
+	// Check if the 'HurryUpToken' is already cancelled. 
+	// If it is NOT cancelled, it means the text is still animating/typing.
+	if (currentLineHurryUpSource != null && !currentLineHurryUpSource.IsCancellationRequested)
 	{
-		return;
+		// Case A: Still typing. Just speed it up.
+		currentLineHurryUpSource.Cancel();
 	}
-
-	// 1. Force the current line's text to finish immediately
-	currentLineHurryUpSource?.Cancel();
-
-	// 2. Immediately signal to move to the next line of dialogue
-	currentLineCancellationSource?.Cancel();
+	else
+	{
+		// Case B: Typing is already done (or was already hurried). 
+		// Move to the next line.
+		currentLineCancellationSource.Cancel();
+	}
 }
 	private Dialogue? dialogue;
 

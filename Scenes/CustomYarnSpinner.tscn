@@ -269,4 +269,5 @@ script = ExtResource("8_vui1v")
 script = ExtResource("10_8o7va")
 runner = NodePath("../DialogueRunner")
 multiAdvanceIsCancel = true
+advanceRequestsBeforeCancellingLine = 0
 cancelDialogueAction = ""
