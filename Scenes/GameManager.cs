@@ -37,6 +37,7 @@ public partial class GameManager : Node
    
 	private Godot.Collections.Dictionary<string, PackedScene> _levels = new Godot.Collections.Dictionary<string, PackedScene> 
 	{
+        {"empty",           ResourceLoader.Load<PackedScene>("res://Scenes/Levels/empty_level.tscn")},
         {"questions",       ResourceLoader.Load<PackedScene>("res://Scenes/Questions/question_base.tscn")},
 		{"firstLevel",      ResourceLoader.Load<PackedScene>("res://Scenes/Levels/TestLevel.tscn")},
 		{"goodDontForget",  ResourceLoader.Load<PackedScene>("res://Scenes/Levels/SecondTest.tscn")},
@@ -123,6 +124,13 @@ public partial class GameManager : Node
         SaveGameDataToFile();
         GetTree().ChangeSceneToFile("res://Scenes/main_menu.tscn");
         _gameStarted = false;
+    }
+
+    [YarnCommand("EndGame")]
+    public void EndGame()
+    {
+        LoadLevel("empty");
+        GetTree().Root.GetNode<MainGame>("MainGame").AnimateToLargerPos();
     }
 
     public void SetActiveLevel(LevelManager newLevel)

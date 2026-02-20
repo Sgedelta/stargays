@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://tftk8qgwelsk"]
+
+[ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_ajyff"]
+
+[node name="TestLevel" type="Node2D" unique_id=2089262154]
+script = ExtResource("1_ajyff")
