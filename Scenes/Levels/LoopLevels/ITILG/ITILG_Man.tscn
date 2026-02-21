@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dbeh6bv6sqrxf"]
+
+[ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_s5ilj"]
+[ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_5fqml"]
+
+[node name="TestLevel" type="Node2D" unique_id=1817164843]
+script = ExtResource("1_s5ilj")
+
+[node name="won\'t be" parent="." unique_id=946213963 instance=ExtResource("2_5fqml")]
+position = Vector2(2025, 1084)
+ExactKey = "won't be"
+
+[node name="You" parent="." unique_id=432041246 instance=ExtResource("2_5fqml")]
+position = Vector2(3086, 1274)
+ExactKey = "You"
+
+[node name="I" parent="." unique_id=1752437096 instance=ExtResource("2_5fqml")]
+position = Vector2(2811, 260)
+ExactKey = "I"
+
+[node name="weren\'t" parent="." unique_id=1642314158 instance=ExtResource("2_5fqml")]
+position = Vector2(768, 911)
+ExactKey = "weren't"
+
+[node name="happy_" parent="." unique_id=165119371 instance=ExtResource("2_5fqml")]
+position = Vector2(988, 480)
+ExactKey = "happy."
+
+[node name="StarInputLine" type="Line2D" parent="." unique_id=905913903]
+unique_name_in_owner = true
+width = 10.77
