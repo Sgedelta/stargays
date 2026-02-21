@@ -96,17 +96,17 @@ public void AdvanceDialogueNow()
 {
 	if (currentLineCancellationSource == null) return;
 
-	// Check if the 'HurryUpToken' is already cancelled. 
-	// If it is NOT cancelled, it means the text is still animating/typing.
-	if (currentLineHurryUpSource != null && !currentLineHurryUpSource.IsCancellationRequested)
+	// Is the text currently animating/typing?
+	bool isTyping = currentLineHurryUpSource != null && !currentLineHurryUpSource.IsCancellationRequested;
+
+	if (isTyping)
 	{
-		// Case A: Still typing. Just speed it up.
+		// First Press: Finish the current typing immediately (mid or end sentence)
 		currentLineHurryUpSource.Cancel();
 	}
 	else
 	{
-		// Case B: Typing is already done (or was already hurried). 
-		// Move to the next line.
+		// Second Press (or text already finished): Move to the next line/part
 		currentLineCancellationSource.Cancel();
 	}
 }

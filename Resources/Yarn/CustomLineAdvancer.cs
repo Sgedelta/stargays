@@ -124,37 +124,31 @@ public partial class CustomLineAdvancer : Node, DialoguePresenterBase
 	/// than <see cref="numberOfAdvancesThisLine"/>, this method requests
 	/// that the dialogue runner proceed to the next line. Otherwise, it
 	/// requests that the dialogue runner instruct all line views to hurry
-	/// up their presentation of the current line.
-	/// </remarks>
-	public bool RequestLineHurryUp()
+	/// <summary>
+/// Requests that the dialogue runner speed up or advance the current line.
+/// </summary>
+public bool RequestLineHurryUp()
+{
+	// We no longer increment or check 'numberOfAdvancesThisLine' here.
+	// This removes the "gatekeeper" that was forcing players to click twice.
+
+	if (runner != null)
 	{
-		// Increment our counter of line advancements, and depending on the
-		// new count, request that the runner 'soft-cancel' the line or
-		// cancel the entire line
-
-		numberOfAdvancesThisLine += 1;
-
-		if (multiAdvanceIsCancel && numberOfAdvancesThisLine >= advanceRequestsBeforeCancellingLine)
-		{
-			runner.AdvanceDialogueNow();
-			numberOfAdvancesThisLine = 0;
-			return false;
-		}
-		else
-		{
-			if (runner != null)
-			{
-				runner.AdvanceDialogueNow();
-			}
-			else
-			{
-				GD.PushError($"{nameof(LineAdvancer)} dialogue runner is null", this);
-				
-			}
-			return true;
-		}
+		// One call handles it all: 
+		// If typing -> Finish Typing. If finished -> Next Line.
+		runner.AdvanceDialogueNow();
+	}
+	else
+	{
+		GD.PushError($"{nameof(LineAdvancer)} dialogue runner is null", this);
 	}
 
+	// Reset the counter regardless so it doesn't interfere with other logic
+	numberOfAdvancesThisLine = 0;
+
+	// We return false to indicate the request was handled.
+	return false;
+}
 	/// <summary>
 	/// Requests that the dialogue runner proceeds to the next line.
 	/// </summary>
