@@ -1,9 +1,0 @@
-title: FIRST_Dipper
----
-Mom: When you were born, you were so small. 
-Mom: The doctors said they didn’t know if you would make it past the night.
-Mom: I prayed to those stars, right there.
-	-> You mean the Big Dipper?
-		<<LoadLevel GameManager FIRST_Tell>>
-		<<jump FIRST_Tell>>
-===

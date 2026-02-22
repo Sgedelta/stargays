@@ -1,8 +1,0 @@
-title: FIRST_What
----
-Mom: ...
-Mom: What?
-	-> I like girls.
-		<<LoadLevel GameManager FIRST_Friend>>
-		<<jump FIRST_Friend>>
-===

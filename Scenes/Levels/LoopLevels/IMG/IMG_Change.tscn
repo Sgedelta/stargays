@@ -33,3 +33,7 @@ ExactKey = "change"
 [node name="StarInputLine" type="Line2D" parent="." unique_id=905913903]
 unique_name_in_owner = true
 width = 10.77
+
+[node name="won\'t" parent="." unique_id=447831954 instance=ExtResource("2_ro1kn")]
+position = Vector2(4284, 2534)
+ExactKey = "won't"

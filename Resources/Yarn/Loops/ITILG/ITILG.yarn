@@ -1,0 +1,19 @@
+title: ITILG_Man
+---
+Mom: No... This is just a phase.
+Mom: You think you want this right now.
+Mom: You just need to find the right man.
+	->I won't be happy.
+		Mom: That doesn't matter.
+		Mom: You're still young.
+		Mom: Just try. You'll learn to love him.
+		<<LoadLevel GameManager questions>>
+		<<jump Tell>>
+	->You weren't happy.
+		Mom: Don't bring your father into this.
+		Mom: We're not talking about me.
+		Mom: We're talking about you and your... depravity!
+		Mom: You need to get rid of this perverted fantasy.
+		<<LoadLevel GameManager questions>>
+		<<jump Tell>>
+===

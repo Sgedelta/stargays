@@ -10,10 +10,6 @@ script = ExtResource("1_tfaff")
 position = Vector2(286, 281)
 ExactKey = "I"
 
-[node name="still" parent="." unique_id=1642314158 instance=ExtResource("2_3giy6")]
-position = Vector2(1203, 1001)
-ExactKey = "still"
-
 [node name="want" parent="." unique_id=1955365753 instance=ExtResource("2_3giy6")]
 position = Vector2(2769, 1236)
 ExactKey = "want"

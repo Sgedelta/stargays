@@ -1,8 +1,0 @@
-title: FIRST_Friend
----
-Mom: Oh...
-Mom: What about Matthew?
-	-> He's just a friend.
-		<<LoadLevel GameManager FIRST_Boys>>
-		<<jump FIRST_Boys>>
-===

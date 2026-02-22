@@ -1,0 +1,35 @@
+title: ILG_Men
+---
+Mom: Do you still like men?
+	-> I do.
+		Mom: You can still be normal.
+		Mom: You can still find a man who will love you regardless.
+		Mom: He just doesn't need to know about... this.
+		<<LoadLevel GameManager questions>>
+		<<jump Tell>>
+	-> I don't.
+		Mom: This is unnatural.
+		Mom: What will people say?
+		<<LoadLevel GameManager ILG_Quiet>>
+		<<jump ILG_Quiet>>
+===
+title: ILG_Quiet
+---
+Mom: What do you want me to say?
+	-> Just be quiet.
+		Mom: ...
+		<<LoadLevel GameManager questions>>
+		<<jump Tell>>
+	-> That you love me.
+		Mom: I don't know who you are.
+		<<LoadLevel GameManager questions>>
+		<<jump Tell>>
+	-> That you won't be mad at me.
+		Mom: I can't say that.
+		<<LoadLevel GameManager questions>>
+		<<jump Tell>>
+	-> That you understand me.
+		Mom: How can I?
+		<<LoadLevel GameManager questions>>
+		<<jump Tell>>
+===

@@ -9,18 +9,18 @@ script = ExtResource("1_a5nku")
 [node name="StarInputLine" type="Line2D" parent="." unique_id=685856291]
 unique_name_in_owner = true
 
-[node name="No," parent="." unique_id=946213963 instance=ExtResource("1_76s6g")]
-position = Vector2(546, 585)
-ExactKey = "No,"
-
-[node name="I" parent="." unique_id=1920630543 instance=ExtResource("1_76s6g")]
+[node name="I guess" parent="." unique_id=1920630543 instance=ExtResource("1_76s6g")]
 position = Vector2(2202, 390)
-ExactKey = "I"
+ExactKey = "I guess"
 
-[node name="don\'t think" parent="." unique_id=1049161212 instance=ExtResource("1_76s6g")]
+[node name="not_" parent="." unique_id=1049161212 instance=ExtResource("1_76s6g")]
 position = Vector2(3078, 1017)
-ExactKey = "don't think"
+ExactKey = "not."
 
 [node name="so_" parent="." unique_id=2112303680 instance=ExtResource("1_76s6g")]
 position = Vector2(1299, 1273)
 ExactKey = "so."
+
+[node name="Absolutely" parent="." unique_id=447831954 instance=ExtResource("1_76s6g")]
+position = Vector2(2598, 2546)
+ExactKey = "Absolutely"

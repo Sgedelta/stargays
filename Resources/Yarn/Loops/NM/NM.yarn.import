@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarnscript"
+type="Resource"
+uid="uid://crhchi3t5ojle"
+path="res://.godot/imported/NM.yarn-80ac1aefa3ee58c51b797e96274764c5.tres"
+
+[deps]
+
+source_file="res://Resources/Yarn/Loops/NM/NM.yarn"
+dest_files=["res://.godot/imported/NM.yarn-80ac1aefa3ee58c51b797e96274764c5.tres"]
+
+[params]
+
