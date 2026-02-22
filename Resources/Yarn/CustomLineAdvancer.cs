@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Godot;
+using Yarn.Markup;
 
 
 #nullable enable
@@ -16,7 +18,7 @@ namespace YarnSpinnerGodot;
 /// the next line, or cancel the entire dialogue session.
 /// </summary>
 [GlobalClass]
-public partial class CustomLineAdvancer : Node, DialoguePresenterBase
+public partial class CustomLineAdvancer : Node, DialoguePresenterBase, IActionMarkupHandler
 {
     [Export] DialogueRunner? runner;
 
@@ -65,6 +67,8 @@ public partial class CustomLineAdvancer : Node, DialoguePresenterBase
     /// </summary>
     [Export] public string cancelDialogueAction = "ui_cancel";
 
+    private bool _canSkipLine = false;
+
     /// <summary>
     /// Called by a dialogue runner when dialogue starts to add input action
     /// handlers for advancing the line.
@@ -97,8 +101,7 @@ public partial class CustomLineAdvancer : Node, DialoguePresenterBase
         // A new line has come in, so reset the number of times we've seen a
         // request to skip.
         numberOfAdvancesThisLine = 0;
-
-        GD.Print("advances reset!!!!!");
+        _canSkipLine = false;
 
         return YarnTask.CompletedTask;
     }
@@ -128,31 +131,36 @@ public partial class CustomLineAdvancer : Node, DialoguePresenterBase
     /// </remarks>
     public bool RequestLineHurryUp()
     {
+        //returns if this should "consume" the process call, basically if it does something return true
+
         // Increment our counter of line advancements, and depending on the
         // new count, request that the runner 'soft-cancel' the line or
         // cancel the entire line
 
         numberOfAdvancesThisLine += 1;
 
-        if (multiAdvanceIsCancel && numberOfAdvancesThisLine >= advanceRequestsBeforeCancellingLine)
+        if (_canSkipLine)
         {
             RequestNextLine();
             numberOfAdvancesThisLine = 0;
-            return false;
+            return true;
         }
         else
         {
             if (runner != null)
             {
                 runner.RequestHurryUpLine();
+                _canSkipLine = true;
+                return true;
             }
             else
             {
                 GD.PushError($"{nameof(LineAdvancer)} dialogue runner is null", this);
                 
             }
-            return true;
+            return false;
         }
+
     }
 
     /// <summary>
@@ -185,6 +193,19 @@ public partial class CustomLineAdvancer : Node, DialoguePresenterBase
         }
     }
 
+    public override void _Ready()
+    {
+        //not sure if this does anything, running jic
+        base._Ready();
+
+        //mark this as a handler for presenter markup so we can tell when typewriter is done
+        if (runner?.dialoguePresenters != null) {
+            (runner.dialoguePresenters[0] as LinePresenter).ActionMarkupHandlers.Add(this);
+        }
+
+
+    }
+
     /// <summary>
     /// Called by Godot every frame to check if the <see cref="LineAdvancer"/> should take
     /// action.
@@ -193,7 +214,7 @@ public partial class CustomLineAdvancer : Node, DialoguePresenterBase
     {
         if (!string.IsNullOrWhiteSpace(hurryUpAction) && Input.IsActionJustReleased(hurryUpAction))
         {
-            if (this.RequestLineHurryUp())
+            if(this.RequestLineHurryUp())
             {
                 return;
             }
@@ -208,5 +229,31 @@ public partial class CustomLineAdvancer : Node, DialoguePresenterBase
         {
             this.RequestDialogueCancellation();
         }
+    }
+
+    public void OnPrepareForLine(MarkupParseResult line, RichTextLabel text)
+    {
+        //do nothing
+    }
+
+    public void OnLineDisplayBegin(MarkupParseResult line, RichTextLabel text)
+    {
+        //do nothing
+    }
+
+    public YarnTask OnCharacterWillAppear(int currentCharacterIndex, MarkupParseResult line, CancellationToken cancellationToken)
+    {
+        //(hopefully) do nothing
+        return YarnTask.CompletedTask;
+    }
+
+    public void OnLineDisplayComplete()
+    {
+        _canSkipLine = true;
+    }
+
+    public void OnLineWillDismiss()
+    {
+        //do nothing
     }
 }

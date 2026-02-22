@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bcjsaqxmdlw5o"]
+[gd_scene format=3 uid="uid://bcjsaqxmdlw5o"]
 
 [ext_resource type="Script" uid="uid://budnld4qd513n" path="res://addons/YarnSpinner-Godot/Runtime/DialogueRunner.cs" id="1_vhv7h"]
 [ext_resource type="Resource" uid="uid://btwj70r7fk2ad" path="res://Resources/Yarn/stargays.yarnproject" id="2_o5ckw"]
@@ -11,10 +11,10 @@
 [ext_resource type="Script" uid="uid://c5gxawri864uf" path="res://addons/YarnSpinner-Godot/Runtime/LineProviders/TextLineProvider.cs" id="8_vui1v"]
 [ext_resource type="Script" uid="uid://cw34krhlw8yvs" path="res://Resources/Yarn/CustomLineAdvancer.cs" id="10_8o7va"]
 
-[node name="YarnSpinnerCanvasLayer" type="CanvasLayer"]
+[node name="YarnSpinnerCanvasLayer" type="CanvasLayer" unique_id=599624406]
 layer = 5
 
-[node name="DialogueRunner" type="Control" parent="." node_paths=PackedStringArray("variableStorage", "lineProvider", "dialoguePresenters")]
+[node name="DialogueRunner" type="Control" parent="." unique_id=367652472 node_paths=PackedStringArray("variableStorage", "lineProvider", "dialoguePresenters")]
 layout_mode = 3
 anchors_preset = 12
 anchor_top = 1.0
@@ -27,11 +27,11 @@ script = ExtResource("1_vhv7h")
 yarnProject = ExtResource("2_o5ckw")
 variableStorage = NodePath("../InMemoryVariableStorage")
 lineProvider = NodePath("../TextLineProvider")
-dialoguePresenters = [NodePath("../LinePresenter"), NodePath("../OptionsPresenter")]
+dialoguePresenters = [NodePath("../LinePresenter"), NodePath("../OptionsPresenter"), NodePath("../Advancer")]
 
-[node name="VariableDebugText" type="RichTextLabel" parent="."]
+[node name="VariableDebugText" type="RichTextLabel" parent="." unique_id=1864377202]
 
-[node name="OptionsPresenter" type="Control" parent="." node_paths=PackedStringArray("presenterControl", "lastLineText", "lastLineContainer", "lastLineCharacterNameText", "lastLineCharacterNameContainer", "optionParent")]
+[node name="OptionsPresenter" type="Control" parent="." unique_id=282264566 node_paths=PackedStringArray("presenterControl", "lastLineText", "lastLineContainer", "lastLineCharacterNameText", "lastLineCharacterNameContainer", "optionParent")]
 z_index = -1
 layout_mode = 3
 anchors_preset = 12
@@ -53,7 +53,7 @@ lastLineCharacterNameContainer = NodePath("PresenterControl/LastLineCharacterNam
 optionParent = NodePath("PresenterControl")
 useFadeEffect = false
 
-[node name="PresenterControl" type="Control" parent="OptionsPresenter"]
+[node name="PresenterControl" type="Control" parent="OptionsPresenter" unique_id=1831939872]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -62,13 +62,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SpeechBubble" type="Sprite2D" parent="OptionsPresenter/PresenterControl"]
+[node name="SpeechBubble" type="Sprite2D" parent="OptionsPresenter/PresenterControl" unique_id=40895512]
 texture_filter = 1
 position = Vector2(1919, 106)
 scale = Vector2(6.62, 5.5)
 texture = ExtResource("4_o5ckw")
 
-[node name="LineText" type="RichTextLabel" parent="OptionsPresenter/PresenterControl"]
+[node name="LineText" type="RichTextLabel" parent="OptionsPresenter/PresenterControl" unique_id=341424383]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 1
 anchors_preset = 12
@@ -81,15 +81,15 @@ offset_right = -180.0
 offset_bottom = -192.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/bold_font_size = 80
 theme_override_font_sizes/bold_italics_font_size = 80
 theme_override_font_sizes/italics_font_size = 80
 theme_override_font_sizes/mono_font_size = 80
-theme_override_font_sizes/normal_font_size = 80
-theme_override_font_sizes/bold_font_size = 80
 bbcode_enabled = true
 text = "The dialogue text should appear here!"
 
-[node name="ColorRect" type="ColorRect" parent="OptionsPresenter/PresenterControl/LineText"]
+[node name="ColorRect" type="ColorRect" parent="OptionsPresenter/PresenterControl/LineText" unique_id=74305991]
 modulate = Color(0.203922, 0.192157, 0.192157, 0.458824)
 show_behind_parent = true
 layout_mode = 1
@@ -103,7 +103,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
 
-[node name="LastLineCharacterNameText" type="RichTextLabel" parent="OptionsPresenter/PresenterControl"]
+[node name="LastLineCharacterNameText" type="RichTextLabel" parent="OptionsPresenter/PresenterControl" unique_id=982845098]
 self_modulate = Color(0.321569, 0.87451, 0.254902, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -117,15 +117,15 @@ offset_right = -813.0
 offset_bottom = -196.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
 theme_override_font_sizes/bold_italics_font_size = 36
 theme_override_font_sizes/italics_font_size = 36
 theme_override_font_sizes/mono_font_size = 36
-theme_override_font_sizes/normal_font_size = 36
-theme_override_font_sizes/bold_font_size = 36
 bbcode_enabled = true
 text = "Character Name"
 
-[node name="ColorRect" type="ColorRect" parent="OptionsPresenter/PresenterControl/LastLineCharacterNameText"]
+[node name="ColorRect" type="ColorRect" parent="OptionsPresenter/PresenterControl/LastLineCharacterNameText" unique_id=1467320271]
 modulate = Color(0.203922, 0.192157, 0.192157, 0.458824)
 show_behind_parent = true
 layout_mode = 0
@@ -133,7 +133,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(1, 1, 1, 0)
 
-[node name="LinePresenter" type="Control" parent="." node_paths=PackedStringArray("dialogueRunner", "presenterControl", "lineText", "characterNameText", "characterNameContainer", "eventHandlers")]
+[node name="LinePresenter" type="Control" parent="." unique_id=73820502 node_paths=PackedStringArray("dialogueRunner", "presenterControl", "lineText", "characterNameText", "characterNameContainer", "eventHandlers")]
 layout_mode = 3
 anchors_preset = 12
 anchor_top = 1.0
@@ -155,7 +155,7 @@ typewriterEffectSpeed = 40
 ConvertHTMLToBBCode = true
 eventHandlers = [NodePath("LinePresenterButtonHandler")]
 
-[node name="PresenterControl" type="Control" parent="LinePresenter"]
+[node name="PresenterControl" type="Control" parent="LinePresenter" unique_id=73512711]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -163,13 +163,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SpeechBubble" type="Sprite2D" parent="LinePresenter/PresenterControl"]
+[node name="SpeechBubble" type="Sprite2D" parent="LinePresenter/PresenterControl" unique_id=2041996907]
 texture_filter = 1
 position = Vector2(1919, 106)
 scale = Vector2(6.62, 5.5)
 texture = ExtResource("4_o5ckw")
 
-[node name="LineText" type="RichTextLabel" parent="LinePresenter/PresenterControl"]
+[node name="LineText" type="RichTextLabel" parent="LinePresenter/PresenterControl" unique_id=1226136704]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 1
 anchors_preset = 12
@@ -182,15 +182,15 @@ offset_right = -180.0
 offset_bottom = -192.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/bold_font_size = 80
 theme_override_font_sizes/bold_italics_font_size = 80
 theme_override_font_sizes/italics_font_size = 80
 theme_override_font_sizes/mono_font_size = 80
-theme_override_font_sizes/normal_font_size = 80
-theme_override_font_sizes/bold_font_size = 80
 bbcode_enabled = true
 text = "The dialogue text should appear here!"
 
-[node name="ColorRect" type="ColorRect" parent="LinePresenter/PresenterControl/LineText"]
+[node name="ColorRect" type="ColorRect" parent="LinePresenter/PresenterControl/LineText" unique_id=171769734]
 modulate = Color(0.203922, 0.192157, 0.192157, 0.458824)
 show_behind_parent = true
 layout_mode = 1
@@ -204,7 +204,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
 
-[node name="CharacterNameText" type="RichTextLabel" parent="LinePresenter/PresenterControl"]
+[node name="CharacterNameText" type="RichTextLabel" parent="LinePresenter/PresenterControl" unique_id=1335073284]
 self_modulate = Color(0.321569, 0.87451, 0.254902, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -218,15 +218,15 @@ offset_right = -813.0
 offset_bottom = -196.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
 theme_override_font_sizes/bold_italics_font_size = 36
 theme_override_font_sizes/italics_font_size = 36
 theme_override_font_sizes/mono_font_size = 36
-theme_override_font_sizes/normal_font_size = 36
-theme_override_font_sizes/bold_font_size = 36
 bbcode_enabled = true
 text = "Character Name"
 
-[node name="ColorRect" type="ColorRect" parent="LinePresenter/PresenterControl/CharacterNameText"]
+[node name="ColorRect" type="ColorRect" parent="LinePresenter/PresenterControl/CharacterNameText" unique_id=2068112579]
 modulate = Color(0.203922, 0.192157, 0.192157, 0.458824)
 show_behind_parent = true
 layout_mode = 0
@@ -234,7 +234,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(1, 1, 1, 0)
 
-[node name="ContinueButton" type="Button" parent="LinePresenter/PresenterControl"]
+[node name="ContinueButton" type="Button" parent="LinePresenter/PresenterControl" unique_id=583544637]
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -252,7 +252,7 @@ mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 36
 text = "Continue"
 
-[node name="LinePresenterButtonHandler" type="Control" parent="LinePresenter" node_paths=PackedStringArray("continueButton", "dialogueRunner")]
+[node name="LinePresenterButtonHandler" type="Control" parent="LinePresenter" unique_id=1728572912 node_paths=PackedStringArray("continueButton", "dialogueRunner")]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -260,13 +260,13 @@ script = ExtResource("4_af0ia")
 continueButton = NodePath("../PresenterControl/ContinueButton")
 dialogueRunner = NodePath("../../DialogueRunner")
 
-[node name="InMemoryVariableStorage" type="Node" parent="."]
+[node name="InMemoryVariableStorage" type="Node" parent="." unique_id=939121801]
 script = ExtResource("7_nc2nt")
 
-[node name="TextLineProvider" type="Node2D" parent="."]
+[node name="TextLineProvider" type="Node2D" parent="." unique_id=1096727904]
 script = ExtResource("8_vui1v")
 
-[node name="Advancer" type="Node" parent="." node_paths=PackedStringArray("runner")]
+[node name="Advancer" type="Node" parent="." unique_id=1703365769 node_paths=PackedStringArray("runner")]
 script = ExtResource("10_8o7va")
 runner = NodePath("../DialogueRunner")
 multiAdvanceIsCancel = true
