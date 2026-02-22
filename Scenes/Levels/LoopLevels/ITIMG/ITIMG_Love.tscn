@@ -12,7 +12,7 @@ position = Vector2(2325, 777)
 ExactKey = "Do"
 
 [node name="you still" parent="." unique_id=216954876 instance=ExtResource("2_djjeg")]
-position = Vector2(1589, 1351)
+position = Vector2(1589, 1344)
 ExactKey = "you still"
 
 [node name="love" parent="." unique_id=632155549 instance=ExtResource("2_djjeg")]
