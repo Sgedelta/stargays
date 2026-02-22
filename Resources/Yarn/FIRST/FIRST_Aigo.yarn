@@ -1,0 +1,7 @@
+title: FIRST_Aigo
+---
+Mom: 아이고, 우리 딸. 너무 말랐어! 잘 먹어야 해. (Aigo, my daughter. You’re so thin! You need to eat well.)
+	-> I know.
+		<<LoadLevel GameManager FIRST_Sorry>>
+		<<jump First_Sorry>>
+===

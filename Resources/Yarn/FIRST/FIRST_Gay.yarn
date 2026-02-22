@@ -1,0 +1,7 @@
+title: FIRST_Gay
+---
+Mom: What is it?
+	-> I'm gay.
+		<<LoadLevel GameManager FIRST_What>>
+		<<jump FIRST_What>>
+===

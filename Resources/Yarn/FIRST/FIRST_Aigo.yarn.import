@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarnscript"
+type="Resource"
+uid="uid://c6sjeptb6g2xx"
+path="res://.godot/imported/FIRST_Aigo.yarn-ab94c18a265a9faac66f0551e896e16c.tres"
+
+[deps]
+
+source_file="res://Resources/Yarn/FIRST/FIRST_Aigo.yarn"
+dest_files=["res://.godot/imported/FIRST_Aigo.yarn-ab94c18a265a9faac66f0551e896e16c.tres"]
+
+[params]
+

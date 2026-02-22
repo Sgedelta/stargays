@@ -1,0 +1,10 @@
+title: FIRST_Happy
+---
+Mom: And... you're happy?
+	-> I am happy.
+		<<LoadLevel GameManager FIRST_Okay>>
+		<<jump FIRST_Okay>>
+	-> I will be.
+		<<LoadLevel GameManager FIRST_Okay>>
+		<<jump FIRST_Okay>>
+===

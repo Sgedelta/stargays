@@ -1,0 +1,11 @@
+title: FIRST_Years
+---
+Mom: ...
+Mom: How long have you known?
+	-> A few years.
+		<<LoadLevel GameManager FIRST_Happy>>
+		<<jump FIRST_Happy>>
+	-> A long time.
+		<<LoadLevel GameManager FIRST_Happy>>
+		<<jump FIRST_Happy>>
+===

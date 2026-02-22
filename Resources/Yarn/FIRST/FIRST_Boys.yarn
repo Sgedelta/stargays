@@ -1,0 +1,7 @@
+title: FIRST_Boys
+---
+Mom: You... don't like boys?
+	-> No, I don't.
+		<<LoadLevel GameManager FIRST_Years>>
+		<<jump FIRST_Years>>
+===

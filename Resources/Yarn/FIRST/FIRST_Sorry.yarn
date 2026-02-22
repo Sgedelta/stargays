@@ -1,0 +1,7 @@
+title: IMG_Sorry
+---
+Mom: I wish I could see you more.
+	-> I'm sorry.
+		<<LoadLevel GameManager FIRST_Baby>>
+		<<jump FIRST_Baby>>
+===

@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarnscript"
+type="Resource"
+uid="uid://bkdcgi1iott31"
+path="res://.godot/imported/FIRST_Friend.yarn-52f5ddc1a10e46466005ab6d1521d667.tres"
+
+[deps]
+
+source_file="res://Resources/Yarn/FIRST/FIRST_Friend.yarn"
+dest_files=["res://.godot/imported/FIRST_Friend.yarn-52f5ddc1a10e46466005ab6d1521d667.tres"]
+
+[params]
+

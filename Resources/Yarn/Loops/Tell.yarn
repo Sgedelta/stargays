@@ -1,6 +1,7 @@
 title: Tell
 ---
-Mom: What did you want to say?
+I wanted to tell you something.
+Mom: What is it?
 	-> I'm gay.
 		<<LoadLevel GameManager IMG_Gay>>
 		<<jump IMG_Gay>>

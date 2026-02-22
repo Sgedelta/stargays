@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarnscript"
+type="Resource"
+uid="uid://d1g6c2rwhf6g4"
+path="res://.godot/imported/FIRST_Gay.yarn-056d2754a04d47bdf416c80c5e66d8c0.tres"
+
+[deps]
+
+source_file="res://Resources/Yarn/FIRST/FIRST_Gay.yarn"
+dest_files=["res://.godot/imported/FIRST_Gay.yarn-056d2754a04d47bdf416c80c5e66d8c0.tres"]
+
+[params]
+

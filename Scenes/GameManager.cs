@@ -51,8 +51,30 @@ public partial class GameManager : Node
 		{"IMG_WantKids",	ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/IMG/IMG_WantKids.tscn")},
 		{"IMG_NoKids",		ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/IMG/IMG_NoKids.tscn")},
 		{"IMG_Change",		ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/IMG/IMG_Change.tscn") },
-		{"IMG_Upset",		ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/IMG/IMG_Upset.tscn") }
-	};
+		{"IMG_Upset",		ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/IMG/IMG_Upset.tscn") },
+        {"FIRST_Aigo",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FIRST/FIRST_Aigo.tscn") },
+        {"FIRST_Baby",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FIRST/FIRST_Baby.tscn") },
+		{"FIRST_Boys",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FIRST/FIRST_Boys.tscn") },
+        {"FIRST_Dipper",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FIRST/FIRST_Dipper.tscn") },
+        {"FIRST_Friend",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FIRST/FIRST_Friend.tscn") },
+        {"FIRST_Gay",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FIRST/FIRST_Gay.tscn") },
+        {"FIRST_Happy",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FIRST/FIRST_Happy.tscn") },
+        {"FIRST_Okay",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FIRST/FIRST_Okay.tscn") },
+        {"FIRST_Sorry",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FIRST/FIRST_Sorry.tscn") },
+        {"FIRST_Tell",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FIRST/FIRST_Tell.tscn") },
+        {"FIRST_What",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FIRST/FIRST_What.tscn") },
+        {"FIRST_Years",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FIRST/FIRST_Years.tscn") },
+        {"ILG_Men",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/ILG/ILG_Men.tscn") },
+        {"ILG_Quiet",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/ILG/ILG_Quiet.tscn") },
+        {"ILG_Men",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/ILG/ILG_Men.tscn") },
+        {"ITIMG_What",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/ITIMG/ITIMG_What.tscn") },
+        {"ITIMG_Raise",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/ITIMG/ITIMG_Raise.tscn") },
+        {"ITIMG_Mother",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/ITIMG/ITIMG_Mother.tscn") },
+        {"ITIMG_Love",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/ITIMG/ITIMG_Love.tscn") },
+        {"ITILG_Love",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/ITILG/ITILG_Man.tscn") },
+        {"NM_Sure",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/NM/NM_Sure.tscn") },
+        {"NM_Ending",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/NM/NM_Ending.tscn") }
+    };
 
 	public int FadeTime = 1;
 

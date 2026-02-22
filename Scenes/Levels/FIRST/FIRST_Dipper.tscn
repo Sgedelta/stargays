@@ -8,16 +8,24 @@ texture_filter = 1
 script = ExtResource("1_d2h15")
 
 [node name="Big" parent="." unique_id=1573328344 instance=ExtResource("2_xqbku")]
-position = Vector2(1379, 935)
+position = Vector2(2287, 1314)
 ExactKey = "Big"
 
+[node name="You" parent="." unique_id=447831954 instance=ExtResource("2_xqbku")]
+position = Vector2(746, 219)
+ExactKey = "You"
+
+[node name="mean" parent="." unique_id=1368529650 instance=ExtResource("2_xqbku")]
+position = Vector2(1574, 741)
+ExactKey = "mean"
+
 [node name="Dipper?" parent="." unique_id=216954876 instance=ExtResource("2_xqbku")]
-position = Vector2(2105, 1100)
+position = Vector2(2499, 905)
 ExactKey = "Dipper?"
 
-[node name="The" parent="." unique_id=1621251631 instance=ExtResource("2_xqbku")]
-position = Vector2(693, 346)
-ExactKey = "The"
+[node name="the" parent="." unique_id=1621251631 instance=ExtResource("2_xqbku")]
+position = Vector2(1434, 1178)
+ExactKey = "the"
 
 [node name="StarInputLine" type="Line2D" parent="." unique_id=353050649]
 unique_name_in_owner = true

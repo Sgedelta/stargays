@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarnscript"
+type="Resource"
+uid="uid://b0vswka5sxdbv"
+path="res://.godot/imported/FIRST_Tell.yarn-cceaf46266d5934f97a71da0e35f82bb.tres"
+
+[deps]
+
+source_file="res://Resources/Yarn/FIRST/FIRST_Tell.yarn"
+dest_files=["res://.godot/imported/FIRST_Tell.yarn-cceaf46266d5934f97a71da0e35f82bb.tres"]
+
+[params]
+

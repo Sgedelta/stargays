@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarnscript"
+type="Resource"
+uid="uid://dh2vw1trsjyco"
+path="res://.godot/imported/FIRST_Years.yarn-5b57e6b512c8013283d6a2fbe49883ab.tres"
+
+[deps]
+
+source_file="res://Resources/Yarn/FIRST/FIRST_Years.yarn"
+dest_files=["res://.godot/imported/FIRST_Years.yarn-5b57e6b512c8013283d6a2fbe49883ab.tres"]
+
+[params]
+
