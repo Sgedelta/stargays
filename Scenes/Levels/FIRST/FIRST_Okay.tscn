@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dwaanm2jl4dy8"]
+
+[ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_gnoo7"]
+[ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_4rqq3"]
+
+[node name="TestLevel" type="Node2D" unique_id=2089262154]
+script = ExtResource("1_gnoo7")
+
+[node name="Are" parent="." unique_id=1776195423 instance=ExtResource("2_4rqq3")]
+position = Vector2(1095, 219)
+ExactKey = "Are"
+
+[node name="okay?" parent="." unique_id=205932810 instance=ExtResource("2_4rqq3")]
+position = Vector2(3099, 638)
+ExactKey = "wanted"
+
+[node name="be" parent="." unique_id=447831954 instance=ExtResource("2_4rqq3")]
+position = Vector2(2316, 301)
+ExactKey = "be"
+
+[node name="Will" parent="." unique_id=1753262331 instance=ExtResource("2_4rqq3")]
+position = Vector2(254, 732)
+ExactKey = "tell"
+
+[node name="you" parent="." unique_id=2120419836 instance=ExtResource("2_4rqq3")]
+position = Vector2(1374, 1119)
+ExactKey = "you"
+
+[node name="StarInputLine" type="Line2D" parent="." unique_id=494253070]
+z_index = 1
+position = Vector2(-3622, 814)
