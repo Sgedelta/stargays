@@ -1,0 +1,58 @@
+title: ITIMG_Gay
+---
+Mom: What are you talking about?
+	->Mom, I'm gay.
+		<<LoadLevel GameManager ITIMG_Raise>>
+		<<jump ITIMG_Raise>>
+	->I'm gay.
+		<<LoadLevel GameManager ITIMG_Raise>>
+		<<jump ITIMG_Raise>>
+===
+
+title: ITIMG_Raise
+---
+Mom: ...
+Mom: No. No, you're not. 
+Mom: I raised you right. You can't be gay.
+	->What's wrong with being gay?
+		<<LoadLevel GameManager ITIMG_Mother>>
+		<<jump ITIMG_Mother>>
+	->What's wrong with you?
+		<<LoadLevel GameManager ITIMG_Love>>
+		<<jump ITIMG_Love>>
+===
+
+title: ITIMG_Mother
+---
+Mom: What's not wrong with it?
+Mom: You would be a failure of a woman.
+Mom: And I would be a failure of a mother.
+	->Don't say that, mom.
+		Mom: Why shouldn't I? It's clearly true.
+		Mom: What am I going to tell our family?
+		Mom: They're all going to know how bad of a mother I am, 
+		Mom: and what a failure I've raised.
+		<<LoadLevel GameManager questions>>
+		<<jump Tell>>
+	->If you say so.
+		Mom: You're ungrateful. After everything I've done for you?
+		Mom: Why would you hurt me like this?
+		<<LoadLevel GameManager questions>>
+		<<jump Tell>>
+===
+
+title: ITIMG_Love
+---
+Mom: What's wrong with me?
+Mom: I put a roof over your head.
+Mom: Food in your mouth.
+Mom: And this is how you repay me?
+	->Do you still love me?
+		Mom: I want to.
+		Mom: You don't know what's good for you.
+		<<LoadLevel GameManager questions>>
+		<<jump Tell>>
+	->Do you still accept me?
+		<<LoadLevel GameManager ILG_Quiet>>
+		<<jump ILG_Quiet>>
+===

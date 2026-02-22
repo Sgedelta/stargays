@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://du3pmrpqm042f"]
+
+[ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_rkl8s"]
+[ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_gea00"]
+
+[node name="TestLevel" type="Node2D" unique_id=1817164843]
+script = ExtResource("1_rkl8s")
+
+[node name="love" parent="." unique_id=432041246 instance=ExtResource("2_gea00")]
+position = Vector2(3325, 341)
+ExactKey = "love"
+
+[node name="I" parent="." unique_id=1752437096 instance=ExtResource("2_gea00")]
+position = Vector2(538, 1219)
+ExactKey = "I"
+
+[node name="you_" parent="." unique_id=1642314158 instance=ExtResource("2_gea00")]
+position = Vector2(1527, 298)
+ExactKey = "you."
+
+[node name="miss" parent="." unique_id=165119371 instance=ExtResource("2_gea00")]
+position = Vector2(3223, 1137)
+ExactKey = "miss"
+
+[node name="StarInputLine" type="Line2D" parent="." unique_id=905913903]
+unique_name_in_owner = true
+width = 10.77

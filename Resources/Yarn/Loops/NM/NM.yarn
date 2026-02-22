@@ -1,0 +1,26 @@
+title: NM_Sure
+---
+Mom: Are you sure?
+	->I'm sure.
+		<<LoadLevel GameManager NM_Ending>>
+		<<jump NM_Ending>>
+	->I'm not sure.
+		Mom: You can tell me anything.
+			<<LoadLevel GameManager Tell>>
+			<<jump TellMom>>
+===
+title: NM_Ending
+---
+Mom: ...
+Mom: I'm so thankful you came to visit.
+Mom: When I was younger, I never saw my mom.
+Mom: She lived in the city and I lived with my sisters in the countryside.
+Mom: She visited as much as she could, but...
+Mom: She had to work to support us.
+Mom: When I had you, I promised I'd give you the best life I could.
+Mom: I love you.
+	->I love you.
+		<<LoadLevel GameManager game_over>>
+	->I miss you.
+		<<LoadLevel GameManager game_over>>
+===

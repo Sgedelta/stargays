@@ -11,30 +11,30 @@ position = Vector2(286, 281)
 ExactKey = "I'm"
 
 [node name="I think" parent="." unique_id=787851773 instance=ExtResource("2_xbbam")]
-position = Vector2(1373, 1441)
+position = Vector2(1417, 165)
 ExactKey = "I think"
 
 [node name="I like" parent="." unique_id=1780023978 instance=ExtResource("2_xbbam")]
-position = Vector2(936, 938)
+position = Vector2(278, 1125)
 ExactKey = "I like"
 
 [node name="gay_" parent="." unique_id=1642314158 instance=ExtResource("2_xbbam")]
-position = Vector2(3166, 1347)
+position = Vector2(3560, 898)
 ExactKey = "gay."
 
 [node name="girls_" parent="." unique_id=1955365753 instance=ExtResource("2_xbbam")]
-position = Vector2(3146, 811)
+position = Vector2(2940, 304)
 ExactKey = "girls."
 
 [node name="Never" parent="." unique_id=1179971738 instance=ExtResource("2_xbbam")]
-position = Vector2(1610, 168)
+position = Vector2(1603, 859)
 ExactKey = "Never"
 _requiredNodeAmounts = Dictionary[String, int]({
 "Tell": 1
 })
 
 [node name="mind_" parent="." unique_id=784748779 instance=ExtResource("2_xbbam")]
-position = Vector2(3336, 267)
+position = Vector2(2200, 855)
 ExactKey = "mind."
 _requiredNodeAmounts = Dictionary[String, int]({
 "Tell": 1

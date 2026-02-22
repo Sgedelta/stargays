@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarnscript"
+type="Resource"
+uid="uid://b64yp5op2ycdw"
+path="res://.godot/imported/ITILG.yarn-aa6fbf086e24ee3f75740c68c96c8030.tres"
+
+[deps]
+
+source_file="res://Resources/Yarn/Loops/ITILG/ITILG.yarn"
+dest_files=["res://.godot/imported/ITILG.yarn-aa6fbf086e24ee3f75740c68c96c8030.tres"]
+
+[params]
+

@@ -9,71 +9,71 @@ namespace YarnSpinnerGodot;
 [GlobalClass]
 public partial class TextLineProvider : LineProviderBehaviour
 {
-    /// <summary>Specifies the language code to use for text content
-    /// for this <see cref="TextLineProvider"/>.
-    /// </summary>
-    [Language] [Export] public string textLanguageCode = System.Globalization.CultureInfo.CurrentCulture.Name;
-    
-    private YarnTask? prepareForLinesTask = null;
+	/// <summary>Specifies the language code to use for text content
+	/// for this <see cref="TextLineProvider"/>.
+	/// </summary>
+	[Language] [Export] public string textLanguageCode = System.Globalization.CultureInfo.CurrentCulture.Name;
+	
+	private YarnTask? prepareForLinesTask = null;
 
-    public override bool LinesAvailable => prepareForLinesTask?.IsCompletedSuccessfully() ?? false;
+	public override bool LinesAvailable => prepareForLinesTask?.IsCompletedSuccessfully() ?? false;
 
-    private LineParser lineParser = new LineParser();
-    private BuiltInMarkupReplacer builtInReplacer = new BuiltInMarkupReplacer();
+	private LineParser lineParser = new LineParser();
+	private BuiltInMarkupReplacer builtInReplacer = new BuiltInMarkupReplacer();
 
-    public override void RegisterMarkerProcessor(string attributeName, IAttributeMarkerProcessor markerProcessor)
-    {
-        lineParser.RegisterMarkerProcessor(attributeName, markerProcessor);
-    }
+	public override void RegisterMarkerProcessor(string attributeName, IAttributeMarkerProcessor markerProcessor)
+	{
+		lineParser.RegisterMarkerProcessor(attributeName, markerProcessor);
+	}
 
-    public override void DeregisterMarkerProcessor(string attributeName)
-    {
-        lineParser.DeregisterMarkerProcessor(attributeName);
-    }
+	public override void DeregisterMarkerProcessor(string attributeName)
+	{
+		lineParser.DeregisterMarkerProcessor(attributeName);
+	}
 
 
-    public override void _Ready()
-    {
-        if (!IsInstanceValid(YarnProject))
-        {
-            GD.PushError(
-                $"{nameof(YarnProject)} is not set on {nameof(TextLineProvider)}. You must set the yarn project for this " +
-                $"script to work properly. ");
-        }
-        lineParser.RegisterMarkerProcessor("select", builtInReplacer);
-        lineParser.RegisterMarkerProcessor("plural", builtInReplacer);
-        lineParser.RegisterMarkerProcessor("ordinal", builtInReplacer);
-        
-        if (string.IsNullOrWhiteSpace(LocaleCode))
-        {
-            LocaleCode = System.Globalization.CultureInfo.CurrentCulture.Name;
-        }
-    }
+	public override void _Ready()
+	{
+		if (!IsInstanceValid(YarnProject))
+		{
+			GD.PushError(
+				$"{nameof(YarnProject)} is not set on {nameof(TextLineProvider)}. You must set the yarn project for this " +
+				$"script to work properly. ");
+		}
+		lineParser.RegisterMarkerProcessor("select", builtInReplacer);
+		lineParser.RegisterMarkerProcessor("plural", builtInReplacer);
+		lineParser.RegisterMarkerProcessor("ordinal", builtInReplacer);
+		
+		if (string.IsNullOrWhiteSpace(LocaleCode))
+		{
+			LocaleCode = System.Globalization.CultureInfo.CurrentCulture.Name;
+		}
+	}
 
-    public override YarnTask<LocalizedLine> GetLocalizedLineAsync(Yarn.Line line,
-        CancellationToken cancellationToken)
-    {
-        string text;
+	public override YarnTask<LocalizedLine> GetLocalizedLineAsync(Yarn.Line line,
+		CancellationToken cancellationToken)
+	{
+		string text;
 
-        string sourceLineID = line.ID;
+		string sourceLineID = line.ID;
 
-        string[] metadata = System.Array.Empty<string>();
-        // Check to see if this line shadows another. If it does, we'll use
-        // that line's text and asset.
-        if (YarnProject != null)
-        {
-            metadata = YarnProject.LineMetadata?.GetMetadata(line.ID) ?? System.Array.Empty<string>();
+		string[] metadata = System.Array.Empty<string>();
+		// Check to see if this line shadows another. If it does, we'll use
+		// that line's text and asset.
+		if (YarnProject != null)
+		{
+			metadata = YarnProject.LineMetadata?.GetMetadata(line.ID) ?? System.Array.Empty<string>();
 
-            var shadowLineSource = YarnProject.LineMetadata?.GetShadowLineSource(line.ID);
+			var shadowLineSource = YarnProject.LineMetadata?.GetShadowLineSource(line.ID);
 
-            if (shadowLineSource != null)
-            {
-                sourceLineID = shadowLineSource;
-            }
-        }
+			if (shadowLineSource != null)
+			{
+				sourceLineID = shadowLineSource;
+			}
+		}
 
-        // By default, this provider will treat "en" as matching "en-UK", "en-US" etc. You can 
-        // remap language codes how you like if you don't want this behavior 
+		// By default, this provider will treat "en" as matching "en-UK", "en-US" etc. You can 
+		// remap language codes how you like if you don't want this behavior 
         if (textLanguageCode.ToLower().StartsWith(YarnProject.baseLocalization.LocaleCode.ToLower()))
         {
             text = YarnProject.baseLocalization.GetLocalizedString(sourceLineID);
@@ -92,7 +92,7 @@ public partial class TextLineProvider : LineProviderBehaviour
         if (text == null)
         {
             // No line available.
-            GD.PushWarning($"Can't locate the text for the line: {line.ID}", this);
+			GD.PushWarning($"Can't locate the text for the line: {line.ID}", this);
             return YarnTask.FromResult(LocalizedLine.InvalidLine);
         }
 

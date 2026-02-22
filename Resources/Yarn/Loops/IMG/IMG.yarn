@@ -1,0 +1,98 @@
+title: IMG_Gay
+---
+Mom: What do you mean?
+	-> I'm gay.
+		<<LoadLevel GameManager IMG_Husband>>
+        <<jump IMG_Husband>>
+	-> Never mind.
+		<<LoadLevel GameManager NM_Sure>>
+        <<jump NM_Sure>>
+===
+title: IMG_Husband
+---
+Mom: My Daughter can't be gay.
+Mom: You need a husband to protect you.
+Mom: What about kids?
+	-> I want kids.
+		<<LoadLevel GameManager IMG_WantKids>>
+		<<jump IMG_WantKids>>
+	-> I don't want kids.
+		<<LoadLevel GameManager IMG_NoKids>>
+		<<jump IMG_NoKids>>
+===
+title: IMG_WantKids
+---
+Mom: So you'll be raising a kid that isn't your own?
+Mom: Don't you want to be a mother to your own child?
+Mom: Will you really be happy like that?
+	->I think so.
+		<<LoadLevel GameManager IMG_Upset>>
+		<<jump IMG_Upset>>
+	->I don't know.
+		Mom: Exactly. You're too young.
+		Mom: You don't know what you're talking about.
+		<<LoadLevel GameManager IMG_Change>>
+		<<jump IMG_Change>>
+===
+title: IMG_NoKids
+---
+Mom: You don't know that.
+Mom: Who's going to take care of you when you're older?
+Mom: A child is the greatest blessing. Don't you want that?
+	->I guess so.
+		Mom: Exactly. You're too young.
+		Mom: You don't know what you're talking about.
+		<<LoadLevel GameManager IMG_Change>>
+		<<jump IMG_Change>>
+	->I guess not.
+		Mom: You're too young to know.
+		Mom: You don't know what you're talking about.
+		<<LoadLevel GameManager IMG_Change>>
+		<<jump IMG_Change>>
+	->Absolutely not.
+		Mom: Don't be obstinate.
+		Mom: You don't know what's good for you.
+		Mom: This isn't you. This can't be you.
+		<<LoadLevel GameManager IMG_Change>>
+		<<jump IMG_Change>>
+===
+title: IMG_Upset
+---
+Mom: I didn't raise you to be like this.
+Mom: Do you want to upset me?
+Mom: What do you have to say for yourself?
+	-> I'm sorry.
+		Mom: Apologizing won't fix this.
+		Mom: How can I ever see you the same again?
+		<<LoadLevel GameManager questions>>
+		<<jump Tell>>
+	-> I'm not sorry.
+		Mom: You-
+		Mom: You need to listen to me!
+		Mom: I raised you! You are MY daughter! And you can't even listen to me?
+		Mom: You don't understand how much I've sacri-
+		<<LoadLevel GameManager questions>>
+		<<jump Tell>>
+===
+title: IMG_Change
+---
+Mom: Mom: Just forget about all of this.
+	-> This is who I am.
+		Mom: I know you, my daughter. This isn't you.
+		Mom: Stop talking nonsense. Stop thinking nonsense.
+		Mom: You'll regret lying to yourself like this.
+		<<LoadLevel GameManager questions>>
+		<<jump Tell>>
+	-> I can't change who I am.
+		Mom: I know you, my daughter. This isn't you.
+		Mom: Stop talking nonsense. Stop thinking nonsense.
+		Mom: You'll regret lying to yourself like this.
+		<<LoadLevel GameManager questions>>
+		<<jump Tell>>
+	-> I won't change who I am.
+		Mom: You're not my daughter. My daughter is respectful and obedient.
+		Mom: Not... this.
+		Mom: I don't want anything to do with you.
+		<<LoadLevel GameManager questions>>
+		<<jump Tell>>
+===

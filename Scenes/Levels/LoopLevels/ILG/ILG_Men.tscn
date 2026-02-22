@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://1qrvyr0mtskb"]
+
+[ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_fm0ac"]
+[ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_8trcj"]
+
+[node name="TestLevel" type="Node2D" unique_id=1817164843]
+script = ExtResource("1_fm0ac")
+
+[node name="I" parent="." unique_id=946213963 instance=ExtResource("2_8trcj")]
+position = Vector2(842, 492)
+ExactKey = "I"
+
+[node name="do_" parent="." unique_id=1642314158 instance=ExtResource("2_8trcj")]
+position = Vector2(1705, 1131)
+ExactKey = "do."
+
+[node name="don\'t_" parent="." unique_id=1179971738 instance=ExtResource("2_8trcj")]
+position = Vector2(2366, 571)
+ExactKey = "don't."
+
+[node name="StarInputLine" type="Line2D" parent="." unique_id=905913903]
+unique_name_in_owner = true
+width = 10.77

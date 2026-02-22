@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b4y1uaopwu77p"]
+
+[ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_lvxqp"]
+[ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_3rth4"]
+
+[node name="TestLevel" type="Node2D" unique_id=736147936]
+texture_filter = 1
+script = ExtResource("1_lvxqp")
+
+[node name="Mom," parent="." unique_id=1573328344 instance=ExtResource("2_3rth4")]
+position = Vector2(2740, 398)
+ExactKey = "Mom,"
+
+[node name="I\'m" parent="." unique_id=216954876 instance=ExtResource("2_3rth4")]
+position = Vector2(389, 1039)
+ExactKey = "I'm"
+
+[node name="gay_" parent="." unique_id=632155549 instance=ExtResource("2_3rth4")]
+position = Vector2(1652, 969)
+ExactKey = "gay."
+
+[node name="StarInputLine" type="Line2D" parent="." unique_id=353050649]
+unique_name_in_owner = true
+points = PackedVector2Array(3384, 661)

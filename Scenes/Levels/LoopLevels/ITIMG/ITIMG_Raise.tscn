@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://brrxyegj8sdfi"]
+
+[ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_ftiuh"]
+[ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_1mvx6"]
+
+[node name="TestLevel" type="Node2D" unique_id=736147936]
+texture_filter = 1
+script = ExtResource("1_ftiuh")
+
+[node name="What\'s" parent="." unique_id=1573328344 instance=ExtResource("2_1mvx6")]
+position = Vector2(2740, 398)
+ExactKey = "What's"
+
+[node name="wrong" parent="." unique_id=216954876 instance=ExtResource("2_1mvx6")]
+position = Vector2(389, 1039)
+ExactKey = "wrong"
+
+[node name="with" parent="." unique_id=632155549 instance=ExtResource("2_1mvx6")]
+position = Vector2(1652, 969)
+ExactKey = "with"
+
+[node name="being gay?" parent="." unique_id=1593754449 instance=ExtResource("2_1mvx6")]
+position = Vector2(1661, 399)
+ExactKey = "being gay?"
+
+[node name="you?" parent="." unique_id=1621251631 instance=ExtResource("2_1mvx6")]
+position = Vector2(2297, 771)
+ExactKey = "you?"
+
+[node name="StarInputLine" type="Line2D" parent="." unique_id=353050649]
+unique_name_in_owner = true
+points = PackedVector2Array(3384, 661)

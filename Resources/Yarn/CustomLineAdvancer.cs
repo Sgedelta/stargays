@@ -20,52 +20,52 @@ namespace YarnSpinnerGodot;
 [GlobalClass]
 public partial class CustomLineAdvancer : Node, DialoguePresenterBase, IActionMarkupHandler
 {
-    [Export] DialogueRunner? runner;
+	[Export] DialogueRunner? runner;
 
-    /// <summary>
-    /// If <see langword="true"/>, repeatedly signalling that the line
-    /// should be hurried up will cause the line advancer to request that
-    /// the next line be shown.
-    /// </summary>
-    /// <seealso cref="advanceRequestsBeforeCancellingLine"/>
-    [Export] public bool multiAdvanceIsCancel = false;
+	/// <summary>
+	/// If <see langword="true"/>, repeatedly signalling that the line
+	/// should be hurried up will cause the line advancer to request that
+	/// the next line be shown.
+	/// </summary>
+	/// <seealso cref="advanceRequestsBeforeCancellingLine"/>
+	[Export] public bool multiAdvanceIsCancel = false;
 
-    /// <summary>
-    /// The number of times that a 'hurry up' signal occurs before the line
-    /// advancer requests that the next line be shown.
-    /// </summary>
-    /// <seealso cref="multiAdvanceIsCancel"/>
-    [Export] public int advanceRequestsBeforeCancellingLine = 2;
+	/// <summary>
+	/// The number of times that a 'hurry up' signal occurs before the line
+	/// advancer requests that the next line be shown.
+	/// </summary>
+	/// <seealso cref="multiAdvanceIsCancel"/>
+	[Export] public int advanceRequestsBeforeCancellingLine = 2;
 
-    /// <summary>
-    /// The number of times that this object has received an indication that
-    /// the line should be advanced.
-    /// </summary>
-    /// <remarks>
-    /// This value is reset to zero when a new line is run. When the line is
-    /// advanced, this value is incremented. If this value ever meets or
-    /// exceeds <see cref="advanceRequestsBeforeCancellingLine"/>, the line
-    /// will be cancelled.
-    /// </remarks>
-    private int numberOfAdvancesThisLine = 0;
+	/// <summary>
+	/// The number of times that this object has received an indication that
+	/// the line should be advanced.
+	/// </summary>
+	/// <remarks>
+	/// This value is reset to zero when a new line is run. When the line is
+	/// advanced, this value is incremented. If this value ever meets or
+	/// exceeds <see cref="advanceRequestsBeforeCancellingLine"/>, the line
+	/// will be cancelled.
+	/// </remarks>
+	private int numberOfAdvancesThisLine = 0;
 
-    /// <summary>
-    /// The input action that triggers a request to advance to the
-    /// next piece of content.
-    /// </summary>
-    [Export] public string hurryUpAction = "ui_accept";
+	/// <summary>
+	/// The input action that triggers a request to advance to the
+	/// next piece of content.
+	/// </summary>
+	[Export] public string hurryUpAction = "ui_accept";
 
-    /// <summary>
-    /// The input action that triggers an instruction to cancel the
-    /// current line.
-    /// </summary>
-    [Export] public string nextLineAction = "ui_accept";
+	/// <summary>
+	/// The input action that triggers an instruction to cancel the
+	/// current line.
+	/// </summary>
+	[Export] public string nextLineAction = "ui_accept";
 
-    /// <summary>
-    /// The input action that triggers an instruction to cancel the
-    /// entire dialogue.
-    /// </summary>
-    [Export] public string cancelDialogueAction = "ui_cancel";
+	/// <summary>
+	/// The input action that triggers an instruction to cancel the
+	/// entire dialogue.
+	/// </summary>
+	[Export] public string cancelDialogueAction = "ui_cancel";
 
     private bool _canSkipLine = false;
 
@@ -79,17 +79,17 @@ public partial class CustomLineAdvancer : Node, DialoguePresenterBase, IActionMa
         return YarnTask.CompletedTask;
     }
 
-    /// <summary>
-    /// Called by a dialogue runner when dialogue ends to remove the input
-    /// action handlers.
-    /// </summary>
-    /// <returns>A completed task.</returns>
-    public YarnTask OnDialogueCompleteAsync()
-    {
-        return YarnTask.CompletedTask;
-    }
+	/// <summary>
+	/// Called by a dialogue runner when dialogue ends to remove the input
+	/// action handlers.
+	/// </summary>
+	/// <returns>A completed task.</returns>
+	public YarnTask OnDialogueCompleteAsync()
+	{
+		return YarnTask.CompletedTask;
+	}
 
-    public List<IActionMarkupHandler> ActionMarkupHandlers { get; } = [];
+	public List<IActionMarkupHandler> ActionMarkupHandlers { get; } = [];
 
     /// <summary>
     /// Called by a dialogue view to signal that a line is running.
@@ -106,19 +106,19 @@ public partial class CustomLineAdvancer : Node, DialoguePresenterBase, IActionMa
         return YarnTask.CompletedTask;
     }
 
-    /// <summary>
-    /// Called by a dialogue view to signal that options are running.
-    /// </summary>
-    /// <inheritdoc cref="LinePresenter.RunOptionsAsync" path="/param"/>
-    /// <returns>A completed task indicating that no option was selected by
-    /// this view.</returns>
-    public YarnTask<DialogueOption?> RunOptionsAsync(DialogueOption[] dialogueOptions,
-        CancellationToken cancellationToken)
-    {
-        // This line view doesn't take any actions when options are
-        // presented.
-        return YarnTask<DialogueOption?>.FromResult(null);
-    }
+	/// <summary>
+	/// Called by a dialogue view to signal that options are running.
+	/// </summary>
+	/// <inheritdoc cref="LinePresenter.RunOptionsAsync" path="/param"/>
+	/// <returns>A completed task indicating that no option was selected by
+	/// this view.</returns>
+	public YarnTask<DialogueOption?> RunOptionsAsync(DialogueOption[] dialogueOptions,
+		CancellationToken cancellationToken)
+	{
+		// This line view doesn't take any actions when options are
+		// presented.
+		return YarnTask<DialogueOption?>.FromResult(null);
+	}
 
     /// <summary>
     /// Requests that the line be hurried up.
@@ -137,7 +137,7 @@ public partial class CustomLineAdvancer : Node, DialoguePresenterBase, IActionMa
         // new count, request that the runner 'soft-cancel' the line or
         // cancel the entire line
 
-        numberOfAdvancesThisLine += 1;
+		numberOfAdvancesThisLine += 1;
 
         if (_canSkipLine)
         {
@@ -163,21 +163,21 @@ public partial class CustomLineAdvancer : Node, DialoguePresenterBase, IActionMa
 
     }
 
-    /// <summary>
-    /// Requests that the dialogue runner proceeds to the next line.
-    /// </summary>
-    public void RequestNextLine()
-    {
-        if (runner != null)
-        {
-            runner.RequestNextLine();
-        }
-        else
-        {
-            GD.PushError($"{nameof(LineAdvancer)} dialogue runner is null", this);
-            return;
-        }
-    }
+	/// <summary>
+	/// Requests that the dialogue runner proceeds to the next line.
+	/// </summary>
+	public void RequestNextLine()
+	{
+		if (runner != null)
+		{
+			runner.RequestNextLine();
+		}
+		else
+		{
+			GD.PushError($"{nameof(LineAdvancer)} dialogue runner is null", this);
+			return;
+		}
+	}
 
     /// <summary>
     /// Requests that the dialogue runner to instruct all line views to
@@ -220,10 +220,10 @@ public partial class CustomLineAdvancer : Node, DialoguePresenterBase, IActionMa
             }
         }
 
-        if (!string.IsNullOrWhiteSpace(nextLineAction) && Input.IsActionJustReleased(nextLineAction))
-        {
-            this.RequestNextLine();
-        }
+		if (!string.IsNullOrWhiteSpace(nextLineAction) && Input.IsActionJustReleased(nextLineAction))
+		{
+			this.RequestNextLine();
+		}
 
         if (!string.IsNullOrWhiteSpace(cancelDialogueAction) && Input.IsActionJustReleased(cancelDialogueAction))
         {

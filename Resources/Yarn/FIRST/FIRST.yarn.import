@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarnscript"
+type="Resource"
+uid="uid://bahas0yy7q7yp"
+path="res://.godot/imported/FIRST.yarn-c167466ae42344f43357e07840f64e94.tres"
+
+[deps]
+
+source_file="res://Resources/Yarn/FIRST/FIRST.yarn"
+dest_files=["res://.godot/imported/FIRST.yarn-c167466ae42344f43357e07840f64e94.tres"]
+
+[params]
+

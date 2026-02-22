@@ -1,35 +1,33 @@
 title: Tell
 ---
-Mom: What did you want to say?
+You: I wanted to tell you something.
+	<<jump TellMom>>
+===
+title: TellMom
+---
+Mom: What is it?
 	-> I'm gay.
 		<<LoadLevel GameManager IMG_Gay>>
 		<<jump IMG_Gay>>
 	-> I think I'm gay.
-		<<LoadLevel GameManager IMG_Gay>>
-		<<jump IMG_Gay>>
+		<<LoadLevel GameManager ITIMG_Gay>>
+		<<jump ITIMG_Gay>>
 	-> I like girls.
-		<<LoadLevel GameManager IMG_Gay>>
-		<<jump IMG_Gay>>
+		<<LoadLevel GameManager ILG_Men>>
+		<<jump ILG_Men>>
 	-> I think I like girls.
-		<<LoadLevel GameManager IMG_Gay>>
-		<<jump IMG_Gay>>
+		<<LoadLevel GameManager ITILG_Man>>
+		<<jump ITILG_Man>>
 	-> Never mind.
-		<<LoadLevel GameManager questions>>
-		<<jump JumpToTell>>
+		<<LoadLevel GameManager NM_Sure>>
+		<<jump NM_Sure>>
 ===
-
-title: JumpToTell
----
-<<jump Tell>>
-//this is here because you can't jump to the node you're in...
-//could be used to have special restart dialogue?? big ole shrug.
-===
-
 title: JumpGoodOrBad
 ---
 <<if get_first_level_name() == "Tell">>
    <<jump Tell>>
 <<else>>
-	<<jump GoodLoop>>
+	<<LoadLevel  GameManager FIRST_Aigo>>
+	<<jump FIRST_Aigo>>
 <<endif>>
 ===

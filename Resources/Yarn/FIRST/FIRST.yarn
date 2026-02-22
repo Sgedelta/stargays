@@ -1,0 +1,111 @@
+title: FIRST_Aigo
+---
+Mom: 아이고, 우리 딸. 너무 말랐어! 잘 먹어야 해. (Aigo, my daughter. You’re so thin! You need to eat well.)
+	-> I know.
+		<<LoadLevel GameManager FIRST_Sorry>>
+		<<jump FIRST_Sorry>>
+===
+title: FIRST_Sorry
+---
+Mom: I wish I could see you more.
+	-> I'm sorry.
+		<<LoadLevel GameManager FIRST_Baby>>
+		<<jump FIRST_Baby>>
+===
+title: FIRST_Baby
+---
+Mom: Don't forget you can always come home.
+Mom: ...
+Mom: The stars are so beautiful.
+Mom: When you were a baby, we used to look at the sky all the time. Do you remember?
+	-> Not really.
+		<<LoadLevel GameManager FIRST_Dipper>>
+		<<jump FIRST_Dipper>>
+===
+title: FIRST_Dipper
+---
+Mom: When you were born, you were so small. 
+Mom: The doctors said they didn’t know if you would make it past the night.
+Mom: I prayed to those stars, right there.
+	-> You mean the Big Dipper?
+		<<LoadLevel GameManager FIRST_Tell>>
+		<<jump FIRST_Tell>>
+===
+title: FIRST_Tell
+---
+Mom: We call it 북두칠성 (Bukdu Chilseong), the seven stars of the northern sky.
+Mom: I prayed for your health, for longevity, and for your happiness.
+Mom: And you lived.
+Mom: I don’t know what I’d do without you.
+Mom: You are the light of my life. The center of my world. My guiding star.
+	-> I wanted to tell you something.
+		<<LoadLevel GameManager FIRST_Gay>>
+		<<jump FIRST_Gay>>
+===
+title: FIRST_Gay
+---
+Mom: What is it?
+	-> I'm gay.
+		<<LoadLevel GameManager FIRST_What>>
+		<<jump FIRST_What>>
+===
+title: FIRST_What
+---
+Mom: ...
+Mom: What?
+	-> I like girls.
+		<<LoadLevel GameManager FIRST_Friend>>
+		<<jump FIRST_Friend>>
+===
+title: FIRST_Friend
+---
+Mom: Oh...
+Mom: What about Matthew?
+	-> He's just a friend.
+		<<LoadLevel GameManager FIRST_Boys>>
+		<<jump FIRST_Boys>>
+===
+title: FIRST_Boys
+---
+Mom: You... don't like boys?
+	-> No, I don't.
+		<<LoadLevel GameManager FIRST_Years>>
+		<<jump FIRST_Years>>
+===
+title: FIRST_Years
+---
+Mom: ...
+Mom: How long have you known?
+	-> A few years.
+		<<LoadLevel GameManager FIRST_Happy>>
+		<<jump FIRST_Happy>>
+	-> A long time.
+		<<LoadLevel GameManager FIRST_Happy>>
+		<<jump FIRST_Happy>>
+===
+title: FIRST_Happy
+---
+Mom: And... you're happy?
+	-> I am happy.
+		<<LoadLevel GameManager FIRST_Okay>>
+		<<jump FIRST_Okay>>
+	-> I will be.
+		<<LoadLevel GameManager FIRST_Okay>>
+		<<jump FIRST_Okay>>
+===
+title: FIRST_Okay
+---
+Mom: Oh...
+	-> Are you okay?
+		Mom: I don't understand...
+		Mom: But, I don't have to.
+		Mom: I still love y-
+		<<LoadLevel GameManager questions>>
+		<<jump Tell>>
+	-> Will you be okay?
+		Mom: I don't understand...
+		Mom: But, I don't have to.
+		Mom: I still love y-
+		<<LoadLevel GameManager questions>>
+		<<jump Tell>>
+===

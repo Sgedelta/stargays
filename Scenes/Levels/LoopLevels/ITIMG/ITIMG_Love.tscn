@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dsx4f88b5jvt4"]
+
+[ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_nymfa"]
+[ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_djjeg"]
+
+[node name="TestLevel" type="Node2D" unique_id=736147936]
+texture_filter = 1
+script = ExtResource("1_nymfa")
+
+[node name="Do" parent="." unique_id=1573328344 instance=ExtResource("2_djjeg")]
+position = Vector2(2325, 777)
+ExactKey = "Do"
+
+[node name="you still" parent="." unique_id=216954876 instance=ExtResource("2_djjeg")]
+position = Vector2(1589, 1344)
+ExactKey = "you still"
+
+[node name="love" parent="." unique_id=632155549 instance=ExtResource("2_djjeg")]
+position = Vector2(1720, 304)
+ExactKey = "love"
+
+[node name="accept" parent="." unique_id=1593754449 instance=ExtResource("2_djjeg")]
+position = Vector2(418, 177)
+ExactKey = "accept"
+
+[node name="me?" parent="." unique_id=1621251631 instance=ExtResource("2_djjeg")]
+position = Vector2(2835, 382)
+ExactKey = "me?"
+
+[node name="StarInputLine" type="Line2D" parent="." unique_id=353050649]
+unique_name_in_owner = true
+points = PackedVector2Array(3384, 661)

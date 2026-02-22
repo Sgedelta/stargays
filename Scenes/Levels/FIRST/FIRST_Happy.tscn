@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://vc0oqq380x3"]
+
+[ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_j2wqj"]
+[ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_rd575"]
+
+[node name="TestLevel" type="Node2D" unique_id=2089262154]
+script = ExtResource("1_j2wqj")
+
+[node name="I" parent="." unique_id=1776195423 instance=ExtResource("2_rd575")]
+position = Vector2(400, 754)
+ExactKey = "I"
+
+[node name="am" parent="." unique_id=205932810 instance=ExtResource("2_rd575")]
+position = Vector2(1712, 937)
+ExactKey = "am"
+
+[node name="be_" parent="." unique_id=447831954 instance=ExtResource("2_rd575")]
+position = Vector2(3423, 824)
+ExactKey = "be."
+
+[node name="will" parent="." unique_id=1753262331 instance=ExtResource("2_rd575")]
+position = Vector2(1694, 189)
+ExactKey = "will"
+
+[node name="happy_" parent="." unique_id=1038961004 instance=ExtResource("2_rd575")]
+position = Vector2(2672, 243)
+ExactKey = "happy."
+
+[node name="StarInputLine" type="Line2D" parent="." unique_id=494253070]
+z_index = 1
+position = Vector2(-3622, 814)

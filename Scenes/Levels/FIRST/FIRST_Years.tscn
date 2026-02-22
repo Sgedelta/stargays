@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cvl4yevvv4dsm"]
+
+[ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_6wpe6"]
+[ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_3c3gw"]
+
+[node name="TestLevel" type="Node2D" unique_id=1817164843]
+texture_filter = 1
+script = ExtResource("1_6wpe6")
+
+[node name="A" parent="." unique_id=946213963 instance=ExtResource("2_3c3gw")]
+position = Vector2(1879, 1166)
+ExactKey = "A"
+
+[node name="few" parent="." unique_id=787851773 instance=ExtResource("2_3c3gw")]
+position = Vector2(2882, 1129)
+ExactKey = "few"
+
+[node name="years_" parent="." unique_id=1780023978 instance=ExtResource("2_3c3gw")]
+position = Vector2(2428, 481)
+ExactKey = "years."
+
+[node name="long" parent="." unique_id=740650918 instance=ExtResource("2_3c3gw")]
+position = Vector2(1655, 770)
+ExactKey = "long"
+
+[node name="time_" parent="." unique_id=1152045280 instance=ExtResource("2_3c3gw")]
+position = Vector2(988, 593)
+ExactKey = "time."
+
+[node name="StarInputLine" type="Line2D" parent="." unique_id=905913903]
+unique_name_in_owner = true
+width = 10.77

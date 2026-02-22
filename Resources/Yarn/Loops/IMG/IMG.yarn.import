@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarnscript"
+type="Resource"
+uid="uid://b2wigkatygo3m"
+path="res://.godot/imported/IMG.yarn-5a5d5a23c0a7fbd6ced1d9cd3875530e.tres"
+
+[deps]
+
+source_file="res://Resources/Yarn/Loops/IMG/IMG.yarn"
+dest_files=["res://.godot/imported/IMG.yarn-5a5d5a23c0a7fbd6ced1d9cd3875530e.tres"]
+
+[params]
+

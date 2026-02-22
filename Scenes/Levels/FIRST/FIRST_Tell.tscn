@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dastegetomc0v"]
+
+[ext_resource type="Script" uid="uid://cf5pwglnabtyh" path="res://Scenes/Levels/LevelManager.cs" id="1_h7mbs"]
+[ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="2_xwx3r"]
+
+[node name="TestLevel" type="Node2D" unique_id=2089262154]
+script = ExtResource("1_h7mbs")
+
+[node name="I" parent="." unique_id=1776195423 instance=ExtResource("2_xwx3r")]
+position = Vector2(400, 754)
+ExactKey = "I"
+
+[node name="wanted" parent="." unique_id=205932810 instance=ExtResource("2_xwx3r")]
+position = Vector2(1219, 292)
+ExactKey = "wanted"
+
+[node name="to" parent="." unique_id=447831954 instance=ExtResource("2_xwx3r")]
+position = Vector2(2313, 920)
+ExactKey = "to"
+
+[node name="tell" parent="." unique_id=1753262331 instance=ExtResource("2_xwx3r")]
+position = Vector2(1294, 1325)
+ExactKey = "tell"
+
+[node name="you" parent="." unique_id=2120419836 instance=ExtResource("2_xwx3r")]
+position = Vector2(3269, 744)
+ExactKey = "you"
+
+[node name="something_" parent="." unique_id=1038961004 instance=ExtResource("2_xwx3r")]
+position = Vector2(2672, 243)
+ExactKey = "something."
+
+[node name="StarInputLine" type="Line2D" parent="." unique_id=494253070]
+z_index = 1
+position = Vector2(-3622, 814)
