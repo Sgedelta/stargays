@@ -186,14 +186,14 @@ public partial class QuestionManager : CanvasLayer
 
                 ctrlTween.TweenProperty(ctrl, "modulate",
                     Color.FromHtml("#ffffffff"), GameManager.Instance.FadeTime).From(Color.FromHtml("#ffffff00"))
-                    .SetDelay(skipDelay ? GameManager.Instance.FadeTime * 0.5f : GameManager.Instance.FadeTime * 2.5f);
+                    .SetDelay(skipDelay ? GameManager.Instance.FadeTime * 0.5f : GameManager.Instance.FadeTime * 1.5f);
             }
             
         }
 
         GetTree().CreateTween().TweenProperty(_questionText, "modulate",
                     Color.FromHtml("#ffffffff"), GameManager.Instance.FadeTime).From(Color.FromHtml("#ffffff00"))
-                    .SetDelay(skipDelay ? GameManager.Instance.FadeTime * 0.5f : GameManager.Instance.FadeTime * 2.5f);
+                    .SetDelay(skipDelay ? GameManager.Instance.FadeTime * 0.5f : GameManager.Instance.FadeTime * 1.5f);
 
     }
 
