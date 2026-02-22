@@ -29,7 +29,7 @@ public partial class GameManager : Node
 	private Godot.Collections.Array<QuestionSettings> _possibleQuestions = new Godot.Collections.Array<QuestionSettings>()
 	{
 		ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/IsThatHowItHappenedYesNo.tres"),
-		ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/AreYouHappy.tres")
+		ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/TryAgain.tres")
 	};
 
 	private List<QuestionSettings> _generatedQuestions = new List<QuestionSettings>();
@@ -41,7 +41,7 @@ public partial class GameManager : Node
 		{"questions",       ResourceLoader.Load<PackedScene>("res://Scenes/Questions/question_base.tscn")},
 		//{"firstLevel",      ResourceLoader.Load<PackedScene>("res://Scenes/Levels/TestLevel.tscn")},
 		//{"goodDontForget",  ResourceLoader.Load<PackedScene>("res://Scenes/Levels/SecondTest.tscn")},
-		{"gameOver",        ResourceLoader.Load<PackedScene>("res://Scenes/game_over.tscn")},
+		{"game_over",        ResourceLoader.Load<PackedScene>("res://Scenes/game_over.tscn")},
 		//{"goodConfession",  ResourceLoader.Load<PackedScene>("res://Scenes/Levels/ThirdTest.tscn")},
 		//{"goodClarify",     ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FourthTest.tscn") },
 		//{"goodChoices",     ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FifthTest.tscn") },
@@ -66,7 +66,7 @@ public partial class GameManager : Node
 		{"FIRST_Years",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FIRST/FIRST_Years.tscn") },
 		{"ILG_Men",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/ILG/ILG_Men.tscn") },
 		{"ILG_Quiet",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/ILG/ILG_Quiet.tscn") },
-		{"ITIMG_What",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/ITIMG/ITIMG_What.tscn") },
+		{"ITIMG_Gay",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/ITIMG/ITIMG_Gay.tscn") },
 		{"ITIMG_Raise",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/ITIMG/ITIMG_Raise.tscn") },
 		{"ITIMG_Mother",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/ITIMG/ITIMG_Mother.tscn") },
 		{"ITIMG_Love",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/ITIMG/ITIMG_Love.tscn") },
@@ -124,10 +124,8 @@ public partial class GameManager : Node
 		_questionIndex = 0;
 
 		_generatedQuestions.Clear();
-		_generatedQuestions.Add(ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/FirstLoopQuestions/MomDead.tres"));
-		_generatedQuestions.Add(ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/FirstLoopQuestions/LastConversation.tres"));
 		_generatedQuestions.Add(ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/FirstLoopQuestions/IsThatHowItHappenedNo.tres"));
-		_generatedQuestions.Add(ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/FirstLoopQuestions/AreYouHappyNo.tres"));
+		_generatedQuestions.Add(ResourceLoader.Load<QuestionSettings>("res://Resources/Questions/FirstLoopQuestions/TryAgainYes.tres"));
 
 		//reset tracked data (SAVE THIS BEFORE CALLING NEW GAME UNLESS YOU WANT TO LOSE IT FOREVER!!)
 		_dataLoopDialoguesTried.Clear();

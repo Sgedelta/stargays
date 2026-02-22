@@ -1,4 +1,4 @@
-title: ITIMG_What
+title: ITIMG_Gay
 ---
 Mom: What are you talking about?
 	->Mom, I'm gay.
@@ -13,7 +13,7 @@ title: ITIMG_Raise
 ---
 Mom: ...
 Mom: No. No, you're not. 
-Mom: I raise you right. You can't be gay.
+Mom: I raised you right. You can't be gay.
 	->What's wrong with being gay?
 		<<LoadLevel GameManager ITIMG_Mother>>
 		<<jump ITIMG_Mother>>

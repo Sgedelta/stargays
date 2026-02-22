@@ -15,7 +15,7 @@ position = Vector2(1219, 292)
 ExactKey = "wanted"
 
 [node name="to" parent="." unique_id=447831954 instance=ExtResource("2_xwx3r")]
-position = Vector2(2810, 1269)
+position = Vector2(2313, 920)
 ExactKey = "to"
 
 [node name="tell" parent="." unique_id=1753262331 instance=ExtResource("2_xwx3r")]

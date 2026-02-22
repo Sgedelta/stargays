@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_hn6qb")
-QuestionText = "Can you be happy?"
+QuestionText = "Try again?"
 ChanceToPick = 1.0
 QuestionOrder = 100
-Options = Array[String](["Yes", "No"])
+Options = Array[String](["Yes", "Quit"])
 OptionStates = Array[int]([0, 0])
 metadata/_custom_type_script = "uid://b2lryroerg587"

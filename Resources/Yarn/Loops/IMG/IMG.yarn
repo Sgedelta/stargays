@@ -29,6 +29,8 @@ Mom: Will you really be happy like that?
 		<<LoadLevel GameManager IMG_Upset>>
 		<<jump IMG_Upset>>
 	->I don't know.
+		Mom: Exactly. You're too young.
+		Mom: You don't know what you're talking about.
 		<<LoadLevel GameManager IMG_Change>>
 		<<jump IMG_Change>>
 ===
@@ -40,13 +42,11 @@ Mom: A child is the greatest blessing. Don't you want that?
 	->I guess so.
 		Mom: Exactly. You're too young.
 		Mom: You don't know what you're talking about.
-		Mom: Just forget about all of this.
 		<<LoadLevel GameManager IMG_Change>>
 		<<jump IMG_Change>>
 	->I guess not.
 		Mom: You're too young to know.
 		Mom: You don't know what you're talking about.
-		Mom: Just forget about all of this.
 		<<LoadLevel GameManager IMG_Change>>
 		<<jump IMG_Change>>
 	->Absolutely not.
@@ -76,6 +76,7 @@ Mom: What do you have to say for yourself?
 ===
 title: IMG_Change
 ---
+Mom: Mom: Just forget about all of this.
 	-> This is who I am.
 		Mom: I know you, my daughter. This isn't you.
 		Mom: Stop talking nonsense. Stop thinking nonsense.

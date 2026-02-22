@@ -15,7 +15,7 @@ position = Vector2(1541, 777)
 ExactKey = "who"
 
 [node name="I" parent="." unique_id=1752437096 instance=ExtResource("2_ro1kn")]
-position = Vector2(538, 1219)
+position = Vector2(746, 1054)
 ExactKey = "I"
 
 [node name="I am_" parent="." unique_id=1642314158 instance=ExtResource("2_ro1kn")]
@@ -35,5 +35,5 @@ unique_name_in_owner = true
 width = 10.77
 
 [node name="won\'t" parent="." unique_id=447831954 instance=ExtResource("2_ro1kn")]
-position = Vector2(4284, 2534)
+position = Vector2(432, 389)
 ExactKey = "won't"

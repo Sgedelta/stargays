@@ -10,8 +10,8 @@ Mom: What is it?
 		<<LoadLevel GameManager IMG_Gay>>
 		<<jump IMG_Gay>>
 	-> I think I'm gay.
-		<<LoadLevel GameManager ITIMG_What>>
-		<<jump ITIMG_What>>
+		<<LoadLevel GameManager ITIMG_Gay>>
+		<<jump ITIMG_Gay>>
 	-> I like girls.
 		<<LoadLevel GameManager ILG_Men>>
 		<<jump ILG_Men>>

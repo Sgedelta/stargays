@@ -21,6 +21,6 @@ ExactKey = "not."
 position = Vector2(1299, 1273)
 ExactKey = "so."
 
-[node name="Absolutely" parent="." unique_id=447831954 instance=ExtResource("1_76s6g")]
-position = Vector2(2598, 2546)
+[node name="Star" parent="." unique_id=447831954 instance=ExtResource("1_76s6g")]
+position = Vector2(658, 578)
 ExactKey = "Absolutely"

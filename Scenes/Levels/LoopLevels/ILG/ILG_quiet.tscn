@@ -7,39 +7,39 @@
 script = ExtResource("1_12vjp")
 
 [node name="That you" parent="." unique_id=946213963 instance=ExtResource("2_cnt4k")]
-position = Vector2(362, 248)
+position = Vector2(1700, 290)
 ExactKey = "That you"
 
 [node name="love" parent="." unique_id=1642314158 instance=ExtResource("2_cnt4k")]
-position = Vector2(1075, 694)
+position = Vector2(2775, 315)
 ExactKey = "love"
 
 [node name="won\'t" parent="." unique_id=1179971738 instance=ExtResource("2_cnt4k")]
-position = Vector2(1693, 206)
+position = Vector2(1942, 632)
 ExactKey = "won't"
 
 [node name="be" parent="." unique_id=784748779 instance=ExtResource("2_cnt4k")]
-position = Vector2(2806, 264)
+position = Vector2(722, 537)
 ExactKey = "be"
 
 [node name="mad at" parent="." unique_id=447831954 instance=ExtResource("2_cnt4k")]
-position = Vector2(603, 1279)
+position = Vector2(1402, 918)
 ExactKey = "mad at"
 
 [node name="understand" parent="." unique_id=178938379 instance=ExtResource("2_cnt4k")]
-position = Vector2(2326, 844)
+position = Vector2(3119, 755)
 ExactKey = "understand"
 
 [node name="me_" parent="." unique_id=93757355 instance=ExtResource("2_cnt4k")]
-position = Vector2(2822, 635)
+position = Vector2(2408, 1067)
 ExactKey = "me."
 
 [node name="Just" parent="." unique_id=1381785606 instance=ExtResource("2_cnt4k")]
-position = Vector2(447, 894)
+position = Vector2(310, 231)
 ExactKey = "Just"
 
 [node name="quiet_" parent="." unique_id=293585328 instance=ExtResource("2_cnt4k")]
-position = Vector2(1933, 505)
+position = Vector2(412, 1038)
 ExactKey = "quiet."
 
 [node name="StarInputLine" type="Line2D" parent="." unique_id=905913903]

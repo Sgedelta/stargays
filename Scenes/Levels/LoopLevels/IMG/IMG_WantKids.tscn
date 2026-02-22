@@ -11,7 +11,7 @@ position = Vector2(3403, 1113)
 ExactKey = "I"
 
 [node name="don\'t know_" parent="." unique_id=1780023978 instance=ExtResource("2_k45wq")]
-position = Vector2(562, 1187)
+position = Vector2(605, 1123)
 ExactKey = "don't know."
 
 [node name="think so_" parent="." unique_id=1642314158 instance=ExtResource("2_k45wq")]

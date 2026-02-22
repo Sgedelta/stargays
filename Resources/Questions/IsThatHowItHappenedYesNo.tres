@@ -8,5 +8,5 @@ QuestionText = "Is that how it happened?"
 ChanceToPick = 1.0
 QuestionOrder = 99
 Options = Array[String](["Yes", "No"])
-OptionStates = Array[int]([1, 0])
+OptionStates = Array[int]([0, 0])
 metadata/_custom_type_script = "uid://b2lryroerg587"
