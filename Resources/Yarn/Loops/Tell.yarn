@@ -21,5 +21,13 @@ Mom: What is it?
 	-> Never mind.
 		<<LoadLevel GameManager NM_Sure>>
 		<<jump NM_Sure>>
-
+===
+title: JumpGoodOrBad
+---
+<<if get_first_level_name() == "Tell">>
+   <<jump Tell>>
+<<else>>
+	<<LoadLevel  GameManager FIRST_Aigo>>
+	<<jump FIRST_Aigo>>
+<<endif>>
 ===
