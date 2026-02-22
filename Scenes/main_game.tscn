@@ -22,7 +22,7 @@ layer = 88
 
 [node name="DialogueRunner" parent="YarnSpinnerCanvasLayer" index="0"]
 autoStart = true
-startNode = "JumpGoodOrBad"
+startNode = "FIRST_Aigo"
 
 [node name="CharacterNameText" parent="YarnSpinnerCanvasLayer/LinePresenter/PresenterControl" index="2"]
 offset_top = -219.0
