@@ -8,6 +8,7 @@
 [node name="MainGame" type="Node2D" unique_id=831551570 node_paths=PackedStringArray("_camera")]
 script = ExtResource("2_pu3va")
 _camera = NodePath("Camera2D")
+_zoomTime = 10.0
 
 [node name="Background" type="AnimatedSprite2D" parent="." unique_id=1132984170]
 unique_name_in_owner = true
@@ -18,14 +19,24 @@ sprite_frames = ExtResource("1_l756w")
 frame_progress = 0.129405
 offset = Vector2(320, 180)
 
+[node name="SadBackground" type="AnimatedSprite2D" parent="." unique_id=537366599]
+unique_name_in_owner = true
+z_index = -101
+texture_filter = 1
+position = Vector2(-3840, 0)
+scale = Vector2(18, 18)
+sprite_frames = ExtResource("1_l756w")
+frame_progress = 0.129405
+offset = Vector2(320, 180)
+
 [node name="YarnSpinnerCanvasLayer" parent="." unique_id=362095363 instance=ExtResource("3_0e3vx")]
 layer = 88
 
-[node name="DialogueRunner" parent="YarnSpinnerCanvasLayer" index="0"]
+[node name="DialogueRunner" parent="YarnSpinnerCanvasLayer" index="0" unique_id=367652472]
 autoStart = true
 startNode = "JumpGoodOrBad"
 
-[node name="CharacterNameText" parent="YarnSpinnerCanvasLayer/LinePresenter/PresenterControl" index="2"]
+[node name="CharacterNameText" parent="YarnSpinnerCanvasLayer/LinePresenter/PresenterControl" parent_id_path=PackedInt32Array(362095363, 73512711) index="2" unique_id=1335073284]
 offset_top = -219.0
 offset_bottom = -166.0
 

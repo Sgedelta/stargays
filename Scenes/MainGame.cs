@@ -16,10 +16,10 @@ public partial class MainGame : Node2D
 
 	public void AnimateToLargerPos()
 	{
-		Tween zoomOut = GetTree().CreateTween().SetEase(Tween.EaseType.InOut).SetTrans(Tween.TransitionType.Cubic);
+		Tween zoomOut = GetTree().CreateTween().SetEase(Tween.EaseType.InOut).SetTrans(Tween.TransitionType.Quad);
 
-		zoomOut.TweenProperty(_camera, "position", new Vector2(1920, 1500), _zoomTime);
-		zoomOut.Parallel().TweenProperty(_camera, "zoom", new Vector2(.4f, .4f), _zoomTime);
+		zoomOut.TweenProperty(_camera, "position", new Vector2(1920, 3240), _zoomTime);
+		zoomOut.Parallel().TweenProperty(_camera, "zoom", new Vector2(.34f, .34f), _zoomTime).SetTrans(Tween.TransitionType.Cubic);
 
 	}
 }
