@@ -1,4 +1,4 @@
-[gd_resource type="Resource" format=3 uid="uid://bo6wdnpde4hib"]
+[gd_resource type="Resource" script_class="QuestionSettings" format=3 uid="uid://c7tmva5t34dmr"]
 
 [ext_resource type="Script" uid="uid://b2lryroerg587" path="res://Resources/Questions/QuestionSettings.cs" id="1_hn6qb"]
 
@@ -8,5 +8,5 @@ QuestionText = "Try again?"
 ChanceToPick = 1.0
 QuestionOrder = 100
 Options = Array[String](["Yes", "Quit"])
-OptionStates = Array[int]([0, 0])
+OptionStates = Array[int]([0, 2])
 metadata/_custom_type_script = "uid://b2lryroerg587"

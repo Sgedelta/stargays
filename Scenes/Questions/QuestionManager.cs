@@ -113,7 +113,7 @@ public partial class QuestionManager : CanvasLayer
                     {
                         //todo: replace with code to end the game!
                         GameManager.Instance.LogQuestionAnswer(_activeQuestion.QuestionText, _activeQuestion.Options[i]);
-                        DisplayQuestion(GameManager.Instance.LoadNextQuestion()); 
+                        GameManager.Instance.EndGame();
                     };
                     break;
 

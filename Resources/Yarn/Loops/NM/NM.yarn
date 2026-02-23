@@ -20,7 +20,9 @@ Mom: She had to work to support us.
 Mom: When I had you, I promised I'd give you the best life I could.
 Mom: I love you.
 	->I love you.
-		<<LoadLevel GameManager game_over>>
+		<<LoadLevel GameManager empty>>
+		<<EndGame GameManager>>
 	->I miss you.
-		<<LoadLevel GameManager game_over>>
+		<<LoadLevel GameManager empty>>
+		<<EndGame GameManager>>
 ===

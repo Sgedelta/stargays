@@ -39,7 +39,7 @@ public partial class PauseMenu : CanvasLayer
         _showHideTweener = GetTree().CreateTween().SetPauseMode(Tween.TweenPauseMode.Process);
 
 		_showHideTweener.TweenCallback(Callable.From(() => { Visible = true; }));
-		_showHideTweener.TweenProperty(_mod, "color", Color.FromHtml("#ffffffff"), GameManager.Instance.FadeTime);
+		_showHideTweener.TweenProperty(_mod, "color", Color.FromHtml("#ffffffff"), GameManager.Instance.FadeTime * .5f);
 		_showHideTweener.TweenCallback(Callable.From(() => { _activeShowHide = false; }));
 
 	}
@@ -55,7 +55,7 @@ public partial class PauseMenu : CanvasLayer
 		_activeShowHide = true;
         _showHideTweener = GetTree().CreateTween().SetPauseMode(Tween.TweenPauseMode.Process);
 
-        _showHideTweener.TweenProperty(_mod, "color", Color.FromHtml("#ffffff00"), GameManager.Instance.FadeTime);
+        _showHideTweener.TweenProperty(_mod, "color", Color.FromHtml("#ffffff00"), GameManager.Instance.FadeTime * .5f);
         _showHideTweener.TweenCallback(Callable.From(() => { _activeShowHide = false; GetTree().Paused = false; Visible = false; }));
 
     }

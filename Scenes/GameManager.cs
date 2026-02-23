@@ -37,7 +37,7 @@ public partial class GameManager : Node
    
 	private Godot.Collections.Dictionary<string, PackedScene> _levels = new Godot.Collections.Dictionary<string, PackedScene> 
 	{
-		//{"empty",           ResourceLoader.Load<PackedScene>("res://Scenes/Levels/empty_level.tscn")},
+		{"empty",           ResourceLoader.Load<PackedScene>("res://Scenes/Levels/empty_level.tscn")},
 		{"questions",       ResourceLoader.Load<PackedScene>("res://Scenes/Questions/question_base.tscn")},
 		//{"firstLevel",      ResourceLoader.Load<PackedScene>("res://Scenes/Levels/TestLevel.tscn")},
 		//{"goodDontForget",  ResourceLoader.Load<PackedScene>("res://Scenes/Levels/SecondTest.tscn")},
@@ -372,6 +372,9 @@ public partial class GameManager : Node
 	}
 
 
+
+
+	//Pause Menu Stuff
 	public override void _Input(InputEvent @event)
 	{
 		if(@event.IsActionPressed("ui_cancel"))
@@ -379,6 +382,16 @@ public partial class GameManager : Node
 			_pauseMenu.PauseGame();
 		}
 	}
+
+	public void SetPauseScale(Vector2 newScale)
+	{
+		_pauseMenu.Scale = newScale;
+	}
+
+	public void SetPauseOffset(Vector2 newOffset)
+	{
+        _pauseMenu.Offset = newOffset;
+    }
 
 
 
