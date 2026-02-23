@@ -71,6 +71,9 @@ Mom: You... don't like boys?
 	-> No, I don't.
 		<<LoadLevel GameManager FIRST_Years>>
 		<<jump FIRST_Years>>
+	->I don't.
+		<<LoadLevel GameManager FIRST_Years>>
+		<<jump FIRST_Years>>
 ===
 title: FIRST_Years
 ---
