@@ -260,7 +260,7 @@ public partial class GameManager : Node
 		//we're out of questions now - go back to the start for now
 		else
 		{
-			GenerateQuestionList();
+			//GenerateQuestionList();
 			LoadLevel("Tell");
 			//we need to manually fade out questions, because LoadLevel attempts to fade out the prev level manager
 			//  (this is a terrible way to do this, and not at ALL DRY. Womp Womp! three week project)

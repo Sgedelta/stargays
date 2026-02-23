@@ -62,6 +62,7 @@ public partial class QuestionManager : CanvasLayer
         if(newQuestion == null)
         {
             ResetAndHide(true);
+            GameManager.Instance.GenerateQuestionList(); //reset for future question lists
             return;
         }
         else
@@ -111,9 +112,7 @@ public partial class QuestionManager : CanvasLayer
                     newBut.Disabled = false;
                     newBut.Pressed += () => 
                     {
-                        //todo: replace with code to end the game!
-                        GameManager.Instance.LogQuestionAnswer(_activeQuestion.QuestionText, _activeQuestion.Options[i]);
-                        GameManager.Instance.EndGame();
+                        GameManager.Instance.ResetGameToMainMenu();
                     };
                     break;
 

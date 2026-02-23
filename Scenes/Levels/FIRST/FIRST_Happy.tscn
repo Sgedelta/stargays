@@ -28,4 +28,3 @@ ExactKey = "happy."
 
 [node name="StarInputLine" type="Line2D" parent="." unique_id=494253070]
 z_index = 1
-position = Vector2(-3622, 814)
