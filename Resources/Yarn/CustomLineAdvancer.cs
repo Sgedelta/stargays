@@ -67,17 +67,17 @@ public partial class CustomLineAdvancer : Node, DialoguePresenterBase, IActionMa
 	/// </summary>
 	[Export] public string cancelDialogueAction = "ui_cancel";
 
-    private bool _canSkipLine = false;
+	private bool _canSkipLine = false;
 
-    /// <summary>
-    /// Called by a dialogue runner when dialogue starts to add input action
-    /// handlers for advancing the line.
-    /// </summary>
-    /// <returns>A completed task.</returns>
-    public YarnTask OnDialogueStartedAsync()
-    {
-        return YarnTask.CompletedTask;
-    }
+	/// <summary>
+	/// Called by a dialogue runner when dialogue starts to add input action
+	/// handlers for advancing the line.
+	/// </summary>
+	/// <returns>A completed task.</returns>
+	public YarnTask OnDialogueStartedAsync()
+	{
+		return YarnTask.CompletedTask;
+	}
 
 	/// <summary>
 	/// Called by a dialogue runner when dialogue ends to remove the input
@@ -91,20 +91,20 @@ public partial class CustomLineAdvancer : Node, DialoguePresenterBase, IActionMa
 
 	public List<IActionMarkupHandler> ActionMarkupHandlers { get; } = [];
 
-    /// <summary>
-    /// Called by a dialogue view to signal that a line is running.
-    /// </summary>
-    /// <inheritdoc cref="LinePresenter.RunLineAsync" path="/param"/>
-    /// <returns>A completed task.</returns>
-    public YarnTask RunLineAsync(LocalizedLine line, LineCancellationToken token)
-    {
-        // A new line has come in, so reset the number of times we've seen a
-        // request to skip.
-        numberOfAdvancesThisLine = 0;
-        _canSkipLine = false;
+	/// <summary>
+	/// Called by a dialogue view to signal that a line is running.
+	/// </summary>
+	/// <inheritdoc cref="LinePresenter.RunLineAsync" path="/param"/>
+	/// <returns>A completed task.</returns>
+	public YarnTask RunLineAsync(LocalizedLine line, LineCancellationToken token)
+	{
+		// A new line has come in, so reset the number of times we've seen a
+		// request to skip.
+		numberOfAdvancesThisLine = 0;
+		_canSkipLine = false;
 
-        return YarnTask.CompletedTask;
-    }
+		return YarnTask.CompletedTask;
+	}
 
 	/// <summary>
 	/// Called by a dialogue view to signal that options are running.
@@ -120,48 +120,48 @@ public partial class CustomLineAdvancer : Node, DialoguePresenterBase, IActionMa
 		return YarnTask<DialogueOption?>.FromResult(null);
 	}
 
-    /// <summary>
-    /// Requests that the line be hurried up.
-    /// </summary>
-    /// <remarks>If this method has been called more times for a single line
-    /// than <see cref="numberOfAdvancesThisLine"/>, this method requests
-    /// that the dialogue runner proceed to the next line. Otherwise, it
-    /// requests that the dialogue runner instruct all line views to hurry
-    /// up their presentation of the current line.
-    /// </remarks>
-    public bool RequestLineHurryUp()
-    {
-        //returns if this should "consume" the process call, basically if it does something return true
+	/// <summary>
+	/// Requests that the line be hurried up.
+	/// </summary>
+	/// <remarks>If this method has been called more times for a single line
+	/// than <see cref="numberOfAdvancesThisLine"/>, this method requests
+	/// that the dialogue runner proceed to the next line. Otherwise, it
+	/// requests that the dialogue runner instruct all line views to hurry
+	/// up their presentation of the current line.
+	/// </remarks>
+	public bool RequestLineHurryUp()
+	{
+		//returns if this should "consume" the process call, basically if it does something return true
 
-        // Increment our counter of line advancements, and depending on the
-        // new count, request that the runner 'soft-cancel' the line or
-        // cancel the entire line
+		// Increment our counter of line advancements, and depending on the
+		// new count, request that the runner 'soft-cancel' the line or
+		// cancel the entire line
 
 		numberOfAdvancesThisLine += 1;
 
-        if (_canSkipLine)
-        {
-            RequestNextLine();
-            numberOfAdvancesThisLine = 0;
-            return true;
-        }
-        else
-        {
-            if (runner != null)
-            {
-                runner.RequestHurryUpLine();
-                _canSkipLine = true;
-                return true;
-            }
-            else
-            {
-                GD.PushError($"{nameof(LineAdvancer)} dialogue runner is null", this);
-                
-            }
-            return false;
-        }
+		if (_canSkipLine)
+		{
+			RequestNextLine();
+			numberOfAdvancesThisLine = 0;
+			return true;
+		}
+		else
+		{
+			if (runner != null)
+			{
+				runner.RequestHurryUpLine();
+				_canSkipLine = true;
+				return true;
+			}
+			else
+			{
+				GD.PushError($"{nameof(LineAdvancer)} dialogue runner is null", this);
+				
+			}
+			return false;
+		}
 
-    }
+	}
 
 	/// <summary>
 	/// Requests that the dialogue runner proceeds to the next line.
@@ -179,81 +179,81 @@ public partial class CustomLineAdvancer : Node, DialoguePresenterBase, IActionMa
 		}
 	}
 
-    /// <summary>
-    /// Requests that the dialogue runner to instruct all line views to
-    /// dismiss their content, and then stops the dialogue.
-    /// </summary>
-    public void RequestDialogueCancellation()
-    {
-        // Stop the dialogue runner, which will cancel the current line as
-        // well as the entire dialogue.
-        if (IsInstanceValid(runner))
-        {
-            runner.Stop().Forget();
-        }
-    }
+	/// <summary>
+	/// Requests that the dialogue runner to instruct all line views to
+	/// dismiss their content, and then stops the dialogue.
+	/// </summary>
+	public void RequestDialogueCancellation()
+	{
+		// Stop the dialogue runner, which will cancel the current line as
+		// well as the entire dialogue.
+		if (IsInstanceValid(runner))
+		{
+			runner.Stop().Forget();
+		}
+	}
 
-    public override void _Ready()
-    {
-        //not sure if this does anything, running jic
-        base._Ready();
+	public override void _Ready()
+	{
+		//not sure if this does anything, running jic
+		base._Ready();
 
-        //mark this as a handler for presenter markup so we can tell when typewriter is done
-        if (runner?.dialoguePresenters != null) {
-            (runner.dialoguePresenters[0] as LinePresenter).ActionMarkupHandlers.Add(this);
-        }
+		//mark this as a handler for presenter markup so we can tell when typewriter is done
+		if (runner?.dialoguePresenters != null) {
+			(runner.dialoguePresenters[0] as LinePresenter).ActionMarkupHandlers.Add(this);
+		}
 
 
-    }
+	}
 
-    /// <summary>
-    /// Called by Godot every frame to check if the <see cref="LineAdvancer"/> should take
-    /// action.
-    /// </summary>
-    public override void _Process(double delta)
-    {
-        if (!string.IsNullOrWhiteSpace(hurryUpAction) && Input.IsActionJustReleased(hurryUpAction))
-        {
-            if(this.RequestLineHurryUp())
-            {
-                return;
-            }
-        }
+	/// <summary>
+	/// Called by Godot every frame to check if the <see cref="LineAdvancer"/> should take
+	/// action.
+	/// </summary>
+	public override void _Process(double delta)
+	{
+		if (!string.IsNullOrWhiteSpace(hurryUpAction) && Input.IsActionJustReleased(hurryUpAction))
+		{
+			if(this.RequestLineHurryUp())
+			{
+				return;
+			}
+		}
 
 		if (!string.IsNullOrWhiteSpace(nextLineAction) && Input.IsActionJustReleased(nextLineAction))
 		{
 			this.RequestNextLine();
 		}
 
-        if (!string.IsNullOrWhiteSpace(cancelDialogueAction) && Input.IsActionJustReleased(cancelDialogueAction))
-        {
-            this.RequestDialogueCancellation();
-        }
-    }
+		if (!string.IsNullOrWhiteSpace(cancelDialogueAction) && Input.IsActionJustReleased(cancelDialogueAction))
+		{
+			this.RequestDialogueCancellation();
+		}
+	}
 
-    public void OnPrepareForLine(MarkupParseResult line, RichTextLabel text)
-    {
-        //do nothing
-    }
+	public void OnPrepareForLine(MarkupParseResult line, RichTextLabel text)
+	{
+		//do nothing
+	}
 
-    public void OnLineDisplayBegin(MarkupParseResult line, RichTextLabel text)
-    {
-        //do nothing
-    }
+	public void OnLineDisplayBegin(MarkupParseResult line, RichTextLabel text)
+	{
+		//do nothing
+	}
 
-    public YarnTask OnCharacterWillAppear(int currentCharacterIndex, MarkupParseResult line, CancellationToken cancellationToken)
-    {
-        //(hopefully) do nothing
-        return YarnTask.CompletedTask;
-    }
+	public YarnTask OnCharacterWillAppear(int currentCharacterIndex, MarkupParseResult line, CancellationToken cancellationToken)
+	{
+		//(hopefully) do nothing
+		return YarnTask.CompletedTask;
+	}
 
-    public void OnLineDisplayComplete()
-    {
-        _canSkipLine = true;
-    }
+	public void OnLineDisplayComplete()
+	{
+		_canSkipLine = true;
+	}
 
-    public void OnLineWillDismiss()
-    {
-        //do nothing
-    }
+	public void OnLineWillDismiss()
+	{
+		//do nothing
+	}
 }

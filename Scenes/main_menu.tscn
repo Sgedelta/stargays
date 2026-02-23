@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://llhneou7b37q" path="res://Scenes/main_menu.gd" id="1_28flt"]
 [ext_resource type="SpriteFrames" uid="uid://bpiw80comy56k" path="res://Resources/Sprites/BGFrames.tres" id="2_48xlc"]
 [ext_resource type="AudioStream" uid="uid://dbee1thgp6v8" path="res://Resources/Audiofiles/Ambient.wav" id="3_1ehe0"]
+[ext_resource type="PackedScene" uid="uid://m22otorq2yxh" path="res://Scenes/star.tscn" id="4_ce3w2"]
 
 [node name="MainMenu" type="Control" unique_id=912024622]
 layout_mode = 3
@@ -20,13 +21,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = 150.0
-offset_right = 125.0
-offset_bottom = 250.0
+offset_left = -210.0
+offset_top = 8.0
+offset_right = 187.5
+offset_bottom = 167.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 67
 text = "Play"
 
 [node name="Background" type="AnimatedSprite2D" parent="." unique_id=1372086288]
@@ -42,5 +43,45 @@ offset = Vector2(320, 180)
 stream = ExtResource("3_1ehe0")
 volume_db = -6.7
 autoplay = true
+
+[node name="Label" type="Label" parent="." unique_id=52145756]
+layout_mode = 0
+offset_left = 1421.0
+offset_top = 567.0
+offset_right = 2429.0
+offset_bottom = 983.0
+theme_override_font_sizes/font_size = 200
+text = "Stargazing"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="star" parent="." unique_id=447831954 instance=ExtResource("4_ce3w2")]
+position = Vector2(503, 829)
+scale = Vector2(1.5, 1.5)
+
+[node name="star2" parent="." unique_id=634983225 instance=ExtResource("4_ce3w2")]
+position = Vector2(3355, 641.00006)
+scale = Vector2(1.5, 1.5)
+
+[node name="star7" parent="." unique_id=1326160511 instance=ExtResource("4_ce3w2")]
+position = Vector2(188, 354)
+
+[node name="star11" parent="." unique_id=1847376834 instance=ExtResource("4_ce3w2")]
+position = Vector2(2743, 994)
+
+[node name="star8" parent="." unique_id=1977693176 instance=ExtResource("4_ce3w2")]
+position = Vector2(1945, 350)
+scale = Vector2(0.75, 0.75)
+
+[node name="star9" parent="." unique_id=638281375 instance=ExtResource("4_ce3w2")]
+position = Vector2(1310, 1145)
+scale = Vector2(0.75, 0.75)
+
+[node name="star10" parent="." unique_id=717522358 instance=ExtResource("4_ce3w2")]
+position = Vector2(3074, 200)
+scale = Vector2(0.75, 0.75)
+
+[node name="star5" parent="." unique_id=385701886 instance=ExtResource("4_ce3w2")]
+position = Vector2(956, 244)
 
 [connection signal="pressed" from="GoodLoop" to="." method="_on_game_start"]

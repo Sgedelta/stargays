@@ -55,6 +55,7 @@ public partial class GameManager : Node
 		{"IMG_Change",		ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/IMG/IMG_Change.tscn") },
 		{"IMG_Upset",		ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/IMG/IMG_Upset.tscn") },
 		{"firstLevel",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FIRST/FIRST_Aigo.tscn") },
+		{"FIRST_Aigo",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FIRST/FIRST_Aigo.tscn") },
 		{"FIRST_Baby",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FIRST/FIRST_Baby.tscn") },
 		{"FIRST_Boys",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FIRST/FIRST_Boys.tscn") },
 		{"FIRST_Dipper",       ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FIRST/FIRST_Dipper.tscn") },
@@ -122,7 +123,7 @@ public partial class GameManager : Node
 	{
 		var _warning = ResourceLoader.Load<PackedScene>("res://Scenes/trigger_warning.tscn").Instantiate();
 
-        GetTree().Root.AddChild(_warning);
+		GetTree().Root.AddChild(_warning);
 	}
 
 	/// <summary>
@@ -400,8 +401,8 @@ public partial class GameManager : Node
 
 	public void SetPauseOffset(Vector2 newOffset)
 	{
-        _pauseMenu.Offset = newOffset;
-    }
+		_pauseMenu.Offset = newOffset;
+	}
 
 
 
