@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://ch8dwietqrusy"]
+
+[ext_resource type="Script" uid="uid://blgg7g254yc72" path="res://Scenes/trigger_warning.gd" id="1_e351x"]
+[ext_resource type="Theme" uid="uid://f2xm7rbj65bb" path="res://Resources/Themes/ButtonTheme.tres" id="2_gov4r"]
+[ext_resource type="Texture2D" uid="uid://dqv5kv5s706ho" path="res://Resources/Sprites/BlackScreen.png" id="3_kdybg"]
+
+[node name="TriggerWarning" type="CanvasLayer" unique_id=741265372]
+script = ExtResource("1_e351x")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1624714807]
+position = Vector2(240, 585)
+
+[node name="QuestionLabel" type="Label" parent="." unique_id=1084675416]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 240.0
+offset_top = 282.0
+offset_right = -240.0
+offset_bottom = 1169.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 128
+text = "The content of this game may be emotionally challenging for some players, especially those identifying as LGBTQ+. Content warning includes discrimination, homophobia, death, and other emotionally distressing topics."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="OptionsHFlow" type="HFlowContainer" parent="." unique_id=1090275988]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 240.0
+offset_top = 1396.0
+offset_right = -240.0
+offset_bottom = 1666.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Proceed" type="Button" parent="OptionsHFlow" unique_id=999578647]
+custom_minimum_size = Vector2(750, 270)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_stretch_ratio = 5.0
+theme = ExtResource("2_gov4r")
+text = "Proceed"
+
+[node name="QuestionsBG" type="Sprite2D" parent="." unique_id=792979083]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+z_index = -1
+texture_filter = 1
+position = Vector2(1920, 1080)
+texture = ExtResource("3_kdybg")
+
+[connection signal="pressed" from="OptionsHFlow/Proceed" to="." method="_on_proceed_pressed"]

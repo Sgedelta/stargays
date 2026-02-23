@@ -8,6 +8,8 @@ public partial class GameManager : Node
 {
 	public static GameManager Instance {get; private set;}
 
+	public bool TriggerWarningSeen = false;
+
 	public GameManager InstanceButForGD { get { return Instance;} }
 
 	private LevelManager _levelManager;
@@ -98,6 +100,7 @@ public partial class GameManager : Node
 		{
 			Instance = this;
 			Callable.From(SetupPause).CallDeferred();
+			Callable.From(ShowTriggerWarning).CallDeferred();
 			this.ProcessMode = ProcessModeEnum.Always;
 		}
 		else
@@ -113,6 +116,13 @@ public partial class GameManager : Node
 	{
 		_pauseMenu = ResourceLoader.Load<PackedScene>("res://Scenes/pause_menu.tscn").Instantiate<PauseMenu>();
 		GetTree().Root.AddChild(_pauseMenu);
+	}
+
+	private void ShowTriggerWarning()
+	{
+		var _warning = ResourceLoader.Load<PackedScene>("res://Scenes/trigger_warning.tscn").Instantiate();
+
+        GetTree().Root.AddChild(_warning);
 	}
 
 	/// <summary>
