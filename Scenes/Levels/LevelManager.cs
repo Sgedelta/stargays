@@ -26,24 +26,24 @@ public partial class LevelManager : Node2D
 		GameManager.Instance.SetActiveLevel(this);
 		_selectedStars = new Godot.Collections.Array<Star>();
 
-        Modulate = Color.FromHtml("ffffff00");
+		Modulate = Color.FromHtml("ffffff00");
 
-        _starConnectLine = GetNode<Line2D>("StarInputLine");
+		_starConnectLine = GetNode<Line2D>("StarInputLine");
 
-        Tween starConnectTween = GetTree().CreateTween();
+		Tween starConnectTween = GetTree().CreateTween();
 
-        //make loop and animate right
-        starConnectTween.SetLoops();
-        starConnectTween.SetTrans(Tween.TransitionType.Sine);
+		//make loop and animate right
+		starConnectTween.SetLoops();
+		starConnectTween.SetTrans(Tween.TransitionType.Sine);
 
-        //do the animation
-        starConnectTween.TweenProperty(_starConnectLine, "width", 14, 2).From(8);
-        starConnectTween.TweenProperty(_starConnectLine, "width", 8, 2).From(14);
+		//do the animation
+		starConnectTween.TweenProperty(_starConnectLine, "width", 14, 2).From(8);
+		starConnectTween.TweenProperty(_starConnectLine, "width", 8, 2).From(14);
 
 
 		Modulate = Color.FromHtml("ffffff00");
 
-    }
+	}
 
 	public override void _Process(double delta)
 	{
@@ -71,29 +71,29 @@ public partial class LevelManager : Node2D
 		fadeIn.TweenProperty(this, "modulate", Color.FromHtml("ffffffff"), GameManager.Instance.FadeTime).From(Color.FromHtml("ffffff00"));
 	}
 
-    /// <summary>
-    /// Checks if the current _selectedStars is a valid input. If it is, it moves onto the next dialog. If it isn't, it undoes all star input.
-    /// </summary>
-    public void StarSequenceDone()
-    {
-        ConstructKey();
+	/// <summary>
+	/// Checks if the current _selectedStars is a valid input. If it is, it moves onto the next dialog. If it isn't, it undoes all star input.
+	/// </summary>
+	public void StarSequenceDone()
+	{
+		ConstructKey();
 		if(constructedKey == "")
 		{
 			return;
 		}
 
 		GameManager.Instance.LogAttemptedDialog(constructedKey);
-        if (IsStarSequenceValid())
-        {
-            GameManager.Instance.InputTaskCompletionSource.TrySetResult(GameManager.Instance.ValidInputs[constructedKey]);
-            _lineFollowsMouse = false;
-            //DeselectAllStarsAnimated();
-        } 
-        else
-        {
-            DeselectAllStarsAnimated();
-        }
-    }
+		if (IsStarSequenceValid())
+		{
+			GameManager.Instance.InputTaskCompletionSource.TrySetResult(GameManager.Instance.ValidInputs[constructedKey]);
+			_lineFollowsMouse = false;
+			//DeselectAllStarsAnimated();
+		} 
+		else
+		{
+			DeselectAllStarsAnimated();
+		}
+	}
 
 	/// <summary>
 	/// returns true if _selectedStars is a valid input for this level
@@ -199,32 +199,32 @@ public partial class LevelManager : Node2D
 		}
 	}
 
-    public void DeselectStar(Star star)
-    {
-        if (IsStarSelected(star))
-        {
-            GD.Print($"[LM] Removed star {star.Name}");
-            _selectedStars.Remove(star);
-        }
-    }
+	public void DeselectStar(Star star)
+	{
+		if (IsStarSelected(star))
+		{
+			GD.Print($"[LM] Removed star {star.Name}");
+			_selectedStars.Remove(star);
+		}
+	}
 
-    public void DeselectStarsIncludingIndex(int index)
-    {
-        for(int i = _selectedStars.Count-1; i >= index; i--)
-        {
-            _selectedStars.RemoveAt(i);
-        }
-    }
+	public void DeselectStarsIncludingIndex(int index)
+	{
+		for(int i = _selectedStars.Count-1; i >= index; i--)
+		{
+			_selectedStars.RemoveAt(i);
+		}
+	}
 
-    public int GetStarIndex(Star star)
-    {
-        return _selectedStars.IndexOf(star);
-    }
+	public int GetStarIndex(Star star)
+	{
+		return _selectedStars.IndexOf(star);
+	}
 
 	public void UpdateStarLine()
 	{
 
-        if (_isDeselecting)
+		if (_isDeselecting)
 		{
 			//can't update this, because we're already updating line position in the deanimation code!
 			return;
@@ -242,8 +242,8 @@ public partial class LevelManager : Node2D
 
 		if(_lineFollowsMouse)
 		{
-            _starConnectLine.AddPoint(GetViewport().GetMousePosition());
-        }
+			_starConnectLine.AddPoint(GetViewport().GetMousePosition());
+		}
 
 		
 		

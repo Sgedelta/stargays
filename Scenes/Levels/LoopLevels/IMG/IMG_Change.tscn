@@ -7,11 +7,11 @@
 script = ExtResource("1_fm6hq")
 
 [node name="This is" parent="." unique_id=946213963 instance=ExtResource("2_ro1kn")]
-position = Vector2(1676, 137)
+position = Vector2(1342, 188)
 ExactKey = "This is"
 
 [node name="who" parent="." unique_id=432041246 instance=ExtResource("2_ro1kn")]
-position = Vector2(1541, 777)
+position = Vector2(1943, 459)
 ExactKey = "who"
 
 [node name="I" parent="." unique_id=1752437096 instance=ExtResource("2_ro1kn")]
