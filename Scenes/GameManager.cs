@@ -343,6 +343,10 @@ public partial class GameManager : Node
 
 	private void SaveGameDataToFile()
 	{
+		if(DirAccess.Open("res://Saves/") == null) {
+			DirAccess.MakeDirAbsolute("res://Saves/");
+		}
+
 		GD.Print("res://Saves/" + Time.GetDateStringFromSystem() + "-" + Time.GetTimeStringFromSystem().Replace(":", "-") + ".txt");
 		//we don't have to come up with good names that we can reopen because fuck you! we never load data
 		using FileAccess saveFile = FileAccess.Open("res://Saves/" + Time.GetDateStringFromSystem() + "_" + Time.GetTimeStringFromSystem().Replace(":", "-") + ".txt", FileAccess.ModeFlags.Write);
