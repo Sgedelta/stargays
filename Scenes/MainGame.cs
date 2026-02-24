@@ -12,8 +12,6 @@ public partial class MainGame : Node2D
 		((AnimatedSprite2D)GetNode("%Background")).Play();
         ((AnimatedSprite2D)GetNode("%SadBackground")).Play();
 
-		AnimateToLargerPos();
-
     }
 
 
