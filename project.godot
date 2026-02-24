@@ -35,6 +35,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="StarGays"
 
+[editor]
+
+export/convert_text_resources_to_binary=false
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/YarnSpinner-Godot/plugin.cfg")
