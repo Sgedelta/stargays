@@ -3,6 +3,7 @@
 [ext_resource type="SpriteFrames" uid="uid://bpiw80comy56k" path="res://Resources/Sprites/BGFrames.tres" id="1_l756w"]
 [ext_resource type="Script" uid="uid://wsytftlk8qgo" path="res://Scenes/MainGame.cs" id="2_pu3va"]
 [ext_resource type="PackedScene" uid="uid://bcjsaqxmdlw5o" path="res://Scenes/CustomYarnSpinner.tscn" id="3_0e3vx"]
+[ext_resource type="SpriteFrames" uid="uid://difyrdv3hx8hy" path="res://Resources/Sprites/Final BG/BGFinalFrames.tres" id="3_mgc0q"]
 [ext_resource type="AudioStream" uid="uid://dbee1thgp6v8" path="res://Resources/Audiofiles/Ambient.wav" id="4_6j5ir"]
 
 [node name="MainGame" type="Node2D" unique_id=831551570 node_paths=PackedStringArray("_camera")]
@@ -23,10 +24,9 @@ offset = Vector2(320, 180)
 unique_name_in_owner = true
 z_index = -101
 texture_filter = 1
-position = Vector2(-3840, 0)
-scale = Vector2(18, 18)
-sprite_frames = ExtResource("1_l756w")
-frame_progress = 0.129405
+position = Vector2(0, 2160)
+scale = Vector2(6, 6)
+sprite_frames = ExtResource("3_mgc0q")
 offset = Vector2(320, 180)
 
 [node name="YarnSpinnerCanvasLayer" parent="." unique_id=362095363 instance=ExtResource("3_0e3vx")]
