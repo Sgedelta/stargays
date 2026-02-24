@@ -48,7 +48,7 @@ public partial class GameManager : Node
 		//{"goodConfession",  ResourceLoader.Load<PackedScene>("res://Scenes/Levels/ThirdTest.tscn")},
 		//{"goodClarify",     ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FourthTest.tscn") },
 		//{"goodChoices",     ResourceLoader.Load<PackedScene>("res://Scenes/Levels/FifthTest.tscn") },
-		{"Tell",			ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/TELL.tscn") }, 
+		{"Tell",			ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/Tell.tscn") }, 
 		{"IMG_Gay",			ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/IMG/IMG_Gay.tscn")},
 		{"IMG_Husband",		ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/IMG/IMG_Husband.tscn")},
 		{"IMG_WantKids",	ResourceLoader.Load<PackedScene>("res://Scenes/Levels/LoopLevels/IMG/IMG_WantKids.tscn")},
