@@ -28,7 +28,8 @@ mono_crash.*.json
 
 #VS
 *.csproj.user
-*.csproj.old #added because some build up and its annoying
+#added because some build up and its annoying
+*.csproj.old 
 Properties/
 
 # VSCode:
